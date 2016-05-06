@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><%- title %></title>
+
+		<!-- jQuery -->
+		<%- include ./../../utils/jquery %>
+		<!-- Materialize -->
+		<%- include ./../../utils/materialize %>
+		<!-- AngularJS -->
+		<%- include ./../../utils/angular %>
+		<!-- Font Smoothing -->
+		<%- include ./../../utils/font-smoothing %>
+
+		<!-- other stylesheets -->
+		<link rel="stylesheet" href="/stylesheets/style2.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
+
+		<!-- other scripts -->
+		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
+		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
+	</head>
+	<body ng-app="TeacherApp">
+		<!-- Navigation Bar -->
+		<% include ./../partials/navbar-dashboard %>
+
+		<div class="container">
+			<!-- ADD CONTROLLWER FOR EDIT PROFILE -->
+			<div class="row ">
+				<div class="col s12">
+					<br/>
+					<a href="/teacher" class=" btn-floating btn-large waves-effect waves-light <%= colorScheme %>  btn"><i class="material-icons">chevron_left</i></a>
+					<br/>
+					<div style="max-width:800px; margin:auto;">
+						<h4 style="text-align:center;">Edit Profile</h4>
+						<!-- EDIT PROFILE FORM-->
+						<div class="row form">
+							<form class="col s12" method="#">
+								<div class="row">
+									<div class="input-field col s6">
+										<i class="material-icons prefix">account_circle</i>
+										<input id="fname" type="text" class="validate" ng-model="teacher.fname" class="form-control" required>
+										<label for="fname">First Name</label>
+									</div>
+
+									<div class="input-field col s6">
+										<input id="lname" type="text" class="validate" ng-model="teacher.lname" class="form-control" required>
+										<label for="lname">Last Name</label>
+									</div>
+									<div class="input-field col s6">
+										<i class="material-icons prefix">dialpad</i>
+										<input id="password" type="password" class="validate" ng-model="teacher.password" class="form-control" required>
+										<label for="password">Password</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="passwordR" type="password" class="validate" ng-model="teacher.passwordR" class="form-control" required>
+										<label for="passwordR">Re-type password</label>
+									</div>
+									<div class="input-field col s12">
+										<button class="waves-effect waves-light <%= colorScheme %> darken-1 btn btn-large" style="margin-left:43px"> Update Profile </button>
+									</div>
+								</div>
+
+							</div>
+
+						</form>
+					</div>
+					<!-- END OF EDIT PROFILE FORM-->
+				</div>
+
+				<hr style="max-width:700px; margin:auto; opacity:.5;" >
+				<div class="col s12">
+					<div style="max-width:800px; margin:auto; padding-top:30px;">
+						<div class="container" ng-controller="ColorCtrl">
+							<form class="col s12" ng-submit="changeColor()">
+								<div class="input-field col s12 m6">
+									<select class="icons" ng-model="colorScheme" id="colorr">
+										<option value="" disabled="disabled" selected="">Choose a color</option>
+										<option value="red" data-icon="/images/colors/red.png" class="circle">Red</option>
+										<option value="pink" data-icon="/images/colors/pink.png" class="circle">Pink</option>
+										<option value="purple" data-icon="/images/colors/purple.png" class="circle">Purple</option>
+										<option value="deep-purple" data-icon="/images/colors/deep-purple.png" class="circle">Deep-Purple</option>
+										<option value="indigo" data-icon="/images/colors/indigo.png" class="circle">Indigo</option>
+										<option value="blue" data-icon="/images/colors/blue.png" class="circle">Blue</option>
+										<option value="light-blue" data-icon="/images/colors/light-blue.png" class="circle">Light-Blue</option>
+										<option value="cyan" data-icon="/images/colors/cyan.png" class="circle">Cyan</option>
+										<option value="teal" data-icon="/images/colors/teal.png" class="circle">Teal</option>
+										<option value="green" data-icon="/images/colors/green.png" class="circle">Green</option>
+										<option value="light-green" data-icon="/images/colors/light-green.png" class="circle">Light-Green</option>
+										<option value="lime" data-icon="/images/colors/lime.png" class="circle">Lime</option>
+										<option value="yellow" data-icon="/images/colors/yellow.png" class="circle">Yellow</option>
+										<option value="amber" data-icon="/images/colors/amber.png" class="circle">Amber</option>
+										<option value="orange" data-icon="/images/colors/orange.png" class="circle">Orange</option>
+										<option value="deep-orange" data-icon="/images/colors/deep-orange.png" class="circle">Deep-Orange</option>
+										<option value="brown" data-icon="/images/colors/brown.png" class="circle">Brown</option>
+										<option value="grey" data-icon="/images/colors/grey.png" class="circle">Grey</option>
+										<option value="blue-grey" data-icon="/images/colors/blue-grey.png" class="circle">Blue-Grey</option>
+										<option value="black" data-icon="/images/colors/black.png" class="circle">Black</option>
+									</select>
+									<label for="colorr">Color Scheme</label>
+								</div>
+								<div class="input-field col s12 m6">
+									<input type="submit" name="name" class="btn <%= colorScheme %> darken-1" value="Change Color">
+								</div>
+							</form>
+							<!-- ANGULAR FILES | Service and Controller -->
+							<script type="text/javascript" src="/javascripts/app/teacher/color.controller.js"></script>
+							<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
+							<!-- Other Scripts -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+	</body>
+</html>

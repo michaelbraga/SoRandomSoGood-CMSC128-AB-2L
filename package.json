@@ -1,0 +1,30 @@
+{
+  "name": "sogo",
+  "version": "2.0.0",
+  "description": "web app",
+  "main": "app.js",
+  "scripts": {
+	"start": "node bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cmsc128ab2l",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.1",
+    "connect-redis": "^3.0.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "helmet": "^2.0.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "mysql": "^2.10.2",
+    "path": "^0.12.7",
+    "redis": "^2.5.3",
+    "serve-favicon": "^2.3.0",
+    "winston": "^2.2.0"
+  }
+}

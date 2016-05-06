@@ -1,0 +1,26 @@
+<!-- Navigation Bar for Guest -->
+<nav>
+	<div class="nav-wrapper red darken-4">
+		<a href="/" class="brand-logo" style="padding-left:10px">
+			<img src="images/logo.png" width="45px" style="padding-top:20%;">
+		</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+
+			<% if(mode == 'randomizer') { %>
+				<li class="active"><a href="/randomizer" style="pointer-events: none; cursor: default;" >Randomizer</a></li>
+			<% } else { %>
+				<li><a href="/randomizer" >Randomizer</a></li>
+			<% } %>
+
+			<% if(mode == 'login') { %>
+				<li class="active"><a href="/login" style="pointer-events: none; cursor: default;" >Login</a></li>
+			<% } else { %>
+				<li><a href="/login" >Login</a></li>
+			<% } %>
+
+			<li><a href="#help">Help</a></li>
+
+			<li><a href="about-us">About Us</a></li>
+		</ul>
+	</div>
+</nav>

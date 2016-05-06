@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><%- title %></title>
+
+		<!-- jQuery -->
+		<%- include ./../utils/jquery %>
+		<!-- Materialize -->
+		<%- include ./../utils/materialize %>
+		<!-- AngularJS -->
+		<%- include ./../utils/angular %>
+		<!-- Font Smoothing -->
+		<%- include ./../utils/font-smoothing %>
+
+		<!-- other stylesheets -->
+		<link rel="stylesheet" href="/stylesheets/style2.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
+
+		<%- include ./../utils/colorScheme %>
+
+		<!-- other scripts -->
+		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
+		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
+	</head>
+	<body ng-app="TeacherApp" ng-controller="DashboardCtrl">
+
+		<!-- Loading Page -->
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white;"></div>
+			<div class="loader-section section-right" style="background-color:white;"></div>
+		</div>
+
+		<!-- Navigation Bar -->
+		<% include partials/navbar-dashboard %>
+		<div class="container" style="padding-top:10px">
+
+			<!-- Add Class Modal Trigger -->
+			<div class="fixed-action-btn" style="bottom: 25px; right: 25px;">
+				<a href="#addClassModal" class="modal-trigger btn-floating btn-large waves-effect waves-light <% if(colorScheme!='black') { %> <%= colorScheme %> darken-4 <% } else { %> grey darken-2 <% } %> btn tooltipped" data-position="left" data-delay="50" data-tooltip="Add a Class">
+					<i class="material-icons">add</i>
+				</a>
+			</div>
+			<!-- Modal Structure -->
+			<div id="addClassModal" class="modal modal-fixed-footer">
+				<form ng-submit="AddClass()" id="addClassForm" autocomplete="off">
+					<div class="modal-content">
+						<h4>Add a Class</h4>
+						<div class="divider"></div>
+						<div class="container row" style="margin:auto;">
+							<div class="input-field col s6">
+								<input ng-model="class.courseno" type="text" id="courseno" value="" class="validate" required="required" pattern="[A-Z]{2,5} [0-9]{1,3}" title="e.g. CMSC 128"/>
+								<label for="courseno">Course Number</label>
+							</div>
+							<div class="input-field col s6">
+								<input ng-model="class.lecturesection" type="text" id="lecturesection" value="" class="validate" required="required" pattern="[A-Z]{1,2}" title="e.g. AB"/>
+								<label for="lecturesection">Lecture Section</label>
+							</div>
+							<div class="input-field col s12">
+								<input ng-model="class.coursename" type="text" id="coursename" value="" class="validate" required="required" pattern="[a-zA-Z\s0-9\-]{1,125}" title="Maximum of 125 characters. Alphanumeric character(s) only."/>
+								<label for="coursename">Course Name</label>
+							</div>
+							<div class="input-field col s6">
+								<input ng-model="class.room" type="text" id="room" value="" class="validate" required="required"/>
+								<label for="room">Room</label>
+							</div>
+							<div class="input-field col s6">
+								<input id="no_lr" ng-model="class.no_lrsections" min="1" max="12" type="number" value="" required="required" />
+								<label for="no_lr">Number of Sections</label>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button class="modal-action waves-effect waves-<%= colorScheme %> btn-flat" type="submit" name="action">
+							Add <i class="material-icons right">send</i>
+						</button>
+						<button class="modal-action waves-effect waves-<%= colorScheme %> btn-flat" type="reset" name="action">
+							Reset
+						</button>
+						<a href="#" class="modal-action modal-close waves-effect waves-<%= colorScheme %> btn-flat">Back</a>
+					</div>
+				</form>
+
+			</div>
+
+
+			<div class="container" style="padding-top:10px">
+				<!-- Classes -->
+				<!-- 3 per row -->
+				<div class="row " ng-repeat="row in rows">
+
+					<div class="col s8 m4" ng-repeat="course in row" >
+						<div class="card <%= colorScheme %> module form-module" style="max-width: 100%;">
+							<div id="{{course.courseno + '/' + course.lecturesection}}" class="toggle right" ng-click="InitEditClassModal(course)"><span class="glyphicon glyphicon-pencil"></span><i class="material-icons">mode_edit</i></div>
+
+							<div class=" z-depth-1 form hoverable" style="padding:0px;">
+								<div class="card-content  <%= colorScheme %> darken-2 " style="color:white;">
+									<span class="card-title">
+										<a href="/teacher/class/{{course.courseno +'/'+ course.lecturesection }}" style="font-size:36px; font-weight:bolder; color:white;">
+											{{course.courseno}} {{course.lecturesection}}
+										</a>
+									</span>
+									<br/>
+									<span>{{course.coursename}}</span>
+									<br/>
+									<span>{{course.room}}</span>
+									<br/>
+									<span>{{course.no_lrsections}} section(s)</span>
+								</div>
+								<div class="card-action <% if(colorScheme!='black') { %> <%= colorScheme %> <% if(colorScheme == 'yellow'){ %> darken-1 <% } %>  <% } else { %> grey darken-4 <% } %>">
+									<a href="/teacher/class/{{course.courseno +'/'+ course.lecturesection }}/randomizer/typewriter" class="white-text darken-2">SELECT CLASS</a>
+								</div>
+							</div>
+
+							<div class="#ffffff white form" style="padding-top:10px">  <!-- class edit form-->
+								<form ng-submit="EditClass(course)">
+									<div class="container">
+										<label for="edit-coursename">Course Name</label>
+										<input ng-model="edit.coursename" type="text" id="edit-coursename" value="" class="validate" required="required" style="margin-bottom:0px"/>
+										<label for="edit-room">Room</label>
+										<input ng-model="edit.room" type="text" id="edit-room" value="1" class="validate" required="required" style="margin-bottom:0px"/>
+										<label for="edit-no_lrsections">Number of Sections</label>
+										<input ng-model="edit.no_lrsections" min="1" max="12" type="number" value="" required="required" id="edit-no_lrsections" style="margin-bottom:10px"/>
+									</div>
+									<div class="container" style="padding-bottom:10px;">
+										<div class="col s6">
+											<a ng-click="DeleteClass(course)" class="waves-effect waves-<%= colorScheme %> btn <%= colorScheme %> lighten-1" style="padding:0px; padding-left:34px; padding-right:28px;">Delete <i class="material-icons right" style="margin-left:4px;">delete</i></a> <!-- class delete button-->
+										</div>
+										<div class="col s6">
+											<!-- class edit save changes button-->
+											<button type="submit" class="btn <%= colorScheme %> waves-effect waves-<%= colorScheme %>" name="action" style="line-height:15px;">
+												SAVE CHANGES
+											</button>
+										</form>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ANGULAR FILES | Service and Controller -->
+			<script type="text/javascript" src="/javascripts/app/teacher/dashboard/dashboard.controller.js"></script>
+			<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
+			<!-- Other Scripts -->
+
+		</body>
+</html>

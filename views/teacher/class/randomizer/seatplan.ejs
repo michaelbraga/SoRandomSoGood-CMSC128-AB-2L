@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><%- title %></title>
+
+		<!-- jQuery -->
+		<%- include ./../../../utils/jquery %>
+		<!-- Materialize -->
+		<%- include ./../../../utils/materialize %>
+		<!-- AngularJS -->
+		<%- include ./../../../utils/angular %>
+		<!-- Font Smoothing -->
+		<%- include ./../../../utils/font-smoothing %>
+
+		<!-- other stylesheets -->
+		<link rel="stylesheet" href="/stylesheets/style2.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
+
+		<!-- other scripts -->
+		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
+		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
+	</head>
+	<body ng-app="TeacherApp" ng-controller="StudentCtrl">
+
+		<!-- Navigation Bar -->
+		<% include ./../../partials/navbar-class %>
+
+		<div style="text-align:center;">
+		    <div id="stage" style="float:top; margin-top:10px; margin-left:55px; height:40px; width:90%; border-style: solid; border-width:3px; border-color: #CC9966;"> S T A G E </div>
+
+
+		    <div id="seats" style="float:left;margin-left:25px;margin-right:20px;"></div>
+		    <div id="seats2" style="float:right;margin-right:25px;margin-left:20px;"></div>
+		</div>
+
+		<div class="container" style="position:fixed;bottom:50px;text-align:center;">
+		  <h6 style="text-align:center;">
+		      No. of Volunteer/s:
+		      <input type="text" class="form-control"style="height:40px; width: 40px;" placeholder=" n" id="vol"></br>
+		      <button class="btn waves-effect waves-light <%= colorScheme %> darken-4" type="submit" ng-click="submitData()">RANDOMIZE</button>
+		  </h6>
+		</div>
+
+		<div class="" hidden="hidden" id="courseno">
+					<%= course.courseno %>
+				</div>
+				<div class="" hidden="hidden" id="lecturesection">
+					<%= course.lecturesection %>
+				</div>
+
+		<div class="hiddendiv common"></div>
+
+		<!-- ANGULAR FILES | Service and Controller -->
+		<script type="text/javascript" src="/javascripts/app/teacher/class/student.controller.js"></script>
+		<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
+</body>

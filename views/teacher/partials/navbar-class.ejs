@@ -1,0 +1,66 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content" style="color: <%= colorScheme %>;">
+	<li><a href="/teacher">Dashboard</a></li>
+	<li><a href="/teacher/my-profile">My Profile</a></li>
+	<li><a href="/teacher/help">Help</a></li>
+	<li class="divider"></li>
+	<li><a href="/logout">Logout</a></li>
+</ul>
+<!-- Dropdown Structure -->
+<ul id="dropdown2" class="dropdown-content" >
+	<% if(mode == 'seatplan-randomizer') {%>
+		<li ><a style="pointer-events:none;">Seat Plan</a></li>
+	<% }else {%>
+		<li><a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/randomizer/seatplan">Seat Plan</a></li>
+
+	<% } %>
+
+	<% if(mode == 'typewriter-randomizer') {%>
+		<li ><a style="pointer-events:none;">TypeWriter</a></li>
+	<% }else {%>
+		<li><a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/randomizer/typewriter">TypeWriter</a></li>
+
+	<% } %>
+
+
+</ul>
+
+<nav>
+  <div class="nav-wrapper <%= colorScheme %> darken-2 ">
+	  <span class="brand-logo center">
+		<% if(mode == 'class') {%>
+			<a  class="btn-flat disabled" style="color:white"><span><%- course.courseno + " " + course.lecturesection %></span></a>
+		<% }else {%>
+			<a  href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/randomizer/typewriter"class="btn-flat" style="color:white"><span><%- course.courseno + " " + course.lecturesection %></span></a>
+
+		<% } %>
+	</span>
+
+	<ul class="left">
+		<a href="/teacher"><i class="large material-icons tooltipped" data-position="right" data-delay="20" data-tooltip="Dashboard">present_to_all</i></a>
+	</ul>
+
+    <ul class="right hide-on-med-and-down" id="nav-mobile" >
+
+	   	<li><a class="dropdown-button" href="#!" data-activates="dropdown2">Randomizer</a></li>
+
+	    <% if(mode == 'students') {%>
+		    <li class="active"> <a style="pointer-events: none; cursor: default;" href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/students" >Students</a></li>
+	    <% }else {%>
+		    <li><a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/students" >Students</a></li>
+	    <% } %>
+
+	    <% if(mode == 'history') {%>
+		    <li class="active"> <a style="pointer-events: none; cursor: default;" href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/history" >History</a></li>
+	    <% }else {%>
+		    <li><a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/history" >History</a></li>
+	    <% } %>
+
+      <!-- Dropdown Trigger -->
+      	<li style="padding-left:10px"><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+<div id="sogousername" style="visibility:hidden">
+	<%= username %>
+</div>

@@ -1,0 +1,23 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+	<li><a href="/teacher">Dashboard</a></li>
+  <li><a href="/teacher/my-profile">My Profile</a></li>
+  <li><a href="/teacher/help">Help</a></li>
+  <li class="divider"></li>
+  <li><a href="/logout">Logout</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper <%= colorScheme %> darken-2">
+    <a href="/teacher" class="brand-logo" style="padding-left:20px;">
+      <span><img src="/images/logo.png" width="45px" style="padding-top:10px;"></span>
+    </a>
+    <span style="padding-left:80px; font-size:40px;">SOGO</span>
+    <ul class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+<div id="sogousername" style="visibility:hidden">
+	<%= username %>
+</div>

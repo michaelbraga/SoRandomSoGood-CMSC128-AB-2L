@@ -1,0 +1,112 @@
+<!-- INDEX PAGE -->
+<!--
+	- details about the website
+	- with about page (developers)
+	- links to login/signup page
+	- links to guest randomizer
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title><%- title %></title>
+
+		<!-- jQuery -->
+		<%- include ./../utils/jquery %>
+	<meta name="description" content="Kite Coming Soon HTML Template by Jewel Theme" >
+	<meta name="author" content="Pat Ganaden">
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+	<!-- Bootstrap  -->
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+	<!-- icon fonts font Awesome -->
+	<link href="stylesheets/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Custom Styles -->
+	<link href="stylesheets/style-2.css" rel="stylesheet">
+
+		<!-- Font Smoothing -->
+		<%- include ./../utils/font-smoothing %>
+	</head>
+	<body>
+	<!-- Main Menu -->
+	<div id="main-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+	</div><!-- /#main-menu -->
+	<!-- Page Top Section -->
+	<section id="page-top" class="section-style">
+		<div class="height-resize">
+			<div class="container">
+				<h1 class="site-title">
+					<img src="images/logo.png" alt="logo" width="200px;" style="margin-bottom: -20px;"/>
+				</h1><!-- /.site-title -->
+
+				<h2 class="site-title" style="font-size:50px; margin-top:-20px; margin-bottom: -40px;">
+					So Random! So Good!
+				</h2><!-- /.Section-title  -->
+				<div id="time_countdown" class="time-count-container" >
+
+					<div class="col-sm-3"2>
+						<div class="time-box">
+							<a href="/randomizer" style="text-decoration: none; color: white;">
+							<div class="time-box-inner dash days_dash animated" data-animation="rollIn" data-animation-delay="300">
+								<br/><span class="glyphicon glyphicon-refresh" style="font-size: 70px;"width="250px"></span><br/>
+								<span class="time-name">RANDOMIZER</span>
+							</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="time-box">
+							<a href="/login" style="text-decoration: none; color: white;">
+							<div class="time-box-inner dash hours_dash animated" data-animation="rollIn" data-animation-delay="600">
+								<br/><span class="glyphicon glyphicon-user" style="font-size: 70px;"width="250px"></span><br/>
+								<span class="time-name">LOG IN</span>
+							</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="time-box">
+							<a href="/help" style="text-decoration: none; color: white;">
+							<div class="time-box-inner dash minutes_dash animated" data-animation="rollIn" data-animation-delay="900">
+								<br/><span class="glyphicon glyphicon-question-sign" style="font-size: 70px;"width="250px"></span><br/>
+								<span class="time-name">HELP</span>
+							</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="time-box">
+							<a href="/about-us" style="text-decoration: none; color: white;">
+							<div class="time-box-inner dash seconds_dash animated" data-animation="rollIn" data-animation-delay="1200">
+								<br/><span class="glyphicon glyphicon-globe" style="font-size: 70px;"width="250px"></span><br/>
+								<span class="time-name">ABOUT US</span>
+							</div>
+							</a>
+						</div>
+					</div>
+
+				</div><!-- /.time-count-container -->
+
+
+		<!-- jQuery Library -->
+		<script type="text/javascript" src="javascripts/utils/jquery-2.1.0.min.js"></script>
+		<!-- Modernizr js -->
+		<script type="text/javascript" src="javascripts/utils/modernizr-2.8.0.min.js"></script>
+		<!-- Plugins -->
+		<script type="text/javascript" src="javascripts/utils/plugins-3.js"></script>
+		<!-- Custom JavaScript Functions -->
+		<script type="text/javascript" src="javascripts/utils/functions.js"></script>
+		<!-- Custom JavaScript Functions -->
+		<script type="text/javascript" src="javascripts/utils/jquery.ajaxchimp.min.js"></script>
+
+	</body>
+
+</html>

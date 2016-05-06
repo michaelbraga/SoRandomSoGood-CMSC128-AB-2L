@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset=UTF-8/>
+		<title><%-title%></title>
+
+		<!-- jQuery -->
+		<%- include ./../utils/jquery %>
+		<!-- Materialize -->
+		<%- include ./../utils/materialize %>
+		<!-- AngularJS -->
+		<%- include ./../utils/angular %>
+		<!-- Font Smoothing -->
+		<%- include ./../utils/font-smoothing %>
+
+		<!-- other stylesheets -->
+		<link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/style2.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/custom-style.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/page-center.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/prism.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="/stylesheets/style-horizontal.css" media="screen" title="no title" charset="utf-8">
+
+	</head>
+	<body ng-app="GuestApp" ng-controller="GuestCtrl">
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white"></div>
+			<div class="loader-section section-right" style="background-color:white"></div>
+		</div>
+
+		<div class="row">
+			<div style="width: 500px; height: 100%; display:block; margin: 0 auto;">
+				<div class="module form-module">
+					<div class="toggle">
+						<i class="material-icons">person_pin</i>
+					</div>
+					<div class="form">
+						<center><img src="images/logo.png" width="200px;"></center><br/>
+						<form class="login-form" ng-submit="login()" id="l">
+							<div class="row margin" style="max-width:243px;">
+								<div class="input-field col s12">
+									<input ng-model="l.username" id="username" type="text" class="validate" required="required" placeholder="Username" pattern="[a-zA-Z0-9_]+" title="Alphanumeric characters and underscores only">
+									<input ng-model="l.password" id="password" type="password" class="validate" required="required" placeholder="Password" pattern="[a-zA-Z0-9_]+" title="Alphanumeric characters and underscores only">
+								</div>
+							</div>
+							<div class="row margin" style="padding-left:8px">
+								<div class="row">
+									<input id="loginButton" type="submit" class="btn waves-effect waves-light col s10 red darken-4" value="Login"></br>
+								</div>
+								<a href="/" class="btn waves-effect waves-light col s10 red darken-2">BACK</a>
+							</div>
+
+						</form>
+					</div>
+
+					<div id="modal1" class="modal">
+						<div class="modal-content">
+							<h4>Account successfully created!</h4>
+						</div>
+						<div class="modal-footer">
+							<a href="/login" class=" modal-action modal-close waves-effect waves-green btn-flat">LOGIN</a>
+						</div>
+					</div>
+
+					<div class="form" style="max-height:500px">
+						<div class="row" >
+							<form class="col s12" ng-submit="signup()" id="s" autocomplete="off">
+								<input ng-model="su.username" id="usernames" type="text" class="validate" required="required" placeholder="Username" pattern="[a-zA-Z0-9_]{6,}" title="6 or more alphanumeric characters and underscores"/>
+								<input ng-model="su.password" id="passwords" type="password" class="validate" required="required" placeholder="Password" pattern="[a-zA-Z0-9_]{8,30}" title="8 - 30 alphanumeric characters and underscores"/>
+								<input ng-model="password" id="password2" type="password" class="validate" required="required" placeholder="Re-enter password" pattern="[a-zA-Z0-9_]{8,30}" title="8 - 30 alphanumeric characters and underscores"/>
+								<input ng-model="su.fname" id="fname" type="text" class="validate" required="required" placeholder="First Name"/>
+								<input ng-model="su.mname" id="mname" type="text" class="validate" required="required" placeholder="Middle Name"/>
+								<input ng-model="su.lname" id="lname" type="text" class="validate" required="required" placeholder="Last Name"/>
+								<div class="row">
+									<input id="signUpButton" type="submit" class="waves-effect waves-light btn col s12 red darken-4" value="Create Account">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ANGULAR FILES | Controllers and Services -->
+		<script type="text/javascript" src="/javascripts/app/guest/guest.controller.js"></script>
+	      <script type="text/javascript" src="/javascripts/app/guest/guest.service.js"></script>
+
+		<!-- other scripts -->
+		<script type="text/javascript" src="/javascripts/utils/prism.js"></script>
+		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
+		<script type="text/javascript" src="/javascripts/utils/transition.js"></script>
+		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
+
+		<div class="hiddendiv common"></div>
+	</body>
+</html>

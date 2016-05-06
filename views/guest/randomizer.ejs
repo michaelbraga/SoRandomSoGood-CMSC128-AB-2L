@@ -1,0 +1,107 @@
+<!--TEAM HOPPER-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%-title%></title>
+    <!-- jQuery -->
+    <%- include ./../utils/jquery %>
+    <!-- Materialize -->
+    <%- include ./../utils/materialize %>
+    <!-- Font Smoothing -->
+    <%- include ./../utils/font-smoothing %>
+
+    <script type="text/javascript" src="javascripts/utils/prism.js"></script>
+    <script type="text/javascript" src="javascripts/utils/perfect-scrollbar.js"></script>
+    <script type="text/javascript" src="javascripts/utils/plugins.js"></script>
+  </head>
+
+
+<body>
+<%- include partials/navbar %>
+
+<div style="text-align:center;">
+    <div id="stage" style="float:top; margin-top:10px; margin-left:55px; height:40px; width:90%; border-style: solid; border-width:3px; border-color: #CC9966;"> S T A G E </div>
+
+
+    <div id="seats" style="float:left;margin-left:25px;margin-right:20px;"></div>
+    <div id="seats2" style="float:right;margin-right:25px;margin-left:20px;"></div>
+</div>
+
+<div class="container" style="position:fixed;bottom:50px;text-align:center;margin-left:12%;">
+  <h6 style="text-align:center;">
+      No. of Volunteers:
+      <input type="text" class="form-control"style="height:40px; width: 40px;" placeholder="n" id="vol"></br>
+      <button class="btn waves-effect waves-light red darken-4" type="submit" onclick="submitData()">RANDOMIZE</button>
+  </h6>
+</div>
+
+<script type="text/javascript">
+  var vol, cols = 8, rows = 7, cols2 = 7, rows2 = 7;
+  var stud = [];
+  var k = 0;
+
+function submitData(){
+  vol = document.getElementById("vol").value;
+  if (vol == 0) {
+    Materialize.toast("Enter number of voulnteers!",3000);
+  } else if (vol > 105) {
+    Materialize.toast("Not enough students!", 3000);
+  } else if (vol < 0) {
+    Materialize.toast("Invalid number of volunteers!", 3000);
+  } else {
+    Materialize.toast("No. of volunteer/s: "+vol, 4000);
+    initRowCol();
+    setTimeout(function(){ genRowCol(); }, 100);
+  }
+}
+
+function initRowCol(){
+  document.getElementById("seats").innerHTML = "";
+  document.getElementById("seats2").innerHTML = "";
+}
+
+function genRowCol(){
+  k = 0;
+  for(var i=0; i<rows; i++){
+      for(var j=0; j<cols; j++){
+       document.getElementById("seats").innerHTML += "<div style='margin-left:10px;height:80px;width:80px;display:inline-block;'><div id='"+k+"' class='card-panel red darken-1'><span class='white-text'>"+(k+1)+"</span></div></div>&nbsp;&nbsp;";
+       k++;
+    }
+    document.getElementById("seats").innerHTML += "<br/>";
+  }
+
+  for(var i=0; i<rows2; i++){
+      for(var j=0; j<cols2; j++){
+       document.getElementById("seats2").innerHTML += "<div style='margin-left:10px;height:80px;width:80px;display:inline-block;'><div id='"+k+"' class='card-panel red darken-1'><span class='white-text'>"+(k+1)+"</span></div></div>&nbsp;&nbsp;";
+       k++;
+    }
+    document.getElementById("seats2").innerHTML += "<br/>";
+  }
+
+  randomizer();
+}
+
+function randomizer(){
+    var x;
+    for(var j=0; j<vol; j++){
+      x = getRandomArbitrary();
+      while(stud.indexOf(x)!=-1){
+        x = getRandomArbitrary();
+      }
+      stud[j] = x;
+      document.getElementById(stud[j]).className = "card-panel blue darken-1";
+    }
+  }
+
+  function getRandomArbitrary() { //Credits: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+      return Math.floor((Math.random() * k));
+  }
+
+</script>
+
+<div class="hiddendiv common"></div>
+
+</body>
+
+</html>
