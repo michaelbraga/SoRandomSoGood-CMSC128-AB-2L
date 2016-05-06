@@ -43,7 +43,7 @@ logger.verbose("Middlewares are compiled");
 app.use(session({
 	secret: '3n3b3CASVASr2as',
 	// create new redis store.
-	store: new redisStore(),
+	// store: new redisStore(),
 	saveUninitialized: false,
 	resave: false
 }));

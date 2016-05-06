@@ -14,7 +14,6 @@
 	            var modelSetter = model.assign;
 
 	            element.bind('change', function(){
-	            //	console.log("fileModel");
 	                scope.$apply(function(){
 	                    modelSetter(scope, element[0].files[0]);
 	                });
@@ -77,32 +76,27 @@
 
 			TeacherService.EditStudent($scope.student, $scope.student.courseno, $scope.student.lecturesection, $scope.student.studentno)
 				.then(function (res) {
-					console.log(res);
 					$scope.students[$scope.i] = $scope.student;
 					// $('#EditModal').closeModal();
 
 					Materialize.toast("Student ["+$scope.student.studentno+"] was edited successfully!", 3000, 'rounded');
 
-					if(document.getElementById("uploadPicBtn").files.length != 0){	
+					if(document.getElementById("uploadPicBtn").files.length != 0){
 						var file = $scope.student.pictureFile;
-			
-					//	console.log('File is ' + $scope.student.pictureFile + ':' );
+
 						$scope.student.picture = file.name;
-			
+
 						TeacherService.UploadToUrl($scope.student.pictureFile, $scope.student.studentno, $scope.student.courseno, $scope.student.lecturesection)
 							.then(function (res){
 								Materialize.toast("Student ["+$scope.student.studentno+"] Picture was added successfully!", 3000, 'rounded');
-								console.log(res);
 							})
 							.catch(function (res){
 								Materialize.toast("FAIL! Something's wrong with file upload:(", 3000, 'rounded');
-								console.log(res);		
 							});
 					}
 				})
 				.catch(function (res) {
 					Materialize.toast("EDIT Student FAILED!", 3000, 'rounded');
-					console.log(res);
 					
 				});
 
@@ -120,12 +114,11 @@
 					})
 					.catch(function (res) {
 						// inform if error
-						console.log(res);
 						alert("Something went wrong!");
 					});
 			}
 		}
-		
+
 			// RANDOMIZER FUNCTION (Team Hopper)
 		// INITIAL ROWS AND COLS FOR ICSMH
 		$scope.rows = 7;
@@ -137,7 +130,7 @@
 		var randomized = [];
 		var delay = 10;
 		var ctr = 0;
-		
+
 		$scope.submitData = function() {
 			$scope.vol = document.getElementById("vol").value;
 			if($scope.vol <= 0){
@@ -146,9 +139,9 @@
 				Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000);
 				initRowCol();
 				setTimeout(function(){ genRowCol(); }, delay);
-			}	
+			}
 		}
-		
+
 		var initRowCol = function(){
 			document.getElementById("seats").innerHTML = "";
 			document.getElementById("seats2").innerHTML = "";
@@ -180,15 +173,15 @@
 						if(($scope.students[k].seatno.charAt(0) == String.fromCharCode(i + 65)) && (parseInt($scope.students[k].seatno.substring(1,$scope.students[k].length))  == j + 1)) {
 
 							document.getElementById("seats").innerHTML += "<div style='height:75px;width:85px;display:inline-block;'><div id="+$scope.countah+" class='card-panel red darken-1'><span class='white-text'>"+$scope.students[k].lname + ',<br/>' + $scope.students[k].fname.charAt(0)+". </span></div></div>&nbsp;&nbsp;";
-							flag = true;  
+							flag = true;
 							$scope.rowNum++;
 
 							for(var a=0; a<randomized.length; a++){
 								if(randomized[a].studentno == $scope.students[k].studentno){
 									document.getElementById($scope.countah).className = "card-panel blue darken-1";
-								}	
+								}
 							}
-						} 
+						}
 					}
 
 					if(!flag){
@@ -196,7 +189,7 @@
 						$scope.rowNum++;
 					}
 					$scope.countah++;
-				}   
+				}
 				document.getElementById("seats").innerHTML += "<br/><br/>";
 			}
 
@@ -213,15 +206,15 @@
 						if(($scope.students[k].seatno.charAt(0) == String.fromCharCode(i + 65)) && (parseInt($scope.students[k].seatno.substring(1,$scope.students[k].length))  == j)) {
 
 							document.getElementById("seats2").innerHTML += "<div style='height:75px;width:85px;display:inline-block;'><div id="+$scope.countah+" class='card-panel red darken-1'><span class='white-text'>"+$scope.students[k].lname + ',<br/>' + $scope.students[k].fname.charAt(0)+". </span></div></div>&nbsp;&nbsp;";
-							flag = true;  
-							$scope.rowNum++;  
+							flag = true;
+							$scope.rowNum++;
 
 							for(var a=0; a<randomized.length; a++){
 								if($scope.students[k].studentno == randomized[a].studentno){
 									document.getElementById($scope.countah).className = "card-panel blue darken-1";
 								}
 							}
-						} 
+						}
 					}
 
 					if(!flag){
@@ -229,7 +222,7 @@
 						$scope.rowNum++;
 					}
 					$scope.countah++;
-				}   
+				}
 			document.getElementById("seats2").innerHTML += "<br/><br/>";
 			}
 

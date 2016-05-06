@@ -42,46 +42,39 @@ $(document).ready(function () {
 			$scope.student.sex = ($scope.student.sex == 'Male')? "m":"f";
 			$scope.student.degcourse = $scope.student.degcourse.toUpperCase();
 			$scope.student.college = $scope.student.college.toUpperCase();
-			console.log($scope.student);
 
 			if(document.getElementById("uploadPicBtn").files.length == 0){
 				$scope.student.picture = "/uploads/default.png";
-					
+
 			}
 
 			TeacherService.AddStudent($scope.student)
 				.then(function (res) {
 					Materialize.toast("Student ["+$scope.student.studentno+"] was added successfully!", 3000, 'rounded');
-					
-					if(document.getElementById("uploadPicBtn").files.length != 0){	
+
+					if(document.getElementById("uploadPicBtn").files.length != 0){
 						var file = $scope.student.pictureFile;
-			
-					//	console.log('File is ' + $scope.student.pictureFile );
+
 						$scope.student.picture = file.name;
-			
+
 						TeacherService.UploadToUrl($scope.student.pictureFile, $scope.student.studentno, $scope.student.courseno, $scope.student.lecturesection)
 							.then(function (res){
 								Materialize.toast("Student ["+$scope.student.studentno+"] Picture was added successfully!", 3000, 'rounded');
-								console.log(res);
 							})
 							.catch(function (res){
 								Materialize.toast("FAIL! Something's wrong with file upload:(", 3000, 'rounded');
-								console.log(res);		
 							});
 					}
 
 
 					$('#addForm')[0].reset();
-					console.log(res);
 				})
 				.catch(function (res) {
 					Materialize.toast("FAIL! Something's wrong :(", 3000, 'rounded');
-					console.log(res);
 				});
 		}
 
 		$scope.readFile = function(){
-			console.log("File Reading");
 
 			document.getElementById('fileReadBtn').addEventListener('change', readFile, false);
 
@@ -115,19 +108,15 @@ $(document).ready(function () {
 						result.push(obj);
 					}
 
-				//	console.log("json:" + JSON.stringify(result));
-				console.log(result);
 					for(i=0;i<result.length;i++){
 						var studentno = result[i].studentno;
 						TeacherService.AddStudent(result[i])
 							.then(function (res) {
 								Materialize.toast("Student [" + studentno + "] was added successfully!", 3000, 'rounded');
 								$('#readFileForm')[0].reset();
-								console.log(res);
 							})
 							.catch(function (res) {
 								Materialize.toast("FAILED TO ADD Student [" + studentno + "]! Something's wrong :(", 3000, 'rounded');
-								console.log(res);
 							});
 					}
 

@@ -39,7 +39,6 @@
 				}
 			})
 			.catch(function (response) {
-				console.log(response);
 				alert('Unable to get classes from ' + $scope.username);
 			});
 		}
@@ -173,19 +172,16 @@
 									})
 									.catch(function (res) {
 										// inform if error
-										console.log(res);
 										alert("Cannot delete class, something's wrong!");
 									});
 							})
 							.catch(function (res) {
 								// inform if error
-								console.log(res);
 								alert("Cannot delete students in "+"["+course.courseno+" " +course.lecturesection+']'+", something's wrong!");
 							});
 					})
 					.catch(function (res) {
 						// inform if error
-						console.log(res);
 						alert("Cannot delete logs in "+"["+course.courseno+" " +course.lecturesection+']'+", something's wrong!");
 					});
 

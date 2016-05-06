@@ -37,7 +37,6 @@
 			//var completeUrl = url + "/randomize";
 			$http.get(completeUrl)
 			.success(function (data) {
-				console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function (data) {
@@ -52,7 +51,6 @@
 
 			$http.get(completeUrl)
 			.success(function (data) {
-				console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function (data) {
@@ -69,7 +67,6 @@
 
 			$http.get(completeUrl)
 			.success(function (data) {
-				//console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function (data) {
@@ -87,7 +84,6 @@
 
 			$http.get(completeUrl)
 			.success(function (data) {
-				//console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function (data) {
@@ -104,7 +100,6 @@
 
 			$http.put(completeUrl)
 			.success(function (data) {
-				//console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function (data) {
@@ -118,7 +113,6 @@
 			var completeUrl = url + "/randLog";
 			$http.post(completeUrl, loglog)
 			.success(function (data) {
-				//console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function (data) {

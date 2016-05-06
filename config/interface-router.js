@@ -48,6 +48,7 @@ router.get('/login/:teacher_data', function(req, res, next) {
 	var pattern = /\{"username":"[a-zA-Z0-9_]{6,30}","password":"[a-zA-Z0-9_\*]{8,30}","fname":"[a-zA-Z0-9_]{6,30},"mname":"[a-zA-Z0-9_]{6,30}","lname":"[a-zA-Z0-9_]{6,30}","colorScheme":"[a-zA-Z0-9_]{6,30}"\}/
 
 	if (req.session && pattern.test(req.params.teacher_data)) {
+		console.log(req.params.teacher_data);
 		req.session.teacher = JSON.parse(req.params.teacher_data);
 		res.redirect('/teacher');
 	}
@@ -78,6 +79,7 @@ router.get('/logout', function (req, res, next) {
 **********************************************/
 // DASHBOARD STUFF
 router.get('/teacher', requireLogin, function (req, res) {
+	console.log(req.session);
 	res.render('teacher/dashboard', {username: req.session.teacher.username, colorScheme: req.session.teacher.colorScheme, title:('Hello, '+req.session.teacher.fname)});
 });
 router.get('/teacher/my-profile', requireLogin, function (req, res) {

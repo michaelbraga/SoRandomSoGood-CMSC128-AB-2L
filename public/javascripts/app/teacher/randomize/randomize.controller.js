@@ -29,7 +29,6 @@ $(document).ready(function () {
 		var ifburo = false;
 		var N = 0;
 		var courseno = $('#courseno').html().trim();
-		//console.log(courseno);
 		var lecturesection = $('#lecturesection').html().trim();
 		RandomizeService.getLrSections(courseno, lecturesection)
 			// if successful or status code == 200
@@ -52,17 +51,14 @@ $(document).ready(function () {
 			});
 		RandomizeService.GetNumberOfStudents(courseno, lecturesection)
 			.then(function (res) {
-				console.log(res);
 				$scope.no_students = res.no_students;
 			})
 			.catch(function (res) {
-				console.log(res);
 			});
 		$scope.promptOkay = function () {
 			Materialize.toast("Options are saved!", 2000, 'rounded');
 		}
 		$scope.showStudentsbyLrSection = function(sec){
-			//console.log(sec.lrsection);
 			RandomizeService.showStudentsbyLrSectionFunction(courseno, lecturesection, sec.lrsection)
 			// if successful or status code == 200
 			.then(function (res) {

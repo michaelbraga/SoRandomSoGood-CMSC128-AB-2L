@@ -3,8 +3,8 @@
 -- *************************************************************************
 
 -- Create user for SOGO
-DROP USER IF EXISTS 'sogo_user'@'localhost'; -- if ERROR okay lang
-CREATE USER 'sogo_user'@'localhost' IDENTIFIED BY 'sogolicious';
+-- DROP USER IF EXISTS 'sogo_user'@'localhost'; -- if ERROR okay lang
+-- CREATE USER 'sogo_user'@'localhost' IDENTIFIED BY 'sogolicious';
 
 -- Create Database Sogo
 DROP DATABASE IF EXISTS sogo; -- if ERROR okay lang
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 `fname` varchar(64) NOT NULL,
 `mname` varchar(64) NOT NULL,
 `lname` varchar(64) NOT NULL,
-`colorScheme` varchar(64) NOT NULL,
+`colorScheme` varchar(64) NOT NULL DEFAULT 'red darken-4',
 PRIMARY KEY (`username`)
 );
 -- CLASS Table
@@ -70,5 +70,5 @@ create table `user_activity_log`(
 );
 
 -- Grant all privileges on user sogo
-GRANT ALL PRIVILEGES on sogo.* TO 'sogo_user'@'localhost';
+-- GRANT ALL PRIVILEGES on sogo.* TO 'sogo_user'@'localhost';
 exit

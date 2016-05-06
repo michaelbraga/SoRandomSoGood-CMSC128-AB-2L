@@ -1,5 +1,5 @@
 var db = require('./../lib/mysql');
-
+var season = require('./../config/config').db.season;
 /******************************************************
 A function that checks the current logged
 in user in the database and updates the session
@@ -9,7 +9,7 @@ exports.authenticateUser = function (req, res, next) {
 	if (!req.session || !req.session.teacher) {
 		res.status(401).send({message: ('Unauthorized to access the database!')});
 	}
-
+	console.log([req.session.teacher.username, req.session.teacher.password]);
 	db.query("SELECT * FROM teacher WHERE username = ? and password = ? ",[req.session.teacher.username, req.session.teacher.password], function (err, rows) {
 		if(err) return next(err);
 		else if(rows.length === 0){

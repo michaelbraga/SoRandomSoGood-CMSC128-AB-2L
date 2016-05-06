@@ -8,7 +8,6 @@
 	            var modelSetter = model.assign;
 
 	            element.bind('change', function(){
-	            //	console.log("fileModel");
 	                scope.$apply(function(){
 	                    modelSetter(scope, element[0].files[0]);
 	                });

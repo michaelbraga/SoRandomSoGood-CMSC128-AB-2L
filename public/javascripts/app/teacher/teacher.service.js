@@ -20,7 +20,7 @@
 			return (($('#sogousername').html().trim()));
 		}
 
-		
+
 		/* Team Von Neumann */
 		// Zydrick
 		// 1 GetAllClasses(username)
@@ -130,11 +130,9 @@
 			})
 			.success(function (data){
 				deferred.resolve(data);
-				console.log("File Upload success");
 			})
 			.error(function (data){
 				deferred.reject(data);
-				console.log("File Upload failed");
 			});
 			return deferred.promise;
 		}
@@ -370,7 +368,6 @@
 			var completeUrl = url + "/log/" + courseno + "/" + lecturesection;
 			$http.get(completeUrl)
 			.success(function(res){
-				console.log(res);
 				deferred.resolve(res);
 			})
 			.error(function(error){

@@ -53,7 +53,6 @@
 		}
 		// function that will handle login
 		$scope.signup = function () {
-			console.log($scope.password);
 			if ($scope.password != $scope.su.password) {
 				Materialize.toast("Password entered does not match!", 2000, 'rounded');
 				$("#passwords").addClass("invalid");

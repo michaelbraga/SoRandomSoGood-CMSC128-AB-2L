@@ -4,7 +4,7 @@ var season = require('./../config/config').db.season;
 
 // login user
 exports.login = function (req, res, next) {
-	db.query("SELECT username, password, fname, mname, lname, colorScheme, password(sha(?)) as pass FROM teacher WHERE username = ?",[( season.with('pepper', season.with('salt', req.params.password)) ),req.params.username], function (err, rows) {
+	db.query("SELECT username, password, fname, mname, lname, colorScheme, password(sha(?)) as pass FROM teacher WHERE username = ?",[( season.with('salt', season.with('pepper', req.params.password)) ),req.params.username], function (err, rows) {
 		if(err){
 			res.status(500).send({status:'failure', message:'Database server is down :( Try again later!', rrore:err});
 		}
@@ -20,7 +20,7 @@ exports.login = function (req, res, next) {
 				*	Create session for user	    *
 				**********************************/
 				req.session.teacher = rows[0];
-				utils.logActivity(req, res, next, {status:'success', data:rows[0], session:req.session}, 200);
+				utils.logActivity(req, res, next, {status:'success', data:rows[0]}, 200);
 			}
 		}
 	});

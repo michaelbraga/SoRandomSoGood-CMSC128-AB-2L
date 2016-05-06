@@ -44,13 +44,11 @@
 							})
 							.catch(function (response) {
 								// inform if error
-								console.log(response);
 								alert("Something went wrong while updating password!");
 							});
 					})
 					.catch(function (res) {
 						// inform if error
-						console.log(res);
 						alert("Something went wrong!");
 					});
 			}
