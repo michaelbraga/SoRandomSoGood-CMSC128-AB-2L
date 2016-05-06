@@ -16,7 +16,6 @@
 		<!-- other stylesheets -->
 		<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
-		<link href="/stylesheets/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 
 		<!-- other scripts -->
 		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
@@ -32,27 +31,37 @@
 	          <div class="loader-section section-left" style="background-color:white;"></div>
 	          <div class="loader-section section-right" style="background-color:white;"></div>
 	      </div>
+		<h1 class="center">History</h1>
+		<div class="divider">
 
-		<div class="container">
+		</div>
+		<div class="container center" >
+			<br>
+			<div class="container center">
+				<input ng-model="searchquery" style="max-width:500px" type="text" name="name" placeholder="Search" pattern="[a-zA-Z0-9:]*" title="Alphanumeric characters and underscores only">
+			</div>
+			<br>
+			<table class="bordered striped highlight" style="max-width:900px; margin:auto">
+				<thead>
+					<tr>
+						<th data-field="date" style="padding-left:20px;">Date</th>
+						<th data-field="time">Time</th>
+						<th data-field="student">Student Randomized</th>
+						<th data-field="section">Section</th>
+					</tr>
+				</thead>
 
-			<div class="col s12 m8 l9">
-            	<div id="data-table-row-grouping_wrapper" class="dataTables_wrapper"><div class="dataTables_length" id="data-table-row-grouping_length"><label>Show <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i><ul id="select-options-be7eb9b5-cc92-8ea1-5b71-e62fbe91fb9d" class="dropdown-content select-dropdown"><li class=""><span>10</span></li><li class=""><span>25</span></li><li class=""><span>50</span></li><li class=""><span>100</span></li></ul><select name="data-table-row-grouping_length" aria-controls="data-table-row-grouping" class="initialized"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div> entries</label></div><div id="data-table-row-grouping_filter" class="dataTables_filter"><label>Search:<input ng-model="searchText" type="search" class="" placeholder="" aria-controls="data-table-row-grouping"></label></div><table id="data-table-row-grouping" class="display dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="data-table-row-grouping_info" style="width: 100%;">
-                    <thead>
-                        <tr role="row"><th class="sorting" tabindex="0" aria-controls="data-table-row-grouping" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 186px;">Date</th><th class="sorting" tabindex="0" aria-controls="data-table-row-grouping" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 279px;">Time</th><th class="sorting" tabindex="0" aria-controls="data-table-row-grouping" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 58px;">Activity</th><th class="sorting" tabindex="0" aria-controls="data-table-row-grouping" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 119px;"></tr>
-                    </thead>
+				<tbody>
+					<tr ng-repeat="log in logs | filter:searchquery">
+						<td style="padding-left:20px;">{{ log.date }}</td>
+						<td>{{ log.time }}</td>
+						<td>{{ log.student_info }}</td>
+						<td>{{ log.section }}L</td>
+					</tr>
 
-                    <tbody>
+				</tbody>
+			</table>
 
-                    <tr role="row" class="odd" ng-repeat="var in hist | filter:searchText">
-                        <td>{{var.logdate.substring(0, 10)}}</td>
-	                	<td>{{var.logdate.substring(11, 19)}}</td>
-	                	<td>{{var.fname + " " + var.lname}} has been randomized.</td>
-                    </tr>
-
-                	</tbody>
-                  </table>
-                <div class="dataTables_paginate paging_simple_numbers" id="data-table-row-grouping_paginate"><a class="paginate_button previous disabled" aria-controls="data-table-row-grouping" data-dt-idx="0" tabindex="0" id="data-table-row-grouping_previous">Previous</a><span><a class="paginate_button current" aria-controls="data-table-row-grouping" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="data-table-row-grouping" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="data-table-row-grouping" data-dt-idx="3" tabindex="0">3</a></span><a class="paginate_button next" aria-controls="data-table-row-grouping" data-dt-idx="4" tabindex="0" id="data-table-row-grouping_next">Next</a></div></div>
-                </div>
 		</div>
 
 	</body>
