@@ -65,21 +65,12 @@ p:last-child { margin-bottom: 0; }
 	margin-right: 0;
 }
 
-.content-gallery { max-width: 900px; }
-
 .content-text {
 	background-color: white;
 	padding: 40px;
 }
 
 .content-text h4 { padding-top: 10px; }
-
-.content-text-gallery {
-	padding: 5px;
-	position: relative;
-	height: auto;
-	min-height: 200px;
-}
 
 .box {
 	display: block;
@@ -319,5 +310,4 @@ p:last-child { margin-bottom: 0; }
 	.page-title-text { font-size: 1.6em; }
 
 	.content-text { padding: 30px 25px; }
-	.content-text-gallery { padding: 5px; }
 }
