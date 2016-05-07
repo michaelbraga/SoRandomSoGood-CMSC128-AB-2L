@@ -498,6 +498,9 @@ a:focus{
 	min-height:300px;
 	margin-top:50px;
 }
+.time-box:hover{
+	border:4px solid #fff;
+}
 .time-box{
 	width:150px;
 	height:150px;
@@ -505,11 +508,11 @@ a:focus{
 	border:1px solid #fff;
 	margin:50px auto;
 
-	-webkit-border-radius:15px;
-	   -moz-border-radius:15px;
-	    -ms-border-radius:15px;
-	     -o-border-radius:15px;
-	        border-radius:15px;
+	-webkit-border-radius:5px;
+	   -moz-border-radius:5px;
+	    -ms-border-radius:5px;
+	     -o-border-radius:5px;
+	        border-radius:5px;
 
 	-webkit-transform:rotate(45deg);
 	   -moz-transform:rotate(45deg);
