@@ -1,6 +1,6 @@
 var db = require(__dirname + '/../lib/mysql');
 var utils = require(__dirname + '/../utils/utils');
-
+var season = require('./../config/config').db.season;
 // find all teachers
 exports.findAll = function (req, res, next) {
 	db.query("SELECT * FROM teacher", function (err, rows) {
@@ -67,8 +67,8 @@ exports.changeColorScheme = function (req, res, next) {
 
 // update the password of one teacher using username
 exports.updatePassword = function (req, res, next) {
-	db.query("UPDATE teacher SET password = ? where username = ? ",
-		   [req.body.password, req.params.username],
+	db.query("UPDATE teacher SET password = password(sha(?)) where username = ? ",
+		   [season.with('salt',season.with('pepper',req.body.password)), req.params.username],
 	         function (err, rows) {
 			if(err) return next(err);
 			else if(rows.affectedRows === 0){

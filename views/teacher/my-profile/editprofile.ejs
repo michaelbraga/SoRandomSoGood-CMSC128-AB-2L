@@ -23,58 +23,81 @@
 		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
 		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
 	</head>
-	<body ng-app="TeacherApp">
+	<body ng-app="TeacherApp" style="padding-bottom:400px;">
 		<!-- Navigation Bar -->
 		<% include ./../partials/navbar-dashboard %>
 
 		<div class="container">
 			<!-- ADD CONTROLLWER FOR EDIT PROFILE -->
-			<div class="row ">
+			<div class="row " ng-controller="ProfileCtrl">
 				<div class="col s12">
 					<br/>
 					<a href="/teacher" class=" btn-floating btn-large waves-effect waves-light <%= colorScheme %>  btn"><i class="material-icons">chevron_left</i></a>
 					<br/>
-					<div style="max-width:800px; margin:auto;">
-						<h4 style="text-align:center;">Edit Profile</h4>
-						<!-- EDIT PROFILE FORM-->
-						<div class="row form">
-							<form class="col s12" method="#">
+					<div style="max-width:700px; margin:auto;">
+						<h3 style="text-align:center;">Edit Profile</h3>
+						<div class="divider"></div>
+						<div class="section">
+							<h5>Update Profile</h5>
+							<form class="col s12" ng-submit="UpdateProfile(teacher)" id="up">
 								<div class="row">
-									<div class="input-field col s6">
-										<i class="material-icons prefix">account_circle</i>
-										<input id="fname" type="text" class="validate" ng-model="teacher.fname" class="form-control" required>
-										<label for="fname">First Name</label>
+									<div class="input-field col s3">
+										<input class="validate" ng-model="teacher.fname" type="text" id="fname" value="" required="" pattern="[a-zA-Z\.]{1,30}" title="Alphanumeric characters only">
+										<label class="active" for="fname">First Name</label>
 									</div>
-
-									<div class="input-field col s6">
-										<input id="lname" type="text" class="validate" ng-model="teacher.lname" class="form-control" required>
-										<label for="lname">Last Name</label>
+									<div class="input-field col s3">
+										<input class="validate" ng-model="teacher.mname" type="text" id="mname" value="" required="" pattern="[a-zA-Z\.]{1,30}" title="Alphanumeric characters only">
+										<label class="active" for="mname">Middle Name</label>
 									</div>
-									<div class="input-field col s6">
-										<i class="material-icons prefix">dialpad</i>
-										<input id="password" type="password" class="validate" ng-model="teacher.password" class="form-control" required>
-										<label for="password">Password</label>
+									<div class="input-field col s3">
+										<input class="validate" ng-model="teacher.lname" type="text" id="lname" value="" required="" pattern="[a-zA-Z\.]{1,30}" title="Alphanumeric characters only">
+										<label class="active" for="lname">Last Name</label>
 									</div>
-									<div class="input-field col s6">
-										<input id="passwordR" type="password" class="validate" ng-model="teacher.passwordR" class="form-control" required>
-										<label for="passwordR">Re-type password</label>
-									</div>
-									<div class="input-field col s12">
-										<button class="waves-effect waves-light <%= colorScheme %> darken-1 btn btn-large" style="margin-left:43px"> Update Profile </button>
+									<div class="input-field col s3">
+										<input class="btn btn-small <%= colorScheme %>" type="submit" name="name" value="Update">
 									</div>
 								</div>
+							</form>
+						</div>
+						<div class="divider"></div>
+						<div class="section">
+							<h5>Update Username</h5>
+							<form class="col s12">
+								<div class="row">
+									<div class="input-field col s9">
+										<input class="validate" type="text" id="username" value="" required="" pattern="[a-zA-Z\.0-9_]{1,30}" title="Alphanumeric characters only">
+										<label class="active" for="username">Username</label>
+									</div>
+									<div class="input-field col s3">
+										<input class="btn btn-small <%= colorScheme %>" type="submit" name="name" value="Update">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="divider"></div>
+						<div class="section">
+							<h5>Update password</h5>
+							<form class="col s12" ng-submit="UpdatePassword(pass1, pass2)" id="upw">
+								<div class="row">
+									<div class="input-field col s5">
+										<input class="validate" ng-model="pass1" type="password" id="pass1" value="" required="" pattern="[a-zA-Z\.0-9_]{8,30}" title="8 or more characters (Alphanumeric, underscores)">
+										<label class="active" for="pass1">New Password</label>
+									</div>
+									<div class="input-field col s4">
+										<input class="validate" ng-model="pass2" type="password" id="pass2" value="" required="" pattern="[a-zA-Z\.0-9_]{8,30}" title="8 or more characters (Alphanumeric, underscores)">
+										<label class="active" for="pass2=">Retype new password</label>
+									</div>
+									<div class="input-field col s3">
+										<input class="btn btn-small <%= colorScheme %>" type="submit" name="name" value="Update">
+									</div>
+								</div>
+							</form>
 
-							</div>
+						</div>
 
-						</form>
-					</div>
-					<!-- END OF EDIT PROFILE FORM-->
-				</div>
-
-				<hr style="max-width:700px; margin:auto; opacity:.5;" >
-				<div class="col s12">
-					<div style="max-width:800px; margin:auto; padding-top:30px;">
-						<div class="container" ng-controller="ColorCtrl">
+						<div class="divider"></div>
+						<div class="section">
+							<h5>Change Color Scheme</h5>
 							<form class="col s12" ng-submit="changeColor()">
 								<div class="input-field col s12 m6">
 									<select class="icons" ng-model="colorScheme" id="colorr">
@@ -106,19 +129,15 @@
 									<input type="submit" name="name" class="btn <%= colorScheme %> darken-1" value="Change Color">
 								</div>
 							</form>
-							<!-- ANGULAR FILES | Service and Controller -->
-							<script type="text/javascript" src="/javascripts/app/teacher/color.controller.js"></script>
-							<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
-							<!-- Other Scripts -->
 						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
+		<!-- ANGULAR FILES | Service and Controller -->
+		<script type="text/javascript" src="/javascripts/app/teacher/profile.controller.js"></script>
+		<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
+		<!-- Other Scripts -->
 	</body>
 </html>
