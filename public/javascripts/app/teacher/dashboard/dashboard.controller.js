@@ -78,7 +78,7 @@
 				})
 				.catch(function (res) {
 					// inform error
-					alert('Unable to add class!');
+					Materialize.toast('Class "'+$scope.class.courseno +" "+ $scope.class.lecturesection+'" is already been taken!', 4000, 'rounded');
 				});
 		}
 
@@ -155,7 +155,7 @@
 				.catch(function (res) {
 					// inform if error
 					console.log(res);
-					alert("Something went wrong!");
+					alert("Error updating class '"+$scope.edit.old_courseno+" "+$scope.edit.old_lecturesection+"'!");
 				});
 
 			transition(course);
