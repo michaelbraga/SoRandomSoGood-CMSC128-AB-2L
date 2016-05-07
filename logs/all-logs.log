@@ -287,3 +287,6 @@
 {"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-07T11:26:44.412Z"}
 {"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-07T11:26:44.421Z"}
 {"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-07T11:26:44.473Z"}
+{"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-07T11:30:26.669Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-07T11:30:26.674Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-07T11:30:26.708Z"}
