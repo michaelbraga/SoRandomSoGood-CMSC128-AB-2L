@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 `lname` varchar(64) NOT NULL,
 `colorScheme` varchar(64) NOT NULL DEFAULT 'red',
 PRIMARY KEY (`username`)
-) ENGINE = Innodb;
+) ENGINE=INNODB;
 -- CLASS Table
 CREATE TABLE IF NOT EXISTS `class` (
 `lecturesection` varchar(32) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `class` (
 `no_lrsections` int(2) NOT NULL, -- number of lab or recit sections
 PRIMARY KEY (`courseno`, `lecturesection`),
 FOREIGN KEY (`tusername`) REFERENCES `teacher`(`username`) ON UPDATE CASCADE
-) ENGINE = Innodb;
+) ENGINE=INNODB;
 -- STUDENT Table
 CREATE TABLE IF NOT EXISTS `student` (
 `studentno` varchar(16) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 FOREIGN KEY (`courseno`, `lecturesection`) REFERENCES `class`(`courseno`, `lecturesection`) ON UPDATE CASCADE,
 PRIMARY KEY (`studentno`,`courseno`, `lecturesection`),
 UNIQUE KEY(`studentno`,`courseno`, `lecturesection`,`seatno`)
-) ENGINE = Innodb;
+) ENGINE=INNODB;
 CREATE TABLE IF NOT EXISTS `log` (
 `logid` int(11) NOT NULL AUTO_INCREMENT,
 `logdate` datetime NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `log` (
 `studentno`varchar(16) NOT NULL,
 PRIMARY KEY (`logid`),
 FOREIGN KEY (`courseno`, `lecturesection`) REFERENCES `class`(`courseno`, `lecturesection`) ON UPDATE CASCADE
-) ENGINE = Innodb;
+) ENGINE=INNODB;
 
 create table `user_activity_log`(
 	_id int(10) AUTO_INCREMENT,
@@ -68,7 +68,7 @@ create table `user_activity_log`(
 	ip_address varchar(64) NOT NULL,
 	time datetime DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (_id)
-) ENGINE = Innodb;
+) ENGINE=INNODB;
 
 -- Grant all privileges on user sogo
 GRANT ALL PRIVILEGES on sogo.* TO 'sogo_user'@'localhost';
