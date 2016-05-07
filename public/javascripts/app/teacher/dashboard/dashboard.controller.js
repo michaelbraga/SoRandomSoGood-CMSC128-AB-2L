@@ -141,6 +141,7 @@
 				})
 				.catch(function (res) {
 					// inform if error
+					console.log(res);
 					alert("Something went wrong!");
 				});
 

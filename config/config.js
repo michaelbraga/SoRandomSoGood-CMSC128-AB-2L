@@ -2,7 +2,6 @@ var config = {
 	name: 'sogo',
 	host: 'localhost',
 	port: '3000',
-	mode: 'dev',
 	db: {
 		prod:{
 			host: 'cmsc128ab2l-tokyo.clj3dtksrnro.ap-northeast-1.rds.amazonaws.com',
