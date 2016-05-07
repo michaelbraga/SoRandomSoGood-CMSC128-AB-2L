@@ -47,9 +47,11 @@
 			<div id="addClassModal" class="modal modal-fixed-footer">
 				<form ng-submit="AddClass()" id="addClassForm" autocomplete="off">
 					<div class="modal-content">
-						<h4>Add a Class</h4>
+						<blockquote class="dashdesign">
+							<h4>Add a Class</h4>
+						</blockquote>
 						<div class="divider"></div>
-						<div class="container row" style="margin:auto;">
+						<div class="container row" style="margin:auto; padding-top:25px;">
 							<div class="input-field col s6">
 								<input ng-model="class.courseno" type="text" id="courseno" value="" class="validate" required="required" pattern="[A-Z]{2,5} [0-9]{1,3}" title="e.g. CMSC 128"/>
 								<label for="courseno">Course Number</label>

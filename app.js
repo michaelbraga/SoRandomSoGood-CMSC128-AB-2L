@@ -25,8 +25,7 @@ app.set('case sensitive routing', true);
 app.set('x-powered-by', false);
 
 // set environment
-if (!process.env.NODE_ENV) process.env.NODE_ENV = 'development';
-app.set('env', process.env.NODE_ENV);
+app.set('env', config.env);
 logger.verbose("Running on "+app.get('env')+" environment");
 
 // middlewares
