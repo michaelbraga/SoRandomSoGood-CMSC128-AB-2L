@@ -2,7 +2,7 @@ var config = {
 	name: 'sogo',
 	host: 'localhost',
 	port: '3000',
-	env: 'production',
+	env: 'development',
 	db: {
 		prod:{
 			host: $OPENSHIFT_MYSQL_DB_HOST,
