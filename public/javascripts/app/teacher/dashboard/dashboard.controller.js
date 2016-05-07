@@ -15,6 +15,7 @@
 
 	function DashboardCtrl($scope, $window, TeacherService) {
 		$scope.username = "";
+		$scope.number = [];
 		var prevcourse="";
 		var toggled=false;
 
@@ -30,6 +31,9 @@
 			TeacherService.GetAllClasses($scope.username)
 			.then(function (response) {
 				var subjects = response;
+				for (var i = 0; i < subjects.length; i++) {
+					GetNumberOfStudents(subjects[i].courseno, subjects[i].lecturesection);
+				}
 				for (var i = 0; i < Math.ceil(subjects.length / 3)+1; i++) {
 					var list = [];
 					for (var j = 0; j < 3; j++) {
@@ -44,6 +48,15 @@
 		}
 		LoadClasses();
 
+		function GetNumberOfStudents(courseno, lecturesection) {
+			TeacherService.GetAllStudentsInClass(courseno, lecturesection)
+				.then(function (res) {
+					$scope.number[courseno+lecturesection] = res.length.toString();
+				})
+				.catch(function (res) {
+					console.log("Something went wrong!");
+				});
+		}
 		/**************************************
 		      functions
 		**************************************/

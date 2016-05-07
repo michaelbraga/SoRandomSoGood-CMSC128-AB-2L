@@ -105,11 +105,13 @@
 										</a>
 									</span>
 									<br/>
-									<span>{{course.coursename}}</span>
+									<span style="font-size:large;">{{course.coursename}}</span>
 									<br/>
-									<span>{{course.room}}</span>
+									<span style="font-size:large;">{{course.room}}</span>
 									<br/>
-									<span>{{course.no_lrsections}} section(s)</span>
+									<span>Number of sections: {{course.no_lrsections}} </span>
+									<br/>
+									<span>Number of students: {{ number[course.courseno+course.lecturesection] }} </span>
 								</div>
 								<div class="card-action <% if(colorScheme!='black') { %> <%= colorScheme %> <% if(colorScheme == 'yellow'){ %> darken-1 <% } %>  <% } else { %> grey darken-4 <% } %>">
 									<a href="/teacher/class/{{course.courseno +'/'+ course.lecturesection }}/randomizer/typewriter" class="white-text darken-2">SELECT CLASS</a>
@@ -137,7 +139,7 @@
 										<div class="col s6">
 											<!-- class edit save changes button-->
 											<button type="submit" class="btn <%= colorScheme %> waves-effect waves-<%= colorScheme %>" name="action" style="line-height:15px;">
-												SAVE CHANGES
+												SAVE
 											</button>
 										</form>
 									</div>
