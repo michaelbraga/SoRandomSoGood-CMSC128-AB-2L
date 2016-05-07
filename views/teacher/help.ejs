@@ -1,35 +1,311 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title><%- title %></title>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- jQuery -->
-		<%- include ./../utils/jquery %>
-		<!-- Materialize -->
-		<%- include ./../utils/materialize %>
-		<!-- AngularJS -->
-		<%- include ./../utils/angular %>
-		<!-- Font Smoothing -->
-		<%- include ./../utils/font-smoothing %>
+        <title>Help</title>
+	  <!-- jQuery -->
+	  <%- include ./../utils/jquery %>
+<!--
+The Story Theme
+http://www.templatemo.com/tm-480-story
+-->
+        <!-- load stylesheets -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400">  <!-- Google web font "Open Sans" -->
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">                                                <!-- Bootstrap style -->
+        <link rel="stylesheet" href="stylesheets/flexslider.css">                                                   <!-- Flexslider style -->
+        <link rel="stylesheet" href="stylesheets/templatemo-style.css">                                             <!-- Templatemo style -->
 
-		<!-- other stylesheets -->
-		<link rel="stylesheet" href="/stylesheets/style2.css" media="screen" title="no title" charset="utf-8">
-		<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
-		<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	  <%- include ./../utils/colorScheme %>
+	  
+    </head>
 
-		<!-- other scripts -->
-		<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
-		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
-	</head>
-	<body >
+    <body class="page">
+	    <% include partials/navbar-dashboard %>
+            <div class="container">
+                First time to use the application? Got questions while using it? Let us tour the SOGO page to help you!
+                <br/><br/>
+            </div>
+            <!-- background images -->
+            <div class="page-bg-imgs-list">
+                <img src="images/index_bg.jpg" id="page-1-img" class="main-img">
+                <img src="images/index_bg.jpg" id="page-2-img">
+                <img src="images/index_bg.jpg" id="page-3-img">
+                <img src="images/index_bg.jpg" id="page-4-img">
+            </div>
 
-		<!-- Navigation Bar -->
-		<% include partials/navbar-dashboard %>
-		<div class="container">
-			
+            <div class="container-fluid">
 
-		</div>
-	</body>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+
+                        <div class="header">
+                            <!-- site navigation -->
+                            <nav class="js-nav">
+                                <ul class="nav-items-container">
+                                    <a href="/"><img src="images/logo.png" width="210px;"/></a>
+                                </ul>
+                                <ul class="nav-items-container">
+
+                                    <li data-nav-item-id="page-1" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="#page-1" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">HOME</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-2" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                        <a href="#page-2" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">CLASS</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-3" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="#page-3" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">STUDENTS</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-4" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                        <a href="#page-4" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">RANDOMIZER</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </nav>
+                        </div> <!-- .header -->
+
+                    </div>
+
+                    <div class="col-md-12 col-lg-7" style="margin-top: -27%;">
+                        <div class="content-wrapper js-content-wrapper">
+                            <!-- about -->
+                            <section data-page-id="page-1" class="content js-content">
+                                <div class="content-text">
+                                    There are four options displayed in the landing page--Randomizer, Log in, Help and About Us.
+                                </div>>
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">RANDOMIZER</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>If the user is not logged in or will use the web application for the first time, he or she will see/use the seat plan randomizer (default randomizer for guests).
+
+                                    The guest can put n number of volunteers in the input field. After clicking the Randomize button, the system will randomize n students from the class with respect to their seat numbers. The default dimension of the classroom is 7 x 8 seats (on the left) and 7 x 7 seats (on the right). The user can set his/her own preference of dimension by clicking the ‘Set Dimension’ button.</p>
+
+                                    <div class="flexslider-wrapper">
+
+                                        <div id="slider" class="flexslider">
+                                            <ul class="slides">
+
+                                                <li><img src="images/help/index_randomizer/1.png"/></li>
+                                                <li><img src="images/help/index_randomizer/2.png"/></li>
+                                                <li><img src="images/help/index_randomizer/3.png"/></li>
+
+                                            </ul>
+                                        </div> <!-- #slider -->
+                                    </div>
+                                    <p>On the navigation bar, a Log in button is provided for the user to use the other system features. If the user does not have an account, he or she will be able to create one in the log in page</p>
+
+                                </div>
+                                <br/>
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">LOG IN</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>Log-in interface has input fields for username and password that must be filled, and buttons for ‘Login’ and ‘Back’. Clicking the log-in button will redirect the user to the teacher’s list of classes. The user can go back to the index page by clicking the ‘Back’ button.</p>
+
+                                <div class="flexslider-wrapper">
+
+                                        <div id="login" class="flexslider">
+                                            <ul class="slides">
+
+                                                <li><img src="images/help/index_randomizer/1.png"/></li>
+                                                <li><img src="images/help/index_randomizer/2.png"/></li>
+                                                <li><img src="images/help/index_randomizer/3.png"/></li>
+
+                                            </ul>
+                                        </div> <!-- #slider -->
+                                    </div>
+
+                                    <p>Log-out option is located the under Menu dropdown. Upon clicking, the user will be logged out, and it will redirect to login page.</p>
+                                </div>
+                                <br/>
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">SIGN UP</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>Sign up interface contains information fields that will ask for user’s 6 or more username characters, 8 to 30 password characters, re-enter password that matches entered password, and unemptied first name, middle name, and last name. Create account button is used to register the new user to the system.</p>
+                                </div>
+                                <br/>f
+                            </section> <!-- #about -->
+
+                            <!-- gallery -->
+                            <section data-page-id="page-2" class="content content-gallery js-content">
+
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">ADD CLASS</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>Add class button is located near the lower right corner of the dashboard. Once the button is clicked, a modal will be popped, and the user can enter course number, course name, lecture section, room, and number of sections of the new class. The user can cancel by clicking the ‘Back’ button. ‘Reset’ button will make the input fields empty again. Clicking the ‘Add’ will insert the new class to the dashboard.</p>
+                                </div>
+                                <br/>
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">EDIT CLASS INFORMATION</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>The profile icon in the upper right corner of every class allows the user to edit the class when it is clicked. Course name, room, and number of sections are the only fields that can be edited. To finally make the edit reflect on dashboard, click ‘Save Changes’.</p>
+
+                                </div>
+
+<br/>
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">DELETE CLASS</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>Delete class button is located inside the Edit Class Information. When it is clicked, it will prompt for confirmation first. Clicking ok will remove that class in the dashboard.</p>
+
+                                </div>
+
+                                <div class="content-text">
+
+
+
+                                    <!-- <p>Credits go to <a rel="nofollow" href="http://unsplash.com">Unsplash</a> for images.</p> -->
+
+                                    <div class="flexslider-wrapper">
+
+                                        <div id="slider" class="flexslider">
+                                            <ul class="slides">
+
+                                                <li><img src="images/slider/slide2.jpg" alt="Slide 2" /></li>
+                                                <li><img src="images/slider/slide3.jpg" alt="Slide 3" /></li>
+                                                <li><img src="images/slider/slide4.jpg" alt="Slide 4" /></li>
+                                                <li><img src="images/slider/slide5.jpg" alt="Slide 5" /></li>
+                                                <li><img src="images/slider/slide6.jpg" alt="Slide 6" /></li>
+                                            </ul>
+                                        </div> <!-- #slider -->
+
+                                    </div>
+
+                                </div>
+
+                                 <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">HISTORY</h2>
+                                </header>
+                                <div class="content-text">
+                                    <p>History option is found besides Menu dropdown. It is only available when a specific class is selected. Date, time, and activity are seen here. The user can select how many history will be shown per page by navigating the Show dropdown which shows: 10, 25, 50, and 100. Search input field allows user to narrow down history list.</p>
+
+                                </div>
+
+                            </section> <!-- #gallery -->
+
+                            <!-- services -->
+                            <section data-page-id="page-3" class="content js-content">
+
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">VIEW STUDENTS</h2>
+                                </header>
+
+                                <div class="content-text">
+                                    <p>View Students is only available when a specific class is selected. The option, ‘Student’, is found in the navigation bar of a class. When it is clicked, a collapsible list of students will appear. Clicking a student will show his or her necessary information such as student number, name, degree course, college, sex, lab section, and seat number. Options for editing and deleting the student will be shown as well.
+                                    </p>
+                                </div>
+                                <br/>
+
+                                 <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">ADD STUDENTS</h2>
+                                </header>
+
+                                <div class="content-text">
+                                    <p>Add student button is located near the lower right corner of the students list in a class. Once the button is clicked, a form that lets user enter the first name, middle name, last name, degree course, college, student number, lab/recit section, picture, seat number, and sex of a student will be shown. The student will be added to the students list after clicking the ‘Add Student’ button. Additionally, multiple students can be added simultaneously by using Add Students From File which opens a csv file containing list of students.
+                                    </p>
+                                </div>
+                                <br/>
+
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">EDIT STUDENTS</h2>
+                                </header>
+
+                                <div class="content-text">
+                                    <p>Edit Student which appears as settings icon is found inside the collapsible of every student in class. When the icon is clicked, a modal that allows changing necessary information of student appears. First name, middle name, last name, student number, degree course, college, sex, lab/recit section, and seat number can be edited. ‘Back’ button cancels editing while ‘Save Changes’ button reflects the changes in student’s information.
+
+                                    </p>
+                                </div>
+                                <br/>
+
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">DELETE STUDENT INFORMATION</h2>
+                                </header>
+
+                                <div class="content-text">
+                                    <p>Delete Students which appears as trash bin icon is found inside the collapsible of every student in class. When the icon is clicked, an alert box will appear asking for delete confirmation. Choosing ‘cancel’ will avoid deleting the student while choosing ‘OK’ will delete the student.
+                                    </p>
+                                </div>
+                                <br/>
+
+
+
+
+                            </section> <!-- #services -->
+
+                            <!-- contact -->
+                            <section data-page-id="page-4" class="content js-content">
+
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">TYPEWRITER RANDOMIZER</h2>
+                                </header>
+
+                                <div class="content-text">
+                                    <p>Typewriter randomizer is located in randomizer dropdown option in the navigation bar of a specific class. When typewriter randomizer is selected, three buttons will be shown together with a picture of a typewriter. The button with settings icon allows filtering the students that will be randomized according to the attributes of student. ‘BURO’ button allows user to select students to be included in the randomizer from each lab section of the class. These buttons allows user to select a specific number of volunteers. Lastly, ‘RANDOMIZE’ button executes the randomizer.
+                                    </p>
+                                </div>
+                                <br/>
+                                   <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">SEAT PLAN RANDOMIZER</h2>
+                                </header>
+
+                                <div class="content-text">
+                                    <p>Seatplan randomizer is located in randomizer dropdown option in the navigation bar of a specific class. When seatplan randomizer is selected, classroom’s seats, input field of no. of volunteers, and buttons for randomize and set dimensions will appear. The user must enter a valid number of volunteers in the input field. ‘SET DIMENSIONS’ button allows indicating the number of rows and columns of seats in both left and right parts of the classroom. ‘RANDOMIZE’ button executes the randomizer.
+
+                                    </p>
+                                </div>
+
+                                <br/>
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">COLOR SCHEME</h2>
+                                </header>
+
+                                <div class="content-text">
+
+
+                                </div>
+                            </section> <!-- #contact -->
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>  <!-- .container-fluid -->
+
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div><!-- /#preloader -->
+
+        <!-- load JS files -->
+        <script src="javascripts/utils/jquery-1.11.3.min.js"></script> <!-- jQuery -->
+        <script src="javascripts/utils/jquery.flexslider-min.js"></script> <!-- Flex Slider -->
+        <script src="javascripts/utils/jquery.backstretch.min.js"></script> <!-- Backstretch http://srobbin.com/jquery-plugins/backstretch/ -->
+        <script src="javascripts/utils/templatemo-script.js"></script> <!-- Templatemo scripts -->
+
+    </body>
 </html>
-`

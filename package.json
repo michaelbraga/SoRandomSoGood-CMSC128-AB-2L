@@ -4,7 +4,7 @@
   "description": "web app",
   "main": "app.js",
   "scripts": {
-	"start": "node bin/www",
+	"start": "NODE_ENV=production node bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "cmsc128ab2l",
