@@ -5,8 +5,8 @@ var config = {
 	env: 'development',
 	db: {
 		prod:{
-			host: $OPENSHIFT_MYSQL_DB_HOST,
-			port: $OPENSHIFT_MYSQL_DB_PORT,
+			host: '$OPENSHIFT_MYSQL_DB_HOST',
+			port: '$OPENSHIFT_MYSQL_DB_PORT',
 			user	 : 'admingkz7qs4',
 			password : '35fMEchL-zUh',
 			database : 'sogo'
