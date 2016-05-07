@@ -320,3 +320,9 @@
 {"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-07T12:03:53.711Z"}
 {"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-07T12:03:53.782Z"}
 >>>>>>> Stashed changes
+{"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-07T12:22:05.426Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-07T12:22:05.435Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-07T12:22:05.496Z"}
+{"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-07T12:41:15.250Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-07T12:41:15.258Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-07T12:41:15.318Z"}

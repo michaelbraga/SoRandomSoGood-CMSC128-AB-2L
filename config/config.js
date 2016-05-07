@@ -2,13 +2,13 @@ var config = {
 	name: 'sogo',
 	host: 'localhost',
 	port: '3000',
-	env: 'development',
+	env: 'production',
 	db: {
 		prod:{
-			host: '$OPENSHIFT_MYSQL_DB_HOST',
-			port: '$OPENSHIFT_MYSQL_DB_PORT',
-			user	 : 'admingkz7qs4',
-			password : '35fMEchL-zUh',
+			host: 'cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com',
+			port: 3306,
+			user	 : 'mastersogokorea',
+			password : 'sogolicious',
 			database : 'sogo'
 		},
 		dev:{
