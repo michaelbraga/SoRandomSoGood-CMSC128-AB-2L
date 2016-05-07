@@ -38,6 +38,12 @@ router.get('/about-us', function(req, res, next) {
 	else
 		res.redirect('/teacher');
 });
+router.get('/help', function(req, res, next) {
+	if(!req.session || !req.session.teacher)
+		res.render('guest/help', {title: 'SOGO | About Us', mode:'about-us'});
+	else
+		res.redirect('/teacher');
+});
 router.get('/login', function(req, res, next) {
 	if(!req.session || !req.session.teacher)
 		res.render('guest/login', {title: 'SOGO | Login', mode:'login'});

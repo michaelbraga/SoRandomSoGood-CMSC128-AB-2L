@@ -65,11 +65,11 @@
 								<label for="coursename">Course Name</label>
 							</div>
 							<div class="input-field col s6">
-								<input ng-model="class.room" type="text" id="room" value="" class="validate" required="required"/>
+								<input pattern="[a-zA-Z0-9 -]{1,30}" title="Alphanumeric characters only" ng-model="class.room" type="text" id="room" value="" class="validate" required="required"/>
 								<label for="room">Room</label>
 							</div>
 							<div class="input-field col s6">
-								<input id="no_lr" ng-model="class.no_lrsections" min="1" max="12" type="number" value="" required="required" />
+								<input pattern="[0-9]{1,2}" title="Numeric digits only" id="no_lr" ng-model="class.no_lrsections" min="1" max="12" type="number" value="" required="required" />
 								<label for="no_lr">Number of Sections</label>
 							</div>
 						</div>
@@ -109,9 +109,9 @@
 									<br/>
 									<span style="font-size:large;">{{course.room}}</span>
 									<br/>
-									<span>Number of sections: {{course.no_lrsections}} </span>
+									<span>{{course.no_lrsections}} section(s)</span>
 									<br/>
-									<span>Number of students: {{ number[course.courseno+course.lecturesection] }} </span>
+									<span>{{ number[course.courseno+course.lecturesection] }} student(s)</span>
 								</div>
 								<div class="card-action <% if(colorScheme!='black') { %> <%= colorScheme %> <% if(colorScheme == 'yellow'){ %> darken-1 <% } %>  <% } else { %> grey darken-4 <% } %>">
 									<a href="/teacher/class/{{course.courseno +'/'+ course.lecturesection }}/randomizer/typewriter" class="white-text darken-2">SELECT CLASS</a>
@@ -122,15 +122,15 @@
 								<form ng-submit="EditClass(course)">
 									<div class="container">
 										<label for="edit-courseno">Course Number</label>
-										<input ng-model="edit.courseno" type="text" id="edit-courseno" value="" class="validate" required="required" style="margin-bottom:0px"/>
+										<input ng-model="edit.courseno" type="text" id="edit-courseno" value="" class="validate" required="required" style="margin-bottom:0px" pattern="[A-Z]{2,5} [0-9]{1,3}" title="e.g. CMSC 128"/>
 										<label for="edit-lecturesection">Lecture Section</label>
-										<input ng-model="edit.lecturesection" type="text" id="edit-lecturesection" value="1" class="validate" required="required" style="margin-bottom:0px"/>
+										<input ng-model="edit.lecturesection" type="text" id="edit-lecturesection" value="1" class="validate" required="required" style="margin-bottom:0px" pattern="[A-Z]{1,2}" title="e.g. AB"/>
 										<label for="edit-coursename">Course Name</label>
-										<input ng-model="edit.coursename" type="text" id="edit-coursename" value="" class="validate" required="required" style="margin-bottom:0px"/>
+										<input ng-model="edit.coursename" type="text" id="edit-coursename" value="" class="validate" required="required" style="margin-bottom:0px" pattern="[a-zA-Z\s0-9\-]{1,125}" title="Maximum of 125 characters. Alphanumeric character(s) only."/>
 										<label for="edit-room">Room</label>
-										<input ng-model="edit.room" type="text" id="edit-room" value="1" class="validate" required="required" style="margin-bottom:0px"/>
+										<input ng-model="edit.room" type="text" id="edit-room" value="1" class="validate" required="required" style="margin-bottom:0px" pattern="[a-zA-Z0-9 -]{1,30}" title="Alphanumeric characters only"/>
 										<label for="edit-no_lrsections">Number of Sections</label>
-										<input ng-model="edit.no_lrsections" min="1" max="12" type="number" value="" required="required" id="edit-no_lrsections" style="margin-bottom:10px"/>
+										<input ng-model="edit.no_lrsections" min="1" max="12" type="number" value="" required="required" id="edit-no_lrsections" style="margin-bottom:10px" pattern="[0-9]{1,2}" title="Numeric digits only"/>
 									</div>
 									<div class="container" style="padding-bottom:10px;">
 										<div class="col s6">

@@ -22,16 +22,16 @@ Tags: HTML, Template, Coming Soon, Kite
 *    2.2 - Social Button
 *    2.3 - Placeholder color
 *    2.4 - Height Resize
-*  3 - Main Menu 
-*  4 - Page Top Section   
+*  3 - Main Menu
+*  4 - Page Top Section
 *  5 - About Us Section
 *  6 - Subscribe Section
 *  7 - Contact Section
-*  8 - Footer Section  
-*  9 - Media Query 
+*  8 - Footer Section
+*  9 - Media Query
 *    9.1 - media screen and (max-width: 992px)
 *    9.2 - media screen and (max-width: 768px)
-*    9.3 - media screen and (max-width: 1170px) 
+*    9.3 - media screen and (max-width: 1170px)
 *  10 - Preloader
 *
 ---------------------------------------------------------------------- */
@@ -43,7 +43,7 @@ Tags: HTML, Template, Coming Soon, Kite
 ---------------------------------------------------------------------- */
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,700);
-/* 1 - Import Google Font End 
+/* 1 - Import Google Font End
 ---------------------------------------------------------------------- */
 
 
@@ -141,7 +141,7 @@ a:focus{
 	        transition:all .25s;
 }
 .btn:focus, .btn:active:focus, .btn.active:focus {
- 	outline: none; 
+ 	outline: none;
  	color: #ffffff;
 }
 .form-control,
@@ -166,7 +166,7 @@ a:focus{
 	display:inline-block;
 	width:120px;
 	height:120px;
-	
+
 	-webkit-border-radius:100%;
 	   -moz-border-radius:100%;
 	    -ms-border-radius:100%;
@@ -190,7 +190,7 @@ a:focus{
 	position:absolute;
 	top:20px;
 	left:35px;
-	
+
 	-webkit-transform:rotate(45deg);
 	   -moz-transform:rotate(45deg);
 	    -ms-transform:rotate(45deg);
@@ -261,7 +261,7 @@ a:focus{
 }
 .social-btn-box,
 .social-btn-box a{
-	
+
 	-webkit-transition:all .25s;
 	   -moz-transition:all .25s;
 	    -ms-transition:all .25s;
@@ -309,18 +309,18 @@ a:focus{
    color: #ffffff;
 }
 
-.form-control:-moz-placeholder { 
-   color: #ffffff;  
+.form-control:-moz-placeholder {
+   color: #ffffff;
 }
 
-.form-control::-moz-placeholder { 
-   color: #ffffff;  
+.form-control::-moz-placeholder {
+   color: #ffffff;
 }
 
 .form-control:-ms-input-placeholder{
 	color:#ffffff;
 }
-/* 2.3 - Placeholder color End 
+/* 2.3 - Placeholder color End
 ------------------------------------------ */
 
 
@@ -336,11 +336,11 @@ a:focus{
 .height-resize .team-container .col-sm-4{
 	padding-top:20px !important;
 }
-/* 2.4 - Height Resize End 
+/* 2.4 - Height Resize End
 ------------------------------------------ */
 
 
-/* 2 - Global Style End 
+/* 2 - Global Style End
 ---------------------------------------------------------------------- */
 
 
@@ -348,11 +348,11 @@ a:focus{
 
 /* 3 - Main Menu
 ---------------------------------------------------------------------- */
-.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a,
-.navbar-default .navbar-nav>.active>a, 
-.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus{
 	color:#fff;
 	background-color:transparent;
@@ -370,7 +370,7 @@ a:focus{
 	margin-left:10px;
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
-	
+
 	-webkit-transition:all .25s;
 	   -moz-transition:all .25s;
 	    -ms-transition:all .25s;
@@ -381,7 +381,7 @@ a:focus{
 	padding:5px 15px;
 	font-weight:400;
 	font-style:italic;
-	
+
 	-webkit-transition:all .25s;
 	   -moz-transition:all .25s;
 	    -ms-transition:all .25s;
@@ -391,7 +391,7 @@ a:focus{
 .navbar-nav>li>a:hover{
 	padding-left:25px;
 }
-.navbar-default .navbar-collapse, 
+.navbar-default .navbar-collapse,
 .navbar-default .navbar-form{
 	border-color: transparent;
 }
@@ -438,7 +438,7 @@ a:focus{
 	#headernavigation{
 		background:rgba(0,0,0,.5);
 	}
-	.navbar-default .navbar-toggle:hover, 
+	.navbar-default .navbar-toggle:hover,
 	.navbar-default .navbar-toggle:focus{
 		background-color:transparent;
 	}
@@ -458,13 +458,13 @@ a:focus{
 		float:none !important;
 	}
 }
-/* 3 - Main Menu End 
+/* 3 - Main Menu End
 ---------------------------------------------------------------------- */
 
 
 
 
-/* 4 - Page Top Section 
+/* 4 - Page Top Section
 ---------------------------------------------------------------------- */
 .site-title{
 	text-align:center;
@@ -510,7 +510,7 @@ a:focus{
 	    -ms-border-radius:15px;
 	     -o-border-radius:15px;
 	        border-radius:15px;
-	
+
 	-webkit-transform:rotate(45deg);
 	   -moz-transform:rotate(45deg);
 	    -ms-transform:rotate(45deg);
@@ -535,8 +535,8 @@ a:focus{
 	display:inline-block;
 	font-weight:300;
 	padding-top: 15%;
-	
-	
+
+
 	-webkit-transition:all .25s;
 	   -moz-transition:all .25s;
 	    -ms-transition:all .25s;
@@ -545,7 +545,7 @@ a:focus{
 }
 .time-number .digit{
 	line-height: 60px;
-	display: inline-block;	
+	display: inline-block;
 	overflow: hidden;
 }
 
@@ -567,7 +567,7 @@ a:focus{
 	text-transform:uppercase;
 	padding:0px 25px;
 }
-/* 4 - Page Top Section End 
+/* 4 - Page Top Section End
 ---------------------------------------------------------------------- */
 
 
@@ -688,7 +688,7 @@ a:focus{
 .team-container .team-member figcaption,
 .team-container .team-member img,
 .team-container .team-member .social-buttons{
-	
+
 	-webkit-transition:all .25s;
 	   -moz-transition:all .25s;
 	    -ms-transition:all .25s;
@@ -707,7 +707,7 @@ a:focus{
 .team-container .team-member:hover .social-buttons{
 	top:90px;
 }
-/* 5 - About Us Section End 
+/* 5 - About Us Section End
 ---------------------------------------------------------------------- */
 
 
@@ -774,7 +774,7 @@ form.news-letter .btn:hover{
 	left: 25px;
 	bottom: -24px;
 }
-/* 6 - Subscribe Section End 
+/* 6 - Subscribe Section End
 ---------------------------------------------------------------------- */
 
 
@@ -790,7 +790,7 @@ form.news-letter .btn:hover{
 	     -o-transform:rotate(180deg);
 	        transform:rotate(180deg);
 }
-#contact-form .col-sm-6, 
+#contact-form .col-sm-6,
 #contact-form .col-sm-10,
 #contact-form .col-sm-2{
 	padding:0;
@@ -874,13 +874,13 @@ form.news-letter .btn:hover{
 	font-size: 1.125em;
 }
 
-/* 7 - Contact Section End 
+/* 7 - Contact Section End
 ---------------------------------------------------------------------- */
 
 
 
 
-/* 8 - Footer Section  
+/* 8 - Footer Section
 ---------------------------------------------------------------------- */
 #footer-section{
 	width: 100%;
@@ -888,7 +888,7 @@ form.news-letter .btn:hover{
 }
 #footer-section p{
 	margin: 0;
-	padding: 25px 15px; 
+	padding: 25px 15px;
 	text-align: center;
 	line-height: 30px;
 	color: #1a1a1a;
@@ -896,14 +896,14 @@ form.news-letter .btn:hover{
 #footer-section p a{
 	color: #3498db;
 }
-/* 8 - Footer Section End 
+/* 8 - Footer Section End
 ---------------------------------------------------------------------- */
 
 
 
 
 
-/* 9 - Media Query 
+/* 9 - Media Query
 ---------------------------------------------------------------------- */
 
 /* 9.1 - media screen and (max-width: 992px)
@@ -1184,4 +1184,3 @@ background: #00aaff;
 
 /* 10 - Preloader End
 ---------------------------------------------------------------------- */
-
