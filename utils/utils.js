@@ -76,6 +76,10 @@ exports.logActivity = function (req, res, next, to_send, stat) {
 				else if (/^\/api-user\/student\/.+\/.+\/.+$/.test(req.url)) {
 					log.activity = "Updated student " + req.params.studentno + " in class " + req.params.courseno+" "+req.params.lecturesection;
 				}
+				else if (/^\/api-user\/teacher-username\/.+$/.test(req.url)){
+					log.activity = "Updated username from ("+req.params.username+") to ("+req.body.username+")";
+					log.user =req.body.username;
+				}
 			break;
 
 		case 'DELETE': if (req.url == "/api-user/teacher") {

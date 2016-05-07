@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `class` (
 `tusername` varchar(64) NOT NULL,
 `no_lrsections` int(2) NOT NULL, -- number of lab or recit sections
 PRIMARY KEY (`courseno`, `lecturesection`),
-FOREIGN KEY (`tusername`) REFERENCES `teacher`(`username`)
+FOREIGN KEY (`tusername`) REFERENCES `teacher`(`username`) ON UPDATE CASCADE
 );
 -- STUDENT Table
 CREATE TABLE IF NOT EXISTS `student` (
@@ -47,8 +47,9 @@ CREATE TABLE IF NOT EXISTS `student` (
 `lecturesection` varchar(32), -- from table class
 `lrsection` int(2), -- (lab or recit section , e.g 1L, 2L, 3L, or 1R, 2R) NOT from table class
 `priority` int(2), -- for buro function
-FOREIGN KEY (`courseno`, `lecturesection`) REFERENCES `class`(`courseno`, `lecturesection`),
-PRIMARY KEY (`studentno`,`courseno`, `lecturesection`)
+FOREIGN KEY (`courseno`, `lecturesection`) REFERENCES `class`(`courseno`, `lecturesection`) ON UPDATE CASCADE,
+PRIMARY KEY (`studentno`,`courseno`, `lecturesection`),
+UNIQUE KEY(`studentno`,`courseno`, `lecturesection`,`seatno`)
 );
 CREATE TABLE IF NOT EXISTS `log` (
 `logid` int(11) NOT NULL AUTO_INCREMENT,
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `log` (
 `lecturesection` VARCHAR(32) NOT NULL,
 `studentno`varchar(16) NOT NULL,
 PRIMARY KEY (`logid`),
-FOREIGN KEY (`courseno`, `lecturesection`) REFERENCES `class`(`courseno`, `lecturesection`)
+FOREIGN KEY (`courseno`, `lecturesection`) REFERENCES `class`(`courseno`, `lecturesection`) ON UPDATE CASCADE
 );
 
 create table `user_activity_log`(

@@ -117,6 +117,10 @@
 							<div class="#ffffff white form" style="padding-top:10px">  <!-- class edit form-->
 								<form ng-submit="EditClass(course)">
 									<div class="container">
+										<label for="edit-courseno">Course Number</label>
+										<input ng-model="edit.courseno" type="text" id="edit-courseno" value="" class="validate" required="required" style="margin-bottom:0px"/>
+										<label for="edit-lecturesection">Lecture Section</label>
+										<input ng-model="edit.lecturesection" type="text" id="edit-lecturesection" value="1" class="validate" required="required" style="margin-bottom:0px"/>
 										<label for="edit-coursename">Course Name</label>
 										<input ng-model="edit.coursename" type="text" id="edit-coursename" value="" class="validate" required="required" style="margin-bottom:0px"/>
 										<label for="edit-room">Room</label>

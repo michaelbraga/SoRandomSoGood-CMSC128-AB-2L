@@ -49,6 +49,8 @@ module.exports = function (router) {
 		.put(authorizeUser, teacher.update);
 	router.route('/api-user/teacher-password/:username')
 		.put(authorizeUser, teacher.updatePassword);
+	router.route('/api-user/teacher-username/:username')
+		.put(authorizeUser, teacher.updateUsername);
 	router.route('/api-user/teacher-color/:username')
 		.put(authorizeUser, teacher.changeColorScheme);
 

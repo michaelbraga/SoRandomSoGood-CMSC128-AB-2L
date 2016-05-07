@@ -388,6 +388,22 @@
 			});
 			return deferred.promise;
 		}
+		function UpdateTeacherUsername(updatedUsername, username) {
+		     var deferred = $q.defer();
+		     var completeUrl = url + "/teacher-username/"+username;
+
+		     // make some http request - PUT
+		     // updatedUsername (JSON) as Body for the http request
+		     $http.put(completeUrl, {username:updatedUsername})
+		     .success(function (data) {
+			     deferred.resolve(data);
+		     })
+		     .error(function (data) {
+			     deferred.reject(data);
+		     });
+
+		     return deferred.promise;
+		}
 
 		service.GetUsername = GetUsername;
 		service.GetAllClasses = GetAllClasses;
@@ -408,6 +424,7 @@
 		service.RemoveAllHistory = RemoveAllHistory;
 		service.ChangeColorScheme = ChangeColorScheme;
 		service.randomizeSeat = randomizeSeat;
+		service.UpdateTeacherUsername = UpdateTeacherUsername;
 
 		/* RETURN SERVICE */
 		return service;

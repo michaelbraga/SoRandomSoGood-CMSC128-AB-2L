@@ -51,6 +51,21 @@
 					Materialize.toast("Saved was not applied. Database error.", 4000, 'rounded');
 				});
 		}
+		$scope.UpdateUsername = function (username) {
+			TeacherService.UpdateTeacherUsername (username, TeacherService.GetUsername())
+				.then(function (res) {
+					if (res.changedRows === 1) {
+						Materialize.toast("Username updated.", 4000, 'rounded');
+						$window.location.href = '/-u-p/'+username;
+					}
+					else{
+						Materialize.toast("Saved was not applied.", 4000, 'rounded');
+					}
+				})
+				.catch(function (res) {
+					Materialize.toast("Saved was not applied. Database error.", 4000, 'rounded');
+				});
+		}
 		$scope.changeColor = function () {
 			if (!$scope.colorScheme) {
 				Materialize.toast("Pick a color!", 4000, 'rounded');

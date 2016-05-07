@@ -45,17 +45,20 @@ router.get('/login', function(req, res, next) {
 		res.redirect('/teacher');
 });
 router.get('/login/:teacher_data', function(req, res, next) {
-	var pattern = /\{"username":"[a-zA-Z0-9_]{6,30}","password":"[a-zA-Z0-9_\*]{8,30}","fname":"[a-zA-Z0-9_]{6,30},"mname":"[a-zA-Z0-9_]{6,30}","lname":"[a-zA-Z0-9_]{6,30}","colorScheme":"[a-zA-Z0-9_]{6,30}"\}/
-
+	var pattern = /\{"username":"[a-zA-Z0-9_\.]{6,30}","password":"[a-zA-Z0-9_\*\.]{8,30}","fname":"[a-zA-Z0-9_\. \t]{6,30}","mname":"[a-zA-Z0-9_\. \t]{6,30}","lname":"[a-zA-Z0-9_\. \t]{6,30}","colorScheme":"[a-zA-Z]{6,30}"\}/
 	if (req.session && pattern.test(req.params.teacher_data)) {
 		console.log(req.params.teacher_data);
 		req.session.teacher = JSON.parse(req.params.teacher_data);
 		res.redirect('/teacher');
 	}
 	else{
-		res.redirect('/');
+		res.redirect('/login');
 	}
 
+});
+router.get('/-u-p/:username', function(req, res, next) {
+	req.session.teacher.username = req.params.username.toString();
+	res.redirect('/teacher/my-profile');
 });
 router.get('/logout', function (req, res, next) {
 	if (req.session && req.session.teacher) {

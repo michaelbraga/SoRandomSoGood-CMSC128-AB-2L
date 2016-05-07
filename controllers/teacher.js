@@ -79,3 +79,25 @@ exports.updatePassword = function (req, res, next) {
 			}
 	});
 }
+// update the password of one teacher using username
+exports.updateUsername = function (req, res, next) {
+	db.query("UPDATE teacher SET username = ? where username = ? ",
+		   [req.body.username, req.params.username],
+	         function (err, rows) {
+			if(err) return next(err);
+			else if(rows.affectedRows === 0){
+				res.status(404).send({message:'Teacher ('+req.params.username+') not found!'});
+			}
+			else{
+				db.query("SELECT * FROM teacher WHERE username = ?", [req.body.username], function (error, r) {
+					if(error) return next(error);
+					else if(r.length === 0){
+						res.status(404).send({message:'Teacher ('+req.params.username+') not found!'});
+					}
+					else{
+						utils.logActivity(req, res, next, {changedRows:1, data:r[0]}, 200);
+					}
+				});
+			}
+	});
+}
