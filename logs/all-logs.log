@@ -338,3 +338,16 @@
 {"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-07T13:07:36.540Z"}
 {"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-07T13:07:36.550Z"}
 {"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-07T13:07:36.591Z"}
+{"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-08T03:40:45.644Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-08T03:40:45.653Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-08T03:40:45.699Z"}
+{"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-08T04:14:03.501Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-08T04:14:03.513Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-08T04:14:03.552Z"}
+{"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-08T04:23:22.613Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-08T04:23:22.626Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-08T04:23:22.666Z"}
+{"date":"Sun May 08 2016 12:23:55 GMT+0800 (PHT)","process":{"pid":651,"uid":501,"gid":20,"cwd":"/Users/michaelbraga/Documents/SOGOv2","execPath":"/usr/local/bin/node","version":"v5.2.0","argv":["/usr/local/bin/node","/Users/michaelbraga/Documents/SOGOv2/bin/www"],"memoryUsage":{"rss":59666432,"heapTotal":36381728,"heapUsed":24972088}},"os":{"loadavg":[1.470703125,1.4169921875,1.47412109375],"uptime":3908},"trace":[{"column":49,"file":"/Users/michaelbraga/Documents/SOGOv2/utils/utils.js","function":"Immediate._onImmediate","line":21,"method":"_onImmediate","native":false},{"column":17,"file":"timers.js","function":"processImmediate [as _immediateCallback]","line":384,"method":null,"native":false}],"stack":["TypeError: Cannot read property 'teacher' of undefined","    at Immediate._onImmediate (/Users/michaelbraga/Documents/SOGOv2/utils/utils.js:21:49)","    at processImmediate [as _immediateCallback] (timers.js:384:17)"],"level":"error","message":"uncaughtException: Cannot read property 'teacher' of undefined","timestamp":"2016-05-08T04:23:55.566Z"}
+{"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-08T04:24:34.140Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-08T04:24:34.151Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-08T04:24:34.191Z"}

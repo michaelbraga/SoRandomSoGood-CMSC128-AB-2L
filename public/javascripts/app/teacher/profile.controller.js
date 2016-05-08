@@ -41,7 +41,7 @@
 				.then(function (res) {
 					if (res.changedRows === 1) {
 						Materialize.toast("Password updated.", 4000, 'rounded');
-						$('form#upw')[0].reset();
+						$window.location.href = '/-u-p-p/'+res.password;
 					}
 					else{
 						Materialize.toast("Saved was not applied.", 4000, 'rounded');

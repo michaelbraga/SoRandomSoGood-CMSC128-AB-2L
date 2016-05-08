@@ -66,6 +66,11 @@ router.get('/-u-p/:username', function(req, res, next) {
 	req.session.teacher.username = req.params.username.toString();
 	res.redirect('/teacher/my-profile');
 });
+router.get('/-u-p-p/:password', function(req, res, next) {
+	req.session.teacher.password = req.params.password.toString();
+	console.log(req.session.teacher.password);
+	res.redirect('/teacher/my-profile');
+});
 router.get('/logout', function (req, res, next) {
 	if (req.session && req.session.teacher) {
 		var s = (req.session.teacher.username).toString();

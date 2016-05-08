@@ -75,7 +75,16 @@ exports.updatePassword = function (req, res, next) {
 				res.status(404).send({message:'Teacher ('+req.params.username+') not found!'});
 			}
 			else{
-				utils.logActivity(req, res, next, rows, 200);
+				db.query("Select password from teacher where username = ?", [req.params.username], function (err, rows) {
+					if(err) return next(err);
+					else if(rows.length === 0){
+						res.status(404).send({message:'Teacher ('+req.params.username+') not found!'});
+					}
+					else{
+						rows[0].changedRows = 1;
+						utils.logActivity(req, res, next, rows[0], 200);
+					}
+				});
 			}
 	});
 }

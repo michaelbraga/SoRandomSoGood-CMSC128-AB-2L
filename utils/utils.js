@@ -13,7 +13,14 @@ exports.authenticateUser = function (req, res, next) {
 	db.query("SELECT * FROM teacher WHERE username = ? and password = ? ",[req.session.teacher.username, req.session.teacher.password], function (err, rows) {
 		if(err) return next(err);
 		else if(rows.length === 0){
-			res.status(401).send({message: (req.session.teacher.username +' is not authorized to access the database!')});
+			req.session.destroy(function (err) {
+				if (err) {
+					console.log(err);
+				}
+				else {
+					res.status(401).send({message: (req.session.teacher.username +' is not authorized to access the database!')});
+				}
+			});
 		}
 		else{
 			req.session.teacher = rows[0];
