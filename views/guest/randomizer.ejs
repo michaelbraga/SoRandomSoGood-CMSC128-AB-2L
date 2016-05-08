@@ -65,7 +65,7 @@ function genRowCol(){
   k = 0;
   for(var i=0; i<rows; i++){
       for(var j=0; j<cols; j++){
-       document.getElementById("seats").innerHTML += "<div style='margin-left:10px;height:80px;width:80px;display:inline-block;'><div id='"+k+"' class='card-panel red darken-1'><span class='white-text'>"+(k+1)+"</span></div></div>&nbsp;&nbsp;";
+       document.getElementById("seats").innerHTML += "<div style='height:75px;width:80px;display:inline-block;'><div id="+k+" class='card-panel red darken-1'><span class='white-text'>"+(k+1)+"</span></div></div>&nbsp;&nbsp;";
        k++;
     }
     document.getElementById("seats").innerHTML += "<br/>";
@@ -73,7 +73,7 @@ function genRowCol(){
 
   for(var i=0; i<rows2; i++){
       for(var j=0; j<cols2; j++){
-       document.getElementById("seats2").innerHTML += "<div style='margin-left:10px;height:80px;width:80px;display:inline-block;'><div id='"+k+"' class='card-panel red darken-1'><span class='white-text'>"+(k+1)+"</span></div></div>&nbsp;&nbsp;";
+       document.getElementById("seats2").innerHTML += "<div style='height:75px;width:80px;display:inline-block;'><div id="+k+" class='card-panel red darken-1'><span class='white-text'>"+(k+1)+"</span></div></div>&nbsp;&nbsp;";
        k++;
     }
     document.getElementById("seats2").innerHTML += "<br/>";
