@@ -49,74 +49,76 @@
 				<h4 style="text-align:left;">Add Student</h4>
 				<!-- ADD STUDENT FORM-->
 				<div class="row form">
-				<form class="col s12" ng-submit="AddStudent()" id="addForm">
-				<div class="row">
+					<form class="col s12" ng-submit="AddStudent()" id="addForm">
 
-				<div class="input-field col s4">
-				<input id="fname" type="text" class="validate" ng-model="student.fname" class="form-control" required>
-				<label for="fname">First Name</label>
-				</div>
+					<!-- start of row-->
+					<div class="row">
 
-				<div class="input-field col s4">
-				<input id="lname" type="text" class="validate" ng-model="student.mname" class="form-control" required>
-				<label for="lname">Middle Name</label>
-				</div>
+						<div class="input-field col s4">
+							<input id="fname" type="text" class="validate" ng-model="student.fname" class="form-control" required>
+							<label for="fname">First Name</label>
+						</div>
 
-				<div class="input-field col s4">
-				<input id="lname" type="text" class="validate" ng-model="student.lname" class="form-control" required>
-				<label for="lname">Last Name</label>
-				</div>
+						<div class="input-field col s4">
+							<input id="lname" type="text" class="validate" ng-model="student.mname" class="form-control" required>
+							<label for="lname">Middle Name</label>
+						</div>
 
-				<div class="input-field col s6">
-				<input id="course" type="text" class="validate" ng-model="student.degcourse" class="form-control" required>
-				<label for="course">Degree Course</label>
-				</div>
+						<div class="input-field col s4">
+							<input id="lname" type="text" class="validate" ng-model="student.lname" class="form-control" required>
+							<label for="lname">Last Name</label>
+						</div>
 
-				<div class="input-field col s6">
-				<input id="college" type="text" class="validate" ng-model="student.college" class="form-control" required>
-				<label for="college">College</label>
-				</div>
+						<div class="input-field col s6">
+							<input id="course" type="text" class="validate" ng-model="student.degcourse" class="form-control" required>
+							<label for="course">Degree Course</label>
+						</div>
 
-				<div class="input-field col s6">
-				<input id="studNum" type="tel" class="validate" ng-model="student.studentno" class="form-control" required pattern="\d{4}-\d{5}" title="e.g. 2013-12345">
-				<label for="studNum">Student Number</label>
-				</div>
+						<div class="input-field col s6">
+							<input id="college" type="text" class="validate" ng-model="student.college" class="form-control" required>
+							<label for="college">College</label>
+						</div>
 
-				<div class="input-field col s6">
-				<input id="section" type="number" min="1" max="{{ sectionslimit }}" class="validate" ng-model="student.lrsection" class="form-control" required>
-				<label for="section">Lab/Recit Section</label>
-				</div>
+						<div class="input-field col s6">
+							<input id="studNum" type="tel" class="validate" ng-model="student.studentno" class="form-control" required pattern="\d{4}-\d{5}" title="e.g. 2013-12345">
+							<label for="studNum">Student Number</label>
+						</div>
 
-				<div class="file-field input-field col s6">
-					<div class="waves-effect waves-light <%= colorScheme %> darken-3 btn">
-						<span>Picture</span>
-						<input id="uploadPicBtn" type="file" name='file' accept=".jpeg,.jpg,.png" file-model="student.pictureFile"  />
+						<div class="input-field col s6">
+							<input id="section" type="number" min="1" max="{{ sectionslimit }}" class="validate" ng-model="student.lrsection" class="form-control" required>
+							<label for="section">Lab/Recit Section</label>
+						</div>
+
+						<div class="file-field input-field col s6">
+							<div class="waves-effect waves-light <%= colorScheme %> darken-3 btn">
+								<span>Picture</span>
+								<input id="uploadPicBtn" type="file" name='file' accept=".jpeg,.jpg,.png" file-model="student.pictureFile"/>
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text">
+							</div>
+						</div>
+
+						<div class="input-field col s6">
+							<input id="seatno" type="text" class="validate" ng-model="student.seatno" class="form-control" required pattern="[A-G][0-9]{1,2}" title="e.g. A1">
+							<label for="seatno">Seat Number (A-G and 1-15)</label>
+						</div>
+
+						<div class="input-field col s6">
+							<select ng-model="student.sex">
+							<option value="" disabled selected>Sex</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							</select>
+						</div>
+
+					</div><!-- end of row-->
+
+					<div>
+						<input type="submit" class="waves-effect waves-light <%= colorScheme %> btn" value="Add Student" />
 					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text">
-					</div>
-				</div>
 
-				<div class="input-field col s6">
-				<input id="seatno" type="text" class="validate" ng-model="student.seatno" class="form-control" required pattern="[A-Z][0-9]{1,2}" title="e.g. A4">
-				<label for="seatno">Seat Number</label>
-				</div>
-
-				<div class="input-field col s6">
-				<select ng-model="student.sex">
-				<option value="" disabled selected>Sex</option>
-				<option value="Male">Male</option>
-				<option value="Female">Female</option>
-				</select>
-				</div>
-
-				</div>
-
-				<div>
-				<input type="submit" class="waves-effect waves-light <%= colorScheme %> btn" value="Add Student" />
-				</div>
-
-				</form>
+					</form>
 				</div>
 				<!-- END OF ADD STUDENT FORM-->
 				</div>

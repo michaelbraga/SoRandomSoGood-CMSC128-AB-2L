@@ -36,7 +36,7 @@
 				$scope.students = res;
 			})
 			.catch(function (res) {
-				alert("Problem loading the students :(");
+				Materialize.toast("Problem loading the students :(", 4000, 'rounded');
 			});
 
 
@@ -46,7 +46,7 @@
 				$scope.sectionslimit = response.no_lrsections;
 			})
 			.catch(function (response) {
-				alert('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]");
+				Materialize.toast('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]", 3000, 'rounded');
 			});
 
 
@@ -70,7 +70,11 @@
 
 		$scope.EditStudent = function () {
 			if (!$scope.student.sex) {
-				alert("Plese select a sex!");
+				Materialize.toast("Plese select a sex!", 3000, 'rounded');
+				return;
+			}
+			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
+				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 3000, 'rounded');
 				return;
 			}
 
@@ -114,12 +118,12 @@
 					})
 					.catch(function (res) {
 						// inform if error
-						alert("Something went wrong!");
+						Materialize.toast("Something went wrong!", 3000, 'rounded');
 					});
 			}
 		}
 
-			// RANDOMIZER FUNCTION (Team Hopper)
+		// RANDOMIZER FUNCTION (Team Hopper)
 		// INITIAL ROWS AND COLS FOR ICSMH
 		$scope.rows = 7;
 		$scope.cols = 8;
@@ -128,7 +132,6 @@
 		$scope.countah = 0;
 		$scope.stud = [];
 		var randomized = [];
-		var delay = 10;
 		var ctr = 0;
 
 		$scope.submitData = function() {
@@ -137,27 +140,22 @@
 				Materialize.toast("Invalid input for number of volunteer/s!", 4000);
 			}else{
 				Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000);
-				initRowCol();
-				setTimeout(function(){ genRowCol(); }, delay);
+				TeacherService.randomizeSeat($scope.vol, $('#courseno').html().trim(), $('#lecturesection').html().trim())
+				.then(function (res) {
+					randomized = res;
+					initRowCol();
+					genRowCol();
+				})
+				.catch(function (res) {
+					Materialize.toast("Problem randomizing students", 4000);
+				});
 			}
 		}
 
 		var initRowCol = function(){
 			document.getElementById("seats").innerHTML = "";
 			document.getElementById("seats2").innerHTML = "";
-			TeacherService.randomizeSeat($scope.vol, $('#courseno').html().trim(), $('#lecturesection').html().trim())
-				.then(function (res) {
-					randomized = res;
-				})
-				.catch(function (res) {
-					Materialize.toast("Problem randomizing students", 4000);
-				});
 		}
-
-		var sleep = function(delay) {
-	        var start = new Date().getTime();
-	        while (new Date().getTime() < start + delay);
-	    }
 
 		var genRowCol = function(){
   			$scope.rowNum = 1;
@@ -225,8 +223,6 @@
 				}
 			document.getElementById("seats2").innerHTML += "<br/><br/>";
 			}
-
-			//randomizer();
 		}
 	}
 })();

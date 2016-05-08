@@ -22,7 +22,7 @@
 				$scope.teacher = response;
 			})
 			.catch(function (response) {
-				alert("Problem loading the teacher :(");
+				Materialize.toast("Problem loading the teacher :(", 3000, 'rounded');
 			});
 
 		$scope.EditTeacher = function (teacher){
@@ -44,12 +44,12 @@
 							})
 							.catch(function (response) {
 								// inform if error
-								alert("Something went wrong while updating password!");
+								Materialize.toast("Something went wrong while updating password!", 3000, 'rounded');
 							});
 					})
 					.catch(function (res) {
 						// inform if error
-						alert("Something went wrong!");
+						Materialize.toast("Something went wrong!", 3000, 'rounded');
 					});
 			}
 		}

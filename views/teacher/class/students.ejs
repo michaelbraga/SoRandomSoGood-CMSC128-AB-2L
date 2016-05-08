@@ -86,14 +86,14 @@
 						</div>
 
 						<div class="input-field col s6">
-							<input  type="text" ng-model="student.seatno" id="seatno" class="validate" required="required"/>
-							<label class="active" for="seatno">Seat Number</label>
+							<input  type="text" ng-model="student.seatno" id="seatno" class="validate" required pattern="[A-G][0-9]{1,2}" title="e.g. A1"/>
+							<label class="active" for="seatno">Seat Number (A-G and 1-15)</label>
 						</div>
 
 						<div class="file-field input-field col s6">
 							<div class="waves-effect waves-light <%= colorScheme %> darken-3 btn">
 								<span>Picture</span>
-								<input id="uploadPicBtn" type="file" name='file' accept=".jpeg,.jpg,.png" file-model="student.pictureFile"  />
+								<input id="uploadPicBtn" type="file" name='file' accept=".jpeg,.jpg,.png" file-model="student.pictureFile"/>
 							</div>
 							<div class="file-path-wrapper">
 								<input class="file-path validate" type="text">

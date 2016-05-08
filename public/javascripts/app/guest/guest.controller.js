@@ -63,7 +63,7 @@
 			GuestService.CreateAnAccount($scope.su)
 			// if successful or status code == 200
 			.then(function (res) {
-				alert("Registration successful!");
+				Materialize.toast("Registration successful!", 3000, 'rounded');
 				$("form#s")[0].reset();
 			})
 			// if failure or status code = 404, 401, etc.

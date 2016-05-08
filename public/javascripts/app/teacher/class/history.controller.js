@@ -50,7 +50,6 @@
 			}
 		}
 
-
 		TeacherService.GetHistory(courseno, lecturesection)
 		.then(function (res) {
 			$scope.hist = res;
@@ -65,7 +64,7 @@
 		})
 		.catch(function (res) {
 			console.log(res);
-			alert("Problem loading the history :(");
+			Materialize.toast("Problem loading the history :(", 3000, 'rounded');
 		});
 
 		var GetDate = function (date) {

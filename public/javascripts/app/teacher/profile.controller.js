@@ -80,7 +80,7 @@
 					}, 1250);
 				})
 				.catch(function (response) {
-					alert("Problem changing color :(");
+					Materialize.toast("Problem changing color :(", 3000, 'rounded');
 				});
 		}
 	}

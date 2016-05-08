@@ -43,7 +43,7 @@
 				}
 			})
 			.catch(function (response) {
-				alert('Unable to get classes from ' + $scope.username);
+				Materialize.toast('Unable to get classes from ' + $scope.username, 3000, 'rounded');
 			});
 		}
 		LoadClasses();
@@ -63,7 +63,7 @@
 		$scope.AddClass = function () {
 			// check if there no_lrsections is entered
 			if (!$scope.class.no_lrsections) {
-				alert("Please enter the number of sections.");
+				Materialize.toast("Please enter the number of sections.", 3000, 'rounded');
 				return;
 			}
 
@@ -141,7 +141,7 @@
 		$scope.EditClass = function (course) {
 			// check if no_lrsections is entered
 			if (!$scope.edit.no_lrsections) {
-				alert("Please enter the number of sections.");
+				Materialize.toast("Please enter the number of sections.", 3000, 'toast');
 				return;
 			}
 
@@ -155,7 +155,7 @@
 				.catch(function (res) {
 					// inform if error
 					console.log(res);
-					alert("Error updating class '"+$scope.edit.old_courseno+" "+$scope.edit.old_lecturesection+"'!");
+					Materialize.toast("Error updating class '"+$scope.edit.old_courseno+" "+$scope.edit.old_lecturesection+"'!", 3000, 'rounded');
 				});
 
 			transition(course);
@@ -186,17 +186,17 @@
 									})
 									.catch(function (res) {
 										// inform if error
-										alert("Cannot delete class, something's wrong!");
+										Materialize.toast("Cannot delete class, something's wrong!", 3000, 'rounded');
 									});
 							})
 							.catch(function (res) {
 								// inform if error
-								alert("Cannot delete students in "+"["+course.courseno+" " +course.lecturesection+']'+", something's wrong!");
+								Materialize.toast("Cannot delete students in "+"["+course.courseno+" " +course.lecturesection+']'+", something's wrong!", 3000, 'rounded');
 							});
 					})
 					.catch(function (res) {
 						// inform if error
-						alert("Cannot delete logs in "+"["+course.courseno+" " +course.lecturesection+']'+", something's wrong!");
+						Materialize.toast("Cannot delete logs in "+"["+course.courseno+" " +course.lecturesection+']'+", something's wrong!", 3000, 'rounded');
 					});
 
 			}

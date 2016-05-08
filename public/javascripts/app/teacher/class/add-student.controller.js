@@ -23,13 +23,18 @@ $(document).ready(function () {
 				$scope.sectionslimit = response.no_lrsections;
 			})
 			.catch(function (response) {
-				alert('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]");
+				Materialize.toast('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]");
 			});
 
 
 		$scope.AddStudent = function () {
-			if (!$scope.student.sex) {
-				alert("Plese select a sex!");
+			if(!$scope.student.sex) {
+				Materialize.toast("Plese select a sex!", 3000, 'rounded');
+				return;
+			}
+			
+			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
+				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 3000, 'rounded');
 				return;
 			}
 
@@ -45,7 +50,6 @@ $(document).ready(function () {
 
 			if(document.getElementById("uploadPicBtn").files.length == 0){
 				$scope.student.picture = "/uploads/default.png";
-
 			}
 
 			TeacherService.AddStudent($scope.student)
@@ -65,7 +69,6 @@ $(document).ready(function () {
 								Materialize.toast("FAIL! Something's wrong with file upload:(", 3000, 'rounded');
 							});
 					}
-
 
 					$('#addForm')[0].reset();
 				})
