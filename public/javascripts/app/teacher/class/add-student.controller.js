@@ -104,22 +104,28 @@ $(document).ready(function () {
 						var obj = {};
 						for(j=0; j<headers.length; j++){
 							attrib = headers[j];
-							obj[attrib] = currentline[j];
+							if(attrib=="degcourse" || attrib=="college"){
+								obj[attrib] = currentline[j].toUpperCase();
+							} else if(attrib=='sex'){
+								obj[attrib] = (currentline[j].toUpperCase() == "MALE")? "m":"f";
+							} else {
+								obj[attrib] = currentline[j];	
+							}
 						}
-						obj["courseno"] = $('#courseno').html().trim();
-						obj["lecturesection"] = $('#lecturesection').html().trim();
+						obj["picture"] = "/uploads/default.png";
+						obj["courseno"] = $('#courseno').html().trim().toUpperCase();
+						obj["lecturesection"] = $('#lecturesection').html().trim().toUpperCase();
 						result.push(obj);
 					}
 
 					for(i=0;i<result.length;i++){
-						var studentno = result[i].studentno;
 						TeacherService.AddStudent(result[i])
 							.then(function (res) {
-								Materialize.toast("Student [" + studentno + "] was added successfully!", 3000, 'rounded');
+								Materialize.toast("Student [" + res.studentno + "] was added successfully!", 3000, 'rounded');
 								$('#readFileForm')[0].reset();
 							})
 							.catch(function (res) {
-								Materialize.toast("FAILED TO ADD Student [" + studentno + "]! Something's wrong :(", 3000, 'rounded');
+								Materialize.toast("FAILED TO ADD Student [" + res.studentno + "]! Something's wrong :(", 3000, 'rounded');
 							});
 					}
 
