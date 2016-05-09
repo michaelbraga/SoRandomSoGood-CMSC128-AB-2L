@@ -182,7 +182,7 @@
 										// wait for 1.250 seconds for reloading to reload the classes
 										setTimeout(function(){
 										    $window.location.reload();
-									    	}, 1250);
+										}, 1200);
 									})
 									.catch(function (res) {
 										// inform if error
