@@ -10,7 +10,7 @@
     <%- include ./../utils/materialize %>
     <!-- Font Smoothing -->
     <%- include ./../utils/font-smoothing %>
-
+	<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
     <script type="text/javascript" src="javascripts/utils/prism.js"></script>
     <script type="text/javascript" src="javascripts/utils/perfect-scrollbar.js"></script>
     <script type="text/javascript" src="javascripts/utils/plugins.js"></script>
@@ -18,6 +18,11 @@
 
 
 <body>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left" style="background-color:white"></div>
+		<div class="loader-section section-right" style="background-color:white"></div>
+	</div>
 <%- include partials/navbar %>
 
 <div style="text-align:center;">
@@ -28,7 +33,7 @@
     <div id="seats2" style="float:right;margin-right:25px;margin-left:20px;"></div>
 </div>
 
-<div class="container" style="position:fixed;bottom:50px;text-align:center;margin-left:12%;">
+<div class="container" style="position:fixed;bottom:50px;text-align:center;">
   <h6 style="text-align:center;">
       No. of Volunteers:
       <input type="text" class="form-control"style="height:40px; width: 40px;" placeholder="n" id="vol"></br>

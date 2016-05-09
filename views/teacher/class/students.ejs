@@ -24,10 +24,14 @@
 		<!-- ANGULAR FILES | Service and Controller -->
 		<script type="text/javascript" src="/javascripts/app/teacher/class/student.controller.js"></script>
 		<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
-	
+
 	</head>
 	<body ng-app="TeacherApp" ng-controller="StudentCtrl">
-
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white"></div>
+			<div class="loader-section section-right" style="background-color:white"></div>
+		</div>
 		<%- include ./../partials/navbar-class %>
 
 		<div class="" hidden="hidden" id="courseno">
@@ -136,7 +140,7 @@
 									<div class="container">
 										<img ng-src="{{student.picture}}" alt="{{student.studentno}}" height="250" width="250">
 									</div>
-								</div>							
+								</div>
 								<div style="col margin-left:200px;">
 									<br/>Student No.: {{student.studentno}}
 									<br/>Name: {{student.fname + " " + student.mname + " " + student.lname}}
@@ -157,8 +161,8 @@
 									</br></br>
 								</div>
 							</div>
-							
-							
+
+
 						</div>
 					</li>
 

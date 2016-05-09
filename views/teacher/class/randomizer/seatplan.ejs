@@ -23,7 +23,11 @@
 		<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
 	</head>
 	<body ng-app="TeacherApp" ng-controller="StudentCtrl">
-
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white"></div>
+			<div class="loader-section section-right" style="background-color:white"></div>
+		</div>
 		<!-- Navigation Bar -->
 		<% include ./../../partials/navbar-class %>
 

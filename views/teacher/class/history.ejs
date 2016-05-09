@@ -24,6 +24,11 @@
 		<script type="text/javascript" src="/javascripts/utils/data-tables-script.js"></script>
 	</head>
 	<body ng-app="TeacherApp" ng-controller="HistoryCtrl">
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white"></div>
+			<div class="loader-section section-right" style="background-color:white"></div>
+		</div>
 		<%- include ./../partials/navbar-class %>
 		<!-- Loading Page -->
 		<div id="loader-wrapper">

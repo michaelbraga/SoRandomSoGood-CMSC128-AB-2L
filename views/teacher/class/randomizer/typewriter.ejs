@@ -29,7 +29,7 @@
 		<script type="text/javascript" src="/javascripts/app/teacher/randomize/randomize.controller.js"></script>
 		<script type="text/javascript" src="/javascripts/app/teacher/randomize/randomize.service.js"></script>
 		<!-- REFERENCE: http://codepen.io/rusjames/pen/uAFhE -->
-		
+
 		<style>
 		#typewriter{
 		  font-size: 80%;
@@ -40,7 +40,7 @@
 		  animation: type 7s steps(60, end);
 
 		  font-family: "Courier";
-		  animation: type 4s steps(60, end); 
+		  animation: type 4s steps(60, end);
 		}
 
 		#line{
@@ -58,7 +58,11 @@
 		</style>
 	</head>
 	<body ng-app="TeacherApp" ng-controller="RandomizeCtrl">
-
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white"></div>
+			<div class="loader-section section-right" style="background-color:white"></div>
+		</div>
 		<!-- Navigation Bar -->
 		<% include ./../../partials/navbar-class %>
 
@@ -223,7 +227,7 @@
 			 		<br />
 					<input type="text" id="userText"/>
 			        <button class="waves-effect btn-large <%= colorScheme %> darken-3" style="margin-left:42%;margin-bottom:5%;" ng-click="randomize()">RANDOMIZE</button>
-			        
+
 			        <div style="font-weight:bold; font-size:30px; align: center; color:black;">
 		        		<table>
 							<tr ng-repeat="student in randomizedStudents">
