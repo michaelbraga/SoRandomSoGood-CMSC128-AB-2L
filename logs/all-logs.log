@@ -534,3 +534,6 @@
 {"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-09T00:59:58.018Z"}
 {"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-09T00:59:58.028Z"}
 {"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-09T00:59:58.074Z"}
+{"level":"info","message":"Connected to MySQL database at cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com : 3306","timestamp":"2016-05-09T13:04:32.128Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-09T13:04:32.154Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-09T13:04:32.291Z"}
