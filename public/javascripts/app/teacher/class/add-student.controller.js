@@ -23,19 +23,34 @@ $(document).ready(function () {
 				$scope.sectionslimit = response.no_lrsections;
 			})
 			.catch(function (response) {
-				Materialize.toast('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]");
+				Materialize.toast('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]", 4000);
 			});
 
+		var stud = [];
+		TeacherService.GetAllStudentsInClass($('#courseno').html().trim(), $('#lecturesection').html().trim())
+			.then(function (response) {
+				stud = response;
+			})
+			.catch(function (response) {
+				Materialize.toast("Error in checking available seats/student number! :( ", 4000, 'rounded');
+			});
 
 		$scope.AddStudent = function () {
 			if(!$scope.student.sex) {
 				Materialize.toast("Plese select a sex!", 3000, 'rounded');
 				return;
 			}
-			
-			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
-				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 3000, 'rounded');
-				return;
+
+			for(var i=0; i<stud.length; i++){
+				if(stud[i].seatno == $scope.student.seatno){
+					console.log(stud[i].seatno + " == " + $scope.student.seatno);
+					Materialize.toast("Seat number is already taken! Try again.", 4000, 'rounded');
+					return;
+				} else if(stud[i].studentno == $scope.student.studentno){
+					console.log(stud[i].studentno + " == " + $scope.student.studentno);
+					Materialize.toast("Student number is already taken! Try again.", 4000, 'rounded');
+					return;
+				}
 			}
 
 			// add lecturesection and course no
