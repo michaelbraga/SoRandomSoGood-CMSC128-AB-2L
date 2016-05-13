@@ -41,6 +41,10 @@
 						$scope.rows.push(list);
 					}
 				}
+
+				if(subjects.length == 0){
+					Materialize.toast("No classes yet. Click Add a Class button below! ", 9000, 'rounded');
+				}
 			})
 			.catch(function (response) {
 				Materialize.toast('Unable to get classes from ' + $scope.username, 3000, 'rounded');
