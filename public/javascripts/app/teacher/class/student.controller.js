@@ -135,19 +135,26 @@
 		var ctr = 0;
 
 		$scope.submitData = function() {
-			$scope.vol = document.getElementById("vol").value;
-			if($scope.vol <= 0){
-				Materialize.toast("Invalid input for number of volunteer/s!", 4000);
+			if( $scope.vol <= 0  || $scope.vol.match(/[^0-9]/) || $scope.vol > 105){
+				Materialize.toast("Invalid input for number of volunteer/s!", 4000, 'rounded');
+				$scope.vol = '';
 			}else{
-				Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000);
 				TeacherService.randomizeSeat($scope.vol, $('#courseno').html().trim(), $('#lecturesection').html().trim())
 				.then(function (res) {
 					randomized = res;
-					initRowCol();
-					genRowCol();
+					var studCount = randomized.length;
+					if($scope.vol > studCount){
+						Materialize.toast("Not enough students to randomize. Available students: "+ studCount, 4000, 'rounded');
+						$scope.vol = '';
+					} else{
+						Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000, 'rounded');
+						$scope.vol = '';
+						initRowCol();
+						genRowCol();
+					}
 				})
 				.catch(function (res) {
-					Materialize.toast("Problem randomizing students", 4000);
+					Materialize.toast("Problem randomizing students!", 4000, 'rounded');
 				});
 			}
 		}

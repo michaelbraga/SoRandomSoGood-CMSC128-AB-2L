@@ -36,7 +36,7 @@
 <div class="container" style="position:fixed;bottom:50px;text-align:center;">
   <h6 style="text-align:center;">
       No. of Volunteers:
-      <input type="text" class="form-control"style="height:40px; width: 40px;" placeholder="n" id="vol"></br>
+      <input type="text" class="form-control"style="height:40px; width: 40px;" placeholder=" N" id="vol"></br>
       <button class="btn waves-effect waves-light red darken-4" type="submit" onclick="submitData()">RANDOMIZE</button>
   </h6>
 </div>
@@ -47,15 +47,15 @@
   var k = 0;
 
 function submitData(){
+
   vol = document.getElementById("vol").value;
-  if (vol == 0) {
-    Materialize.toast("Enter number of voulnteers!",3000);
-  } else if (vol > 105) {
-    Materialize.toast("Not enough students!", 3000);
-  } else if (vol < 0) {
-    Materialize.toast("Invalid number of volunteers!", 3000);
+  
+  if (vol > 105) {
+    Materialize.toast("Not enough students!", 4000, 'rounded');
+  } else if (vol <= 0 || vol.match(/[^0-9]/)) {
+    Materialize.toast("Invalid input for number of volunteer/s!", 4000, 'rounded');
   } else {
-    Materialize.toast("No. of volunteer/s: "+vol, 4000);
+    Materialize.toast("No. of volunteer/s: "+vol, 4000, 'rounded');
     initRowCol();
     setTimeout(function(){ genRowCol(); }, 100);
   }
