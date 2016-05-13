@@ -52,6 +52,11 @@
 
 		$scope.ToggleEdit = function (student, index) {
 			$('#EditModal').openModal();
+
+			var gender;
+			if(student.sex == "m") gender = "Male";
+			else gender = "Female";
+
 			$scope.student = {
 				college: student.college,
 				courseno: student.courseno,
@@ -64,6 +69,7 @@
 				picture: student.picture,
 				seatno: student.seatno,
 				studentno: student.studentno,
+				sex: gender
 			};
 			$scope.i = index;
 		}

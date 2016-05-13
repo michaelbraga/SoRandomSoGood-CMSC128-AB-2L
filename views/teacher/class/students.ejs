@@ -64,7 +64,7 @@
 						</div>
 
 						<div class="input-field col s6">
-							<input  type="text" ng-model="student.studentno" id="studentno" class="validate" required="required"/>
+							<input  type="text" ng-model="student.studentno" id="studentno" class="validate" required pattern="\d{4}-\d{5}" title="e.g. 2013-12345"/>
 							<label class="active" for="studentno">Student Number</label>
 						</div>
 						<div class="input-field col s6">
@@ -76,17 +76,15 @@
 							<input  type="text" ng-model="student.college" id="college" class="validate" required="required"/>
 							<label class="active" for="college">College</label>
 						</div>
+
 						<div class="input-field col s6">
-							<select ng-model="student.sex">
-							<option value="" disabled selected>Sex</option>
-							<option value="m">Male</option>
-							<option value="f">Female</option>
-							</select>
+							<input  type="text" ng-model="student.sex" id="sex" class="validate" required pattern="(Male|Female)" title="e.g. Male or Female"/>
+							<label class="active" for="sex">Sex</label>
 						</div>
 
 						<div class="input-field col s6">
-						<input id="lrsection" type="number" min="1" max="{{sectionslimit}}" class="validate" ng-model="student.lrsection" class="form-control" required>
-						<label class="active" for="lrsection">Lab/Recit Section</label>
+							<input id="lrsection" type="number" min="1" max="{{sectionslimit}}" class="validate" ng-model="student.lrsection" class="form-control" required>
+							<label class="active" for="lrsection">Lab/Recit Section</label>
 						</div>
 
 						<div class="input-field col s6">

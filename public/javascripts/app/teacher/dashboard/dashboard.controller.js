@@ -31,6 +31,12 @@
 			TeacherService.GetAllClasses($scope.username)
 			.then(function (response) {
 				var subjects = response;
+
+				console.log(subjects.length);
+				if(subjects.length == 0){
+					Materialize.toast("No classes yet. Click Add a Class button below! ", 9000, 'rounded');
+				}
+
 				for (var i = 0; i < subjects.length; i++) {
 					GetNumberOfStudents(subjects[i].courseno, subjects[i].lecturesection);
 				}
@@ -40,10 +46,6 @@
 						list = subjects.splice(0, 3);
 						$scope.rows.push(list);
 					}
-				}
-
-				if(subjects.length == 0){
-					Materialize.toast("No classes yet. Click Add a Class button below! ", 9000, 'rounded');
 				}
 			})
 			.catch(function (response) {

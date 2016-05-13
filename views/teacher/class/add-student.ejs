@@ -43,12 +43,14 @@
 
 
 		<%- include ./../partials/navbar-class %>
-		<div class="row center-align" style="max-width: 900px;">
+		<div class="row" style="max-width: 900px;">
 			<div class="row card-panel">
 				<div class="col s12">
 
 				<br/>
-				<a href="students" class="left-align btn-floating btn-large waves-effect waves-light <%= colorScheme %> btn"><i class="material-icons">chevron_left</i></a>
+				<div style="text-align:center;">
+					<a href="students" class="btn-floating btn-large waves-effect waves-light <%= colorScheme %> btn"><i class="material-icons">chevron_left</i></a>
+				</div>
 				<br/>
 
 				<h4 style="text-align:left;">Add Student</h4>
@@ -119,7 +121,7 @@
 
 					</div><!-- end of row-->
 
-					<div>
+					<div style="text-align:center;">
 						<input type="submit" class="waves-effect waves-light <%= colorScheme %> btn" value="Add Student" />
 					</div>
 
@@ -130,24 +132,24 @@
 
 
 				<div class="container">
-				<h4 style="text-align:left;">Add Students From File</h4>
-				<p>
-					You can add multiple students using a CSV file, with the following format:
-				</p>
-				<p>	
-					fname, mname, lname, studentno, degcourse, college, lrsection, seatno, sex
-				</p>
-				<form class="col s10 center" id="readFileForm" >
-				<div class="file-field input-field">
-				<div class="waves-effect waves-light <%= colorScheme %> btn">
-				<span>File</span>
-				<input id="fileReadBtn" type="file" ng-click="readFile()" accept=".csv">
-				</div>
-				<div class="file-path-wrapper">
-				<input class="file-path validate" type="text">
-				</div>
-				</div>
-	        		</form>
+					<h4 style="text-align:left;">Add Students From File</h4>
+					<p style="text-align:center;font-style:italic;">
+						You can add multiple students using a CSV file, by using the following format: <br/>
+						fname, mname, lname, studentno, degcourse, college, lrsection, seatno, sex
+					</p>
+					<form class="col s10 center" id="readFileForm" >
+						<div class="file-field input-field">
+
+						<div class="waves-effect waves-light <%= colorScheme %> btn">
+							<span>File</span>
+							<input id="fileReadBtn" type="file" ng-click="readFile()" accept=".csv">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+
+						</div>
+		        	</form>
 	      		</div>
 			</div>
 
