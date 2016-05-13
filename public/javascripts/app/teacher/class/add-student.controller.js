@@ -41,6 +41,11 @@ $(document).ready(function () {
 				return;
 			}
 
+			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
+				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 4000, 'rounded');
+				return;
+			}
+
 			for(var i=0; i<stud.length; i++){
 				if(stud[i].seatno == $scope.student.seatno){
 					console.log(stud[i].seatno + " == " + $scope.student.seatno);

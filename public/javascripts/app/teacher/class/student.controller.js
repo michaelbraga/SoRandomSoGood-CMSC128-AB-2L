@@ -77,7 +77,8 @@
 				picture: student.picture,
 				seatno: student.seatno,
 				studentno: student.studentno,
-				sex: gender
+				sex: gender,
+				gender: gender
 			};
 			$scope.i = index;
 		}
@@ -85,6 +86,11 @@
 		$scope.EditStudent = function () {
 			if (!$scope.student.sex) {
 				Materialize.toast("Plese select a sex!", 3000, 'rounded');
+				return;
+			}
+
+			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
+				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 4000, 'rounded');
 				return;
 			}
 			
@@ -100,11 +106,13 @@
 				}
 			}
 
+			$scope.student.sex = ($scope.student.gender == 'Male')? "m":"f";
+
 			TeacherService.EditStudent($scope.student, $scope.student.courseno, $scope.student.lecturesection, $scope.student.studentno)
 				.then(function (res) {
 					$scope.students[$scope.i] = $scope.student;
-					// $('#EditModal').closeModal();
-
+					//$('#EditModal').closeModal();
+					
 					Materialize.toast("Student ["+$scope.student.studentno+"] was edited successfully!", 3000, 'rounded');
 
 					if(document.getElementById("uploadPicBtn").files.length != 0){
