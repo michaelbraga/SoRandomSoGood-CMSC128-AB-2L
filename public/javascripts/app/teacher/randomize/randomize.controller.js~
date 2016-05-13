@@ -171,7 +171,22 @@ $(document).ready(function () {
 			}
 		}
 		$scope.addNamesToTable = function(student){
-			if($scope.studentNames.indexOf(student)==-1 && $scope.studentNames2.indexOf(student)==-1){
+			var check = 0;
+			for(var i=0;i<$scope.studentNames.length;i++){
+				console.log($scope.studentNames[i].studentno + " " + student.studentno);
+				if(student.studentno==$scope.studentNames[i].studentno){
+					check = 1;
+					break;
+				}
+			}
+			for(var i=0;i<$scope.studentNames2.length;i++){
+				console.log($scope.studentNames2[i].studentno + " " + student.studentno);
+				if(student.studentno==$scope.studentNames2[i].studentno){
+					check = 1;
+					break;
+				}
+			}
+			if(check==0){
 				$scope.studentNames.push(student);
 			}
 			else{
@@ -179,7 +194,22 @@ $(document).ready(function () {
 			}
 		}
 		$scope.addNamesToTable2 = function(student){
-			if($scope.studentNames2.indexOf(student)==-1 && $scope.studentNames.indexOf(student)==-1){
+			var check = 0;
+			for(var i=0;i<$scope.studentNames2.length;i++){
+				console.log($scope.studentNames2[i].studentno + " " + student.studentno);
+				if(student.studentno==$scope.studentNames2[i].studentno){
+					check = 1;
+					break;
+				}
+			}
+			for(var i=0;i<$scope.studentNames.length;i++){
+				console.log($scope.studentNames[i].studentno + " " + student.studentno);
+				if(student.studentno==$scope.studentNames[i].studentno){
+					check = 1;
+					break;
+				}
+			}
+			if(check==0){
 				$scope.studentNames2.push(student);
 			}
 			else{
