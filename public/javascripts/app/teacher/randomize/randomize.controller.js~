@@ -26,6 +26,7 @@ $(document).ready(function () {
 		$scope.studentNames = [];
 		$scope.studentNames2 = [];
 		$scope.N;
+		$scope.no_students
 		var ifburo = false;
 		var N = 0;
 		var courseno = $('#courseno').html().trim();
@@ -52,6 +53,7 @@ $(document).ready(function () {
 		RandomizeService.GetNumberOfStudents(courseno, lecturesection)
 			.then(function (res) {
 				$scope.no_students = res.no_students;
+				if($scope.no_students==0) Materialize.toast("Add student first!", 9000, 'rounded');
 			})
 			.catch(function (res) {
 			});

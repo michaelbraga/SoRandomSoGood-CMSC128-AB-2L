@@ -82,7 +82,7 @@
 			  <br/><h3>According to:</h3>
 				  <div class="input-field col s3">
 	  			<span>Section</span><br />
-	  			<input type="text" ng-model="section" />
+	  			<input type="text" placeholder="1 to N number of sections" ng-model="section" />
 	  			</div>
 
 	  			<p>
