@@ -30,10 +30,12 @@
 
 	function StudentCtrl($scope, TeacherService) {
 		$scope.students = [];
+		var stud = [];
 
 		TeacherService.GetAllStudentsInClass($('#courseno').html().trim(), $('#lecturesection').html().trim())
 			.then(function (res) {
 				$scope.students = res;
+				stud = res;
 			})
 			.catch(function (res) {
 				Materialize.toast("Problem loading the students :(", 4000, 'rounded');
@@ -49,9 +51,20 @@
 				Materialize.toast('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]", 3000, 'rounded');
 			});
 
+		
+		var oldStudentNo;
+		var oldSeatNo;
 
 		$scope.ToggleEdit = function (student, index) {
 			$('#EditModal').openModal();
+
+			var gender;
+			if(student.sex == "m") gender = "Male";
+			else gender = "Female";
+
+			oldSeatNo = student.seatno;
+			oldStudentNo = student.studentno;
+
 			$scope.student = {
 				college: student.college,
 				courseno: student.courseno,
@@ -64,6 +77,8 @@
 				picture: student.picture,
 				seatno: student.seatno,
 				studentno: student.studentno,
+				sex: gender,
+				gender: gender
 			};
 			$scope.i = index;
 		}
@@ -73,16 +88,31 @@
 				Materialize.toast("Plese select a sex!", 3000, 'rounded');
 				return;
 			}
+
 			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
-				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 3000, 'rounded');
+				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 4000, 'rounded');
 				return;
 			}
+			
+			for(var i=0; i<stud.length; i++){
+				if(oldSeatNo != $scope.student.seatno && stud[i].seatno == $scope.student.seatno){
+					console.log(stud[i].seatno + " == " + $scope.student.seatno);
+					Materialize.toast("Seat number is already taken! Try again.", 4000, 'rounded');
+					return;
+				} else if(oldStudentNo != $scope.student.studentno && stud[i].studentno == $scope.student.studentno){
+					console.log(stud[i].studentno + " == " + $scope.student.studentno);
+					Materialize.toast("Student number is already taken! Try again.", 4000, 'rounded');
+					return;
+				}
+			}
+
+			$scope.student.sex = ($scope.student.gender == 'Male')? "m":"f";
 
 			TeacherService.EditStudent($scope.student, $scope.student.courseno, $scope.student.lecturesection, $scope.student.studentno)
 				.then(function (res) {
 					$scope.students[$scope.i] = $scope.student;
-					// $('#EditModal').closeModal();
-
+					//$('#EditModal').closeModal();
+					
 					Materialize.toast("Student ["+$scope.student.studentno+"] was edited successfully!", 3000, 'rounded');
 
 					if(document.getElementById("uploadPicBtn").files.length != 0){
@@ -135,19 +165,26 @@
 		var ctr = 0;
 
 		$scope.submitData = function() {
-			$scope.vol = document.getElementById("vol").value;
-			if($scope.vol <= 0){
-				Materialize.toast("Invalid input for number of volunteer/s!", 4000);
+			if( $scope.vol <= 0  || $scope.vol.match(/[^0-9]/) || $scope.vol > 105){
+				Materialize.toast("Invalid input for number of volunteer/s!", 4000, 'rounded');
+				$scope.vol = '';
 			}else{
-				Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000);
 				TeacherService.randomizeSeat($scope.vol, $('#courseno').html().trim(), $('#lecturesection').html().trim())
 				.then(function (res) {
 					randomized = res;
-					initRowCol();
-					genRowCol();
+					var studCount = randomized.length;
+					if($scope.vol > studCount){
+						Materialize.toast("Not enough students to randomize. Available students: "+ studCount, 4000, 'rounded');
+						$scope.vol = '';
+					} else{
+						Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000, 'rounded');
+						$scope.vol = '';
+						initRowCol();
+						genRowCol();
+					}
 				})
 				.catch(function (res) {
-					Materialize.toast("Problem randomizing students", 4000);
+					Materialize.toast("Problem randomizing students!", 4000, 'rounded');
 				});
 			}
 		}

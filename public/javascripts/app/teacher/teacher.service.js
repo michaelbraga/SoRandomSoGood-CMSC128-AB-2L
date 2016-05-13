@@ -388,6 +388,7 @@
 			});
 			return deferred.promise;
 		}
+
 		function UpdateTeacherUsername(updatedUsername, username) {
 		     var deferred = $q.defer();
 		     var completeUrl = url + "/teacher-username/"+username;
