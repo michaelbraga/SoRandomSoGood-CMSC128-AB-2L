@@ -30,14 +30,14 @@
 
 	function StudentCtrl($scope, TeacherService) {
 		$scope.students = [];
-		$scope.seatplan = false;
-		$scope.walang_students = true;
+		$scope.seatplan = true;
+		$scope.walang_students = false;
 		var stud = [];
 
-		TeacherService.GetNumberOfStudents(courseno, lecturesection)
+		TeacherService.GetNumberOfStudents($('#courseno').html().trim(), $('#lecturesection').html().trim())
 			.then(function (res) {
 				if(res.no_students==0){
-					$scope.typewriter = false;
+					$scope.seatplan = false;
 					$scope.walang_students = true;
 				}
 			})
