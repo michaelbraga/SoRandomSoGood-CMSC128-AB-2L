@@ -30,25 +30,36 @@
 		</div>
 		<!-- Navigation Bar -->
 		<% include ./../../partials/navbar-class %>
+		<div ng-show="seatplan">
+			<div style="text-align:center;">
+			    <div id="stage" style="float:top; margin-top:10px; margin-left:55px; height:40px; width:90%; border-style: solid; border-width:3px; border-color:<%= colorScheme %>;"> S T A G E </div>
+			    <div style="min-width:1500px; display:inline-block;">
+				<div id="seats" style="float:left;margin-left:25px;margin-right:10px;"></div>
+				<div id="seats2" style="float:right;margin-right:25px;margin-left:10px;"></div>
+			    </div>
 
-		<div style="text-align:center;">
-		    <div id="stage" style="float:top; margin-top:10px; margin-left:55px; height:40px; width:90%; border-style: solid; border-width:3px; border-color:<%= colorScheme %>;"> S T A G E </div>
-		    <div style="min-width:1500px; display:inline-block;">
-<div id="seats" style="float:left;margin-left:25px;margin-right:10px;"></div>
-<div id="seats2" style="float:right;margin-right:25px;margin-left:10px;"></div>
-		    </div>
 
 
+			</div>
 
+			<div class="container" style="position:fixed;bottom:50px;text-align:center;">
+			  <h6 style="text-align:center;">
+			      No. of Volunteer/s:
+			      <input type="text" class="form-control" style="height:40px; width: 40px;" placeholder=" N" ng-model="vol"></br>
+			      <button class="btn waves-effect waves-light <%= colorScheme %> darken-4" type="submit" ng-click="submitData()">RANDOMIZE</button>
+			  </h6>
+			</div>
 		</div>
 
-		<div class="container" style="position:fixed;bottom:50px;text-align:center;">
-		  <h6 style="text-align:center;">
-		      No. of Volunteer/s:
-		      <input type="text" class="form-control" style="height:40px; width: 40px;" placeholder=" N" ng-model="vol"></br>
-		      <button class="btn waves-effect waves-light <%= colorScheme %> darken-4" type="submit" ng-click="submitData()">RANDOMIZE</button>
-		  </h6>
+		<!-- if number of students is zero! -->
+		<div ng-show="walang_students" class="container center" style="margin-top:3%">
+			<div class="card-panel <%= colorScheme %> lighten-1 z-depth-2" style="max-width: 500px; color: white; margin:auto">
+      				<h4>Students not found.</h4>
+      				It seems that <%= course.courseno %> <%= course.lecturesection %> has no students.<br>Seat Plan randomizer will not work if there are no students.<br>
+      				Go to <strong><a href="./../add-student" style="color:white; text-decoration: underline;">add student page</a></strong>.
+			 </div>
 		</div>
+
 
 		<div class="" hidden="hidden" id="courseno">
 					<%= course.courseno %>

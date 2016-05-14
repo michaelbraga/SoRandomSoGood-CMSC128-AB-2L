@@ -139,7 +139,7 @@ $(document).ready(function () {
 							} else if(attrib=='sex'){
 								obj[attrib] = (currentline[j].toUpperCase() == "MALE")? "m":"f";
 							} else {
-								obj[attrib] = currentline[j];	
+								obj[attrib] = currentline[j];
 							}
 						}
 						obj["picture"] = "/uploads/default.png";
