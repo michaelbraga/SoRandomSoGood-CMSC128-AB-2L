@@ -32,6 +32,7 @@
 		</style>
 	</head>
 	<body ng-app="GuestApp" ng-controller="GuestCtrl">
+
 		<div id="loader-wrapper">
 			<div id="loader"></div>
 			<div class="loader-section section-left" style="background-color:white"></div>
@@ -42,7 +43,7 @@
 			<div style="width: 500px; height: 100%; display:block; margin: 0 auto;">
 				<div class="module form-module">
 					<div class="toggle">
-						<i class="material-icons tooltipped" data-tooltip="Toggle Sign Up/Log In" data-position="right">person_pin</i>
+						<i id="togglebutz" onclick="tumoggle()" class="material-icons tooltipped" data-tooltip="Sign Up" data-position="right">person_pin</i>
 					</div>
 					<div class="form">
 						<center><img src="images/logo.png" width="200px;" style="opacity:.9"></center><br/>
@@ -58,6 +59,9 @@
 									<input id="loginButton" type="submit" class="btn waves-effect waves-light col s10 red darken-1" value="Login"></br>
 								</div>
 								<a href="/" class="btn waves-effect waves-light col s10 red">BACK</a>
+								<a class="col s10 white tooltipped" data-tooltip="Click toggle button in upper right corner."  style="cursor:help; text-align:center; color:black; margin-top:20px; margin-bottom:0px; opacity:.8">
+									Don't have an account?
+								</a>
 							</div>
 
 						</form>
@@ -81,7 +85,12 @@
 				</div>
 			</div>
 		</div>
-
+		<script type="text/javascript">
+		function tumoggle() {
+			var tog = $('#togglebutz').attr('data-tooltip');
+			$('#togglebutz').attr('data-tooltip', (tog == 'Sign Up')? 'Log In': 'Sign Up');
+		}
+		</script>
 		<!-- ANGULAR FILES | Controllers and Services -->
 		<script type="text/javascript" src="/javascripts/app/guest/guest.controller.js"></script>
 	      <script type="text/javascript" src="/javascripts/app/guest/guest.service.js"></script>
