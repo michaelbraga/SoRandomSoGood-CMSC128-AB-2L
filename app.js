@@ -30,7 +30,8 @@ logger.verbose("Running on "+app.get('env')+" environment");
 
 // middlewares
 app.use(helmet());
-app.use(require('morgan')('combined', {'stream':logger.stream}));
+// app.use(require('morgan')('combined', {'stream':logger.stream}));
+app.use(require('morgan')('dev'));
 app.use(require('method-override')());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
