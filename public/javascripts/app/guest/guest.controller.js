@@ -64,7 +64,7 @@
 			// if successful or status code == 200
 			.then(function (res) {
 				Materialize.toast("Registration successful!", 3000, 'rounded');
-				if(confirm('Proceed to login?')){
+				if(confirm('Registration successful.\nProceed to login?')){
 					$window.location.reload();
 				}else{
 					$("form#s")[0].reset();
