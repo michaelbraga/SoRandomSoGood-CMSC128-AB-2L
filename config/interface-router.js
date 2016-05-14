@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var utils = require('./../utils/utils');
 var logger = require('./../utils/logger');
+var db = require('./../lib/mysql');
 /*
 	EJS Files to render are in the VIEWS folder
 */
@@ -15,6 +16,20 @@ function requireLogin(req, res, next) {
 	else
 		utils.authenticateUser(req, res, next);
 
+}
+
+function findClass(req, res, next) {
+	db.query('SELECT * FROM class where tusername = ? and courseno = ? and lecturesection = ?',
+	[req.session.teacher.username, req.params.courseno, req.params.lecturesection], function (err, rows) {
+		if (err) {
+			return next(err);
+		}
+		if (rows.length == 1) {
+			next();
+		}else{
+			res.redirect('/');
+		}
+	});
 }
 
 /**********************************************
@@ -104,7 +119,7 @@ router.get('/teacher/help', requireLogin, function (req, res) {
 @@ FIX
 */
 // CLASS STUFF
-router.get('/teacher/class/:courseno/:lecturesection$', requireLogin, function (req, res) {
+router.get('/teacher/class/:courseno/:lecturesection$', requireLogin, findClass, function (req, res) {
 	var toEJS = {
 		username: req.session.teacher.username,
 		mode:'class',
@@ -114,10 +129,10 @@ router.get('/teacher/class/:courseno/:lecturesection$', requireLogin, function (
 	};
 
 	req.session.class = {courseno:req.params.courseno, lecturesection: req.params.lecturesection};
-	res.render('teacher/class/randomizer/typewriter', toEJS);
+	res.render('teacher/class/class', toEJS);
 });
 
-router.get('/teacher/class/:courseno/:lecturesection/students', requireLogin, function (req, res) {
+router.get('/teacher/class/:courseno/:lecturesection/students', requireLogin, findClass, function (req, res) {
 	var toEJS = {
 		username: req.session.teacher.username,
 		mode:'students',
@@ -130,7 +145,7 @@ router.get('/teacher/class/:courseno/:lecturesection/students', requireLogin, fu
 	res.render('teacher/class/students', toEJS);
 });
 
-router.get('/teacher/class/:courseno/:lecturesection/add-student', requireLogin, function (req, res) {
+router.get('/teacher/class/:courseno/:lecturesection/add-student', requireLogin, findClass, function (req, res) {
 	var toEJS = {
 		username: req.session.teacher.username,
 		mode:'add-student',
@@ -143,7 +158,7 @@ router.get('/teacher/class/:courseno/:lecturesection/add-student', requireLogin,
 	res.render('teacher/class/add-student', toEJS);
 });
 
-router.get('/teacher/class/:courseno/:lecturesection/history', requireLogin, function (req, res) {
+router.get('/teacher/class/:courseno/:lecturesection/history', requireLogin, findClass, function (req, res) {
 	var toEJS = {
 		username: req.session.teacher.username,
 		mode:'history',
@@ -156,7 +171,7 @@ router.get('/teacher/class/:courseno/:lecturesection/history', requireLogin, fun
 	res.render('teacher/class/history', toEJS);
 });
 
-router.get('/teacher/class/:courseno/:lecturesection/randomizer/typewriter', requireLogin, function (req, res) {
+router.get('/teacher/class/:courseno/:lecturesection/randomizer/typewriter', requireLogin, findClass, function (req, res) {
 	var toEJS = {
 		username: req.session.teacher.username,
 		mode:'typewriter-randomizer',
@@ -169,7 +184,7 @@ router.get('/teacher/class/:courseno/:lecturesection/randomizer/typewriter', req
 	res.render('teacher/class/randomizer/typewriter', toEJS);
 });
 
-router.get('/teacher/class/:courseno/:lecturesection/randomizer/seatplan', requireLogin, function (req, res) {
+router.get('/teacher/class/:courseno/:lecturesection/randomizer/seatplan', requireLogin, findClass, function (req, res) {
 	var toEJS = {
 		username: req.session.teacher.username,
 		mode:'seatplan-randomizer',

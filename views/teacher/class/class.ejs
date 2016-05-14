@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8"/>
+	<title><%- title %></title>
+
+	<!-- jQuery -->
+	<%- include ./../../utils/jquery %>
+	<!-- Materialize -->
+	<%- include ./../../utils/materialize %>
+	<!-- AngularJS -->
+	<%- include ./../../utils/angular %>
+	<!-- Font Smoothing -->
+	<%- include ./../../utils/font-smoothing %>
+
+	<!-- other stylesheets -->
+	<link rel="stylesheet" href="/stylesheets/style3.css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css" media="screen" title="no title" charset="utf-8">
+
+	<!-- other scripts -->
+	<script type="text/javascript" src="/javascripts/utils/plugins.js"></script>
+	<script type="text/javascript" src="/javascripts/utils/perfect-scrollbar.js"></script>
+
+	</head>
+
+	<body>
+		<% include ./../partials/navbar-class %>
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+			<div class="loader-section section-left" style="background-color:white"></div>
+			<div class="loader-section section-right" style="background-color:white"></div>
+		</div>
+
+
+	<div class="row container center" style="width: 1300px; margin:auto; margin-top:7%;">
+
+	      <div class="col s3">
+			<a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/randomizer/seatplan">
+				<!-- Promo Content 1 goes here -->
+				<div class="card <%= colorScheme %> darken-3 hoverable" style="opacity:.95">
+					<div class="card-content white-text">
+						<span class="card-title">
+							<i class="large material-icons">view_module</i>
+						</span>
+						<p>
+							<h6>Seat Plan Randomizer</h6>
+						</p>
+					</div>
+				</div>
+			</div>
+			</a>
+
+		<div class="col s3">
+			<a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/randomizer/typewriter">
+				<!-- Promo Content 2 goes here -->
+				<div class="card <%= colorScheme %> darken-3 hoverable" style="opacity:.95">
+					<div class="card-content white-text">
+						<span class="card-title">
+							<i class="large material-icons">print</i>
+						</span>
+						<p>
+							<h6>TypeWriter Randomizer</h6>
+						</p>
+					</div>
+				</div>
+
+			</a>
+	      </div>
+
+		<div class="col s3">
+			<a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/students">
+				<!-- Promo Content 3 goes here -->
+				<div class="card <%= colorScheme %> darken-3 hoverable" style="opacity:.95">
+					<div class="card-content white-text">
+						<span class="card-title">
+							<i class="large material-icons">recent_actors</i>
+						</span>
+						<p>
+							<h6>View Students</h6>
+						</p>
+					</div>
+				</div>
+
+			</a>
+
+	      </div>
+		<div class="col s3">
+			<a href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/history">
+				<!-- Promo Content 4 goes here -->
+				<div class="card <%= colorScheme %> darken-3 hoverable" style="opacity:.95">
+					<div class="card-content white-text">
+						<span class="card-title">
+							<i class="large material-icons">receipt</i>
+						</span>
+						<p>
+							<h6>View Randomizer Logs</h6>
+						</p>
+					</div>
+				</div>
+
+			</a>
+	      </div>
+
+	</div>
+
+		<div class="hiddendiv common"></div>
+
+	</body>
+
+</html>

@@ -30,10 +30,9 @@
   <div class="nav-wrapper <%= colorScheme %> darken-2 ">
 	  <span class="brand-logo center">
 		<% if(mode == 'class') {%>
-			<a  class="btn-flat disabled" style="color:white"><span><%- course.courseno + " " + course.lecturesection %></span></a>
-		<% }else {%>
-			<a  href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>/randomizer/typewriter"class="btn-flat" style="color:white"><span><%- course.courseno + " " + course.lecturesection %></span></a>
-
+			<a class="btn-flat" style="color:white"><span><%- course.courseno + " " + course.lecturesection %></span></a>
+		<% } else{ %>
+			<a  href="/teacher/class/<%= course.courseno %>/<%= course.lecturesection %>"class="btn-flat" style="color:white"><span><%- course.courseno + " " + course.lecturesection %></span></a>
 		<% } %>
 	</span>
 
