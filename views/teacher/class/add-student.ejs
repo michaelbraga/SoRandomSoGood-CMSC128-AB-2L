@@ -53,11 +53,12 @@
 				</div>
 				<br/>
 
-				<h4 style="text-align:left;">Add Student</h4>
 				<!-- ADD STUDENT FORM-->
 				<div class="row form">
 					<form class="col s12" ng-submit="AddStudent()" id="addForm">
-
+						<blockquote class="dashdesign">
+							<h4 style="text-align:left;">Add Student</h4>
+						</blockquote>
 					<!-- start of row-->
 					<div class="row">
 
@@ -132,16 +133,20 @@
 
 
 				<div class="container">
-					<h4 style="text-align:left;">Add Students From File</h4>
-					<p style="text-align:center;font-style:italic;">
-						You can add multiple students using a CSV file, by using the following format: <br/>
-						fname, mname, lname, studentno, degcourse, college, lrsection, seatno, sex
-					</p>
+
+
 					<form class="col s10 center" id="readFileForm" >
+						<blockquote class="dashdesign">
+							<h4 style="text-align:left;">Add Students from File</h4>
+							<p style="text-align:left; opacity:.8">
+								You can add multiple students using a CSV file, by using the following format: <br/>
+								<span style="font-style:italic">fname, mname, lname, studentno, degcourse, college, lrsection, seatno, sex</span>
+							</p>
+						</blockquote>
 						<div class="file-field input-field">
 
 						<div class="waves-effect waves-light <%= colorScheme %> btn">
-							<span>File</span>
+							<span>Upload File</span>
 							<input id="fileReadBtn" type="file" ng-click="readFile()" accept=".csv">
 						</div>
 						<div class="file-path-wrapper">
