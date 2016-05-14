@@ -1,0 +1,3 @@
+{"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-14T23:43:45.803Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-14T23:43:45.812Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-14T23:43:45.881Z"}
