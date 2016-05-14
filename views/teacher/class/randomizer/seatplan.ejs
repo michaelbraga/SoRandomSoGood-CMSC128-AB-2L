@@ -52,10 +52,10 @@
 		</div>
 
 		<!-- if number of students is zero! -->
-		<div ng-show="walang_students" class="container center">
+		<div ng-show="walang_students" class="container center" style="margin-top:3%">
 			<div class="card-panel <%= colorScheme %> lighten-1 z-depth-2" style="max-width: 500px; color: white; margin:auto">
       				<h4>Students not found.</h4>
-      				It seems that <%= course.courseno %> <%= course.lecturesection %> has still no students. <br>
+      				It seems that <%= course.courseno %> <%= course.lecturesection %> has no students.<br>Seat Plan randomizer will not work if there are no students.<br>
       				Go to <strong><a href="./../add-student" style="color:white; text-decoration: underline;">add student page</a></strong>.
 			 </div>
 		</div>
