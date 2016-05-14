@@ -51,7 +51,7 @@
 				Materialize.toast('Unable to get class ['+$('#courseno').html().trim()+" "+ $('#lecturesection').html().trim() +"]", 3000, 'rounded');
 			});
 
-		
+
 		var oldStudentNo;
 		var oldSeatNo;
 
@@ -93,7 +93,7 @@
 				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 4000, 'rounded');
 				return;
 			}
-			
+
 			for(var i=0; i<stud.length; i++){
 				if(oldSeatNo != $scope.student.seatno && stud[i].seatno == $scope.student.seatno){
 					console.log(stud[i].seatno + " == " + $scope.student.seatno);
@@ -112,7 +112,7 @@
 				.then(function (res) {
 					$scope.students[$scope.i] = $scope.student;
 					//$('#EditModal').closeModal();
-					
+
 					Materialize.toast("Student ["+$scope.student.studentno+"] was edited successfully!", 3000, 'rounded');
 
 					if(document.getElementById("uploadPicBtn").files.length != 0){
@@ -131,7 +131,7 @@
 				})
 				.catch(function (res) {
 					Materialize.toast("EDIT Student FAILED!", 3000, 'rounded');
-					
+
 				});
 
 		}
