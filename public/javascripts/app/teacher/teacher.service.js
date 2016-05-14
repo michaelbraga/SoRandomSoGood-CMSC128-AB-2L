@@ -91,7 +91,7 @@
 		}
 
 		// GetClass(courseno, lecturesection, username)
-		// - Get a specific Class that belongs to teacher 'username'		  	
+		// - Get a specific Class that belongs to teacher 'username'
 		function GetClass(courseno, lecturesection, username){
 			var deferred = $q.defer(); //expose promise
 			var completeUrl = url + "/class/"+username+"/"+courseno+"/"+lecturesection;
@@ -131,7 +131,7 @@
 			});
 			return deferred.promise;
 		}
-		
+
 		// EditStudent(student object, courseno, lecturesection, studentno)
 		// - Edit a student from a specific class
 		function EditStudent(updatedStudent, courseno, lecturesection, studentno){
@@ -194,7 +194,7 @@
 		 	//return data received
 		 	return deferred.promise;
 		 }
-		
+
 		// RemoveClass(courseno, lecturesection, username)
 		// - Remove a class that belongs to teacher 'username'
 		function RemoveClass(courseno, lecturesection, username){
@@ -248,7 +248,7 @@
 		 	return deferred.promise;
 		 }
 
-		 // FindTeacher() 
+		 // FindTeacher()
 		 function FindTeacher(username){
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + "/teacher/"+username;
@@ -379,6 +379,23 @@
 		     return deferred.promise;
 		}
 
+		function GetNumberOfStudents(courseno, lecturesection) {
+			var deferred = $q.defer(); //expose promise
+			var completeUrl = url + "/number-of-students/"+courseno+"/"+lecturesection;
+
+			$http.get(completeUrl)
+			.success(function(data){
+				//on success; resolve
+				deferred.resolve(data);
+			})
+			.error(function(data){
+				//else reject :D
+				deferred.reject(data);
+			});
+			//return data recieved
+			return deferred.promise;
+		}
+
 		service.GetUsername = GetUsername;
 		service.GetAllClasses = GetAllClasses;
 		service.GetAllStudentsInClass = GetAllStudentsInClass;
@@ -400,6 +417,7 @@
 		service.randomizeSeat = randomizeSeat;
 		service.UpdateTeacherUsername = UpdateTeacherUsername;
 		service.AddLog = AddLog;
+		service.GetNumberOfStudents = GetNumberOfStudents;
 
 		/* RETURN SERVICE */
 		return service;

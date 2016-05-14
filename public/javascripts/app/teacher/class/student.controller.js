@@ -30,7 +30,19 @@
 
 	function StudentCtrl($scope, TeacherService) {
 		$scope.students = [];
+		$scope.seatplan = false;
+		$scope.walang_students = true;
 		var stud = [];
+
+		TeacherService.GetNumberOfStudents(courseno, lecturesection)
+			.then(function (res) {
+				if(res.no_students==0){
+					$scope.typewriter = false;
+					$scope.walang_students = true;
+				}
+			})
+			.catch(function (res) {
+			});
 
 		// Gets all students from that specific class
 		TeacherService.GetAllStudentsInClass($('#courseno').html().trim(), $('#lecturesection').html().trim())
