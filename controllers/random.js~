@@ -34,10 +34,6 @@ exports.randomizeStudent = function(req, res, next){
 
 }
 
-/*	function to be executed when the user added students in risk and safe zone
- 	the function will randomized students depending on the value of their priority
-*/
-
 exports.getAcc = function(req, res, next){
 	db.query("(select * from student where priority = 1 and courseno=? and lecturesection=? ORDER BY RAND() LIMIT ?) UNION (select * from student where priority = 0 and courseno=? and lecturesection=? ORDER BY RAND() LIMIT ?);", [req.params.courseno, req.params.lecturesection, parseInt(req.params.N), req.params.courseno, req.params.lecturesection, parseInt(req.params.nRemaining)], function(err, rows) {
 		if(err){
