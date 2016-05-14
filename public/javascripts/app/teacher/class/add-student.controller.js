@@ -34,8 +34,11 @@ $(document).ready(function () {
 				Materialize.toast("Error in checking available seats/student number! :( ", 4000, 'rounded');
 			});
 
-		// AddStudent()
-		// - adds student with specified details.
+		/*****************************************************************
+			This function adds a new student to the database. It checks
+			conflicts in seat number and student number. It also checks
+			vacant input text fields.
+		*****************************************************************/
 		$scope.AddStudent = function () {
 			// verifies sex
 			if(!$scope.student.sex) {
@@ -99,8 +102,10 @@ $(document).ready(function () {
 				});
 		}
 
-		// readFile()
-		// for reading CSV files with multiple students
+		/*****************************************************************
+			This function reads file for adding multiple students
+			in a class.
+		*****************************************************************/
 		$scope.readFile = function(){
 			document.getElementById('fileReadBtn').addEventListener('change', readFile, false);
 

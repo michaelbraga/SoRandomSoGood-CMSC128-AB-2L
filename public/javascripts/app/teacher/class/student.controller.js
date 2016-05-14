@@ -56,6 +56,10 @@
 		var oldStudentNo;
 		var oldSeatNo;
 
+		/*****************************************************************
+			This function copies the information of the student and shows
+			the information in the input text fields of the modal 
+		*****************************************************************/
 		$scope.ToggleEdit = function (student, index) {
 			$('#EditModal').openModal();
 
@@ -85,6 +89,12 @@
 			$scope.i = index;
 		}
 
+		/*****************************************************************
+			This function is for editing the student's information
+			it checks if the fields are not null and also the conflicts
+			in student number and seat number. After editing, the changes
+			will be updated to the database.
+		*****************************************************************/
 		$scope.EditStudent = function () {
 			// verifies sex
 			if (!$scope.student.sex) {
@@ -141,7 +151,11 @@
 
 		}
 
-		// DeleteStudent()
+		/*****************************************************************
+			This function allows the user to delete a student of his/her
+			choice. The deleted student will also be removed in the
+			database.
+		*****************************************************************/
 		$scope.DeleteStudent = function (student, index) {
 			if (confirm('Are you sure you want to delete ' + student.fname + " " + student.mname + " " + student.lname + "?")) {
 				// Try removing the student
@@ -170,6 +184,11 @@
 		var randomized = [];
 		var ctr = 0;
 
+		/*****************************************************************
+			This function catches the number of volunteers the user will
+			enter and it will get the n students in the database. This
+			function also check conflicts in randomization.
+		*****************************************************************/
 		$scope.submitData = function() {
 			if( $scope.vol <= 0  || $scope.vol.match(/[^0-9]/) || $scope.vol > 105){
 				Materialize.toast("Invalid input for number of volunteer(s)!", 4000, 'rounded');
@@ -207,15 +226,24 @@
 			}
 		}
 
+		/*****************************************************************
+			This function removes the card-panels in the interface
+			to reset the seats.
+		*****************************************************************/
 		var initRowCol = function(){
 			document.getElementById("seats").innerHTML = "";
 			document.getElementById("seats2").innerHTML = "";
 		}
 
+		/*****************************************************************
+			This function generates the seat randomizer interface and it
+			also changes the color of the seat once it is randomized.
+		*****************************************************************/
 		var genRowCol = function(){
   			$scope.rowNum = 1;
 			$scope.countah = 0;
 
+			// for left portion
 			for(var i=0; i<$scope.rows; i++){
 				for(var j=0; j<$scope.cols; j++){
 
@@ -249,6 +277,7 @@
 			$scope.rowNum = parseInt($scope.cols) + 1;
 			var total = parseInt($scope.cols) + parseInt($scope.cols2);
 
+			// for right portion
 			for(var i=0; i<$scope.rows2; i++){
 				for(var j=(parseInt($scope.cols)+1); j<=total; j++){
 
