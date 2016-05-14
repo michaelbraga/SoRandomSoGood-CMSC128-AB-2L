@@ -330,6 +330,21 @@
 		 	return deferred.promise;
 		 }
 
+		 function AddLog(log) {
+			 var deferred = $q.defer();
+ 		 	var completeUrl = url + '/log';
+
+ 		 	$http.post(completeUrl, log)
+ 		 	.success(function (data) {
+ 		 		deferred.resolve(data);
+ 		 	})
+ 		 	.error(function (data) {
+ 		 		deferred.reject(data);
+ 		 	});
+
+ 		 	return deferred.promise;
+		 }
+
 		 function RemoveAllHistory(courseno, lecturesection){
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + '/log/'+courseno+'/'+lecturesection+'/';
@@ -426,6 +441,7 @@
 		service.ChangeColorScheme = ChangeColorScheme;
 		service.randomizeSeat = randomizeSeat;
 		service.UpdateTeacherUsername = UpdateTeacherUsername;
+		service.AddLog = AddLog;
 
 		/* RETURN SERVICE */
 		return service;

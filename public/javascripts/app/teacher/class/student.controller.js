@@ -166,7 +166,7 @@
 
 		$scope.submitData = function() {
 			if( $scope.vol <= 0  || $scope.vol.match(/[^0-9]/) || $scope.vol > 105){
-				Materialize.toast("Invalid input for number of volunteer/s!", 4000, 'rounded');
+				Materialize.toast("Invalid input for number of volunteer(s)!", 4000, 'rounded');
 				$scope.vol = '';
 			}else{
 				TeacherService.randomizeSeat($scope.vol, $('#courseno').html().trim(), $('#lecturesection').html().trim())
@@ -177,10 +177,22 @@
 						Materialize.toast("Not enough students to randomize. Available students: "+ studCount, 4000, 'rounded');
 						$scope.vol = '';
 					} else{
-						Materialize.toast("No. of volunteer/s: "+ $scope.vol, 4000, 'rounded');
+						Materialize.toast("No. of volunteer(s): "+ $scope.vol, 4000, 'rounded');
 						$scope.vol = '';
 						initRowCol();
 						genRowCol();
+						for (var i = 0; i < randomized.length; i++) {
+							var log = {
+								courseno: $('#courseno').html().trim(),
+								lecturesection: $('#lecturesection').html().trim(),
+								studentno: randomized[i].studentno
+							};
+							TeacherService.AddLog(log)
+							.then(function (res) {
+								console.log(res);
+							});
+
+						}
 					}
 				})
 				.catch(function (res) {

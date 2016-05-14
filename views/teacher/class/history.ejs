@@ -57,7 +57,7 @@
 				</thead>
 
 				<tbody>
-					<tr ng-repeat="log in logs | filter:searchquery">
+					<tr ng-repeat="log in logs | orderBy:['-date','-time'] | filter:searchquery">
 						<td style="padding-left:20px;">{{ log.date }}</td>
 						<td>{{ log.time }}</td>
 						<td>{{ log.student_info }}</td>
