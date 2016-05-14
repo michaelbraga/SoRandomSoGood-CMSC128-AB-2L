@@ -51,15 +51,15 @@
 				<div class="divider"></div>
 				<div class="container row">
 						<div class="input-field col s4">
-							<input  type="text" ng-model="student.fname" id="fname" class="validate" required="required"/>
+							<input  type="text" ng-model="student.fname" id="fname" class="validate" required="required" pattern="[a-zA-Z\.]{1,50}" title="Alphabets only"/>
 							<label class="active" for="fname">First Name</label>
 						</div>
 						<div class="input-field col s4">
-							<input  type="text" ng-model="student.mname" id="mname" class="validate" required="required"/>
+							<input  type="text" ng-model="student.mname" id="mname" class="validate" required="required" pattern="[a-zA-Z\.]{1,50}" title="Alphabets only"/>
 							<label class="active" for="mname">Middle Name</label>
 						</div>
 						<div class="input-field col s4">
-							<input  type="text" ng-model="student.lname" id="lname" wclass="validate" required="required"/>
+							<input  type="text" ng-model="student.lname" id="lname" wclass="validate" required="required" pattern="[a-zA-Z\.]{1,50}" title="Alphabets only"/>
 							<label class="active" for="lname">Last Name</label>
 						</div>
 
@@ -68,12 +68,12 @@
 							<label class="active" for="studentno">Student Number</label>
 						</div>
 						<div class="input-field col s6">
-							<input  type="text" ng-model="student.degcourse" id="degcourse" class="validate" required="required"/>
+							<input  type="text" ng-model="student.degcourse" id="degcourse" class="validate" required="required" pattern="[a-zA-Z\-]{1,50}" title="Alphabets only"/>
 							<label class="active" for="degcourse">Degree Course</label>
 						</div>
 
 						<div class="input-field col s6">
-							<input  type="text" ng-model="student.college" id="college" class="validate" required="required"/>
+							<input  type="text" ng-model="student.college" id="college" class="validate" required="required" pattern="[a-zA-Z]{1,60}" title="Alphabets only"/>
 							<label class="active" for="college">College</label>
 						</div>
 
@@ -88,7 +88,7 @@
 						</div>
 
 						<div class="input-field col s6">
-							<input  type="text" ng-model="student.seatno" id="seatno" class="validate" required pattern="[A-G][0-9]{1,2}" title="e.g. A1"/>
+							<input  type="text" ng-model="student.seatno" id="seatno" class="validate" required pattern="[A-G]([1-9]|1[0-5])" title="e.g. A1"/>
 							<label class="active" for="seatno">Seat Number (A-G and 1-15)</label>
 						</div>
 
@@ -112,9 +112,7 @@
 		</div>
 
 		<div class="container">
-			<div class="center">
-				<h3 style="opacity:.7;">STUDENTS</h3>
-			</div>
+			<h2 class="center">Students</h2>
 			<div class="divider">
 
 			</div>
@@ -133,10 +131,10 @@
 							{{student.lname + ", " + student.fname + " " + student.mname}}
 						</div>
 						<div class="collapsible-body">
-							<div class="row">
+							<div class="row" style="margin:0px">
 								<div class="col">
-									<div class="container">
-										<img ng-src="{{student.picture}}" alt="{{student.studentno}}" height="250" width="250">
+									<div class="container" style="height:250px; padding-top:30px;">
+										<img class="materialboxed" ng-src="{{student.picture}}" data-caption="{{student.fname + " " + student.mname + " " + student.lname}}" height="200" width="200" alt="{{student.studentno}}">
 									</div>
 								</div>
 								<div style="col margin-left:200px;">
@@ -181,4 +179,9 @@
 	<!-- ANGULAR FILES | Service and Controller -->
 	<script type="text/javascript" src="/javascripts/app/teacher/class/student.controller.js"></script>
 	<script type="text/javascript" src="/javascripts/app/teacher/teacher.service.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.materialboxed').materialbox();
+		});
+	</script>
 </html>

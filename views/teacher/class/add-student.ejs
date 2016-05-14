@@ -59,27 +59,27 @@
 					<div class="row">
 
 						<div class="input-field col s4">
-							<input id="fname" type="text" class="validate" ng-model="student.fname" class="form-control" required>
+							<input id="fname" type="text" class="validate" ng-model="student.fname" class="form-control" required pattern="[a-zA-Z\.]{1,50}" title="Alphabets only">
 							<label for="fname">First Name</label>
 						</div>
 
 						<div class="input-field col s4">
-							<input id="lname" type="text" class="validate" ng-model="student.mname" class="form-control" required>
+							<input id="lname" type="text" class="validate" ng-model="student.mname" class="form-control" required pattern="[a-zA-Z\.]{1,50}" title="Alphabets only">
 							<label for="lname">Middle Name</label>
 						</div>
 
 						<div class="input-field col s4">
-							<input id="lname" type="text" class="validate" ng-model="student.lname" class="form-control" required>
+							<input id="lname" type="text" class="validate" ng-model="student.lname" class="form-control" required pattern="[a-zA-Z\.]{1,50}" title="Alphabets only">
 							<label for="lname">Last Name</label>
 						</div>
 
 						<div class="input-field col s6">
-							<input id="course" type="text" class="validate" ng-model="student.degcourse" class="form-control" required>
+							<input id="course" type="text" class="validate" ng-model="student.degcourse" class="form-control" required pattern="[a-zA-Z\-]{1,50}" title="Alphabets only">
 							<label for="course">Degree Course</label>
 						</div>
 
 						<div class="input-field col s6">
-							<input id="college" type="text" class="validate" ng-model="student.college" class="form-control" required>
+							<input id="college" type="text" class="validate" ng-model="student.college" class="form-control" required pattern="[a-zA-Z]{1,60}" title="Alphabets only">
 							<label for="college">College</label>
 						</div>
 
@@ -104,7 +104,7 @@
 						</div>
 
 						<div class="input-field col s6">
-							<input id="seatno" type="text" class="validate" ng-model="student.seatno" class="form-control" required pattern="[A-G][0-9]{1,2}" title="e.g. A1">
+							<input id="seatno" type="text" class="validate" ng-model="student.seatno" class="form-control" required pattern="[A-G]([1-9]|1[0-5])" title="e.g. A1">
 							<label for="seatno">Seat Number (A-G and 1-15)</label>
 						</div>
 
