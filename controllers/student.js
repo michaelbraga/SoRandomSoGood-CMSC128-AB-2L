@@ -135,6 +135,7 @@ exports.update = function (req, res, next) {
 	db.query("SET FOREIGN_KEY_CHECKS = 1");
 }
 
+// select n randomly selected seats from specific class
 exports.randomizeSeat = function(req, res, next){
 	db.query("select * from student where courseno=? and lecturesection=? ORDER BY RAND() LIMIT ?;", [req.params.courseno, req.params.lecturesection, parseInt(req.params.n)], function(err, rows) {
 		if(err){

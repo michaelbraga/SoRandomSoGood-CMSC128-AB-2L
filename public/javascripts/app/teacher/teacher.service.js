@@ -21,9 +21,7 @@
 		}
 
 
-		/* Team Von Neumann */
-		// Zydrick
-		// 1 GetAllClasses(username)
+		// GetAllClasses(username)
 		// - get all class(es) that belong(s) to teacher 'username'
 		function GetAllClasses(username) {
 			var deferred = $q.defer();
@@ -39,8 +37,7 @@
 			return deferred.promise;
 		}
 
-		// Angec
-		// 2 GetAllStudentsInClass(courseno, lecturesection)
+		// GetAllStudentsInClass(courseno, lecturesection)
 		// - get all students in a specific class(courseno, lecturesection) that belongs to teacher 'username'
 		// - Get all students in a specific lab/recit section in a class
 		function GetAllStudentsInClass(courseno, lecturesection){
@@ -60,10 +57,8 @@
 			return deferred.promise;
 		}
 
-		// Xyrus
-		// 3 AddClass (class object, username)
+		// AddClass (class object, username)
 		// - Add a class for teacher 'username'
-		//di ko po alam kung pano gagamitin yung username
 		function AddClass(newClass, username){
 			var deferred = $q.defer();
 			var completeUrl = url + "/class";
@@ -79,7 +74,7 @@
 			return deferred.promise;
 		}
 
-		// 4 AddStudent (student object, courseno, lecturesection)
+		// AddStudent (student object, courseno, lecturesection)
 		// - Add a student in a class(courseno, lecturesection) that belongs to teacher 'username'
 		function AddStudent(newStudent) {
 			var deferred = $q.defer();
@@ -95,10 +90,8 @@
 			return deferred.promise;
 		}
 
-
-
-		// 5 GetClass(courseno, lecturesection, username)
-		// - Get a specific Class that belongs to teacher 'username'		  		// - Get a specific Class that belongs to teacher 'username'
+		// GetClass(courseno, lecturesection, username)
+		// - Get a specific Class that belongs to teacher 'username'		  	
 		function GetClass(courseno, lecturesection, username){
 			var deferred = $q.defer(); //expose promise
 			var completeUrl = url + "/class/"+username+"/"+courseno+"/"+lecturesection;
@@ -117,6 +110,8 @@
 
 		}
 
+		// UploadToUrl(file, studentno, coursno, lecturesection)
+		// - used for file uploads
 		function UploadToUrl(file, studentno, courseno, lecturesection){
 			var completeUrl = url + "/student-picture/"+studentno+"/"+courseno+"/"+lecturesection;
 			var fd = new FormData();
@@ -136,50 +131,8 @@
 			});
 			return deferred.promise;
 		}
-
-
-
-		/* Team Von Neumann */
-		// 1 GetAllClasses(username)
-		// - get all class(es) that belong(s) to teacher 'username'
-
-		// 2 GetAllStudentsInClass(username, courseno, lecturesection)
-		// - get all students in a specific class(courseno, lecturesection) that belongs to teacher 'username'
-
-		// 3 AddClass (class object, username)
-		// - Add a class for teacher 'username'
-
-		// 4 AddStudent (student object, courseno, lecturesection)
-		// - Add a student in a class(courseno, lecturesection) that belongs to teacher 'username'
-
-		// 5 GetClass(courseno, lecturesection, username)
-		// - Get a specific Class that belongs to teacher 'username'
-
-		// 6 GetStudent(courseno, lecturesection, studentno)
-		// - Get a specific Student in a class
-
-		/************* Team Turing Task #3 *************/
-		// Homer
-		// 7 GetAllStudentsInSection(courseno, lecturesection, lrsection)
-		// - Get all students in a specific lab/recit section in a class
-		// function GetAllStudentsInSection(courseno, lecturesection, lrsection){
-		// 	var deferred = $q.defer(); //expose promise
-		// 	var completeUrl = url + "/student-section/"+courseno+"/"+lecturesection+"/"+lrsection;
-		//
-		// 	$http.get(completeUrl)
-		// 	.success(function(data){
-		// 		//on success; resolve
-		// 		deferred.resolve(data);
-		// 	})
-		// 	.error(function(data){
-		// 		//else reject :D
-		// 		deferred.reject(data);
-		// 	});
-		// 	//return data recieved
-		// 	return deferred.promise;
-		// }
-		//
-		// 8 EditStudent(student object, courseno, lecturesection, studentno)
+		
+		// EditStudent(student object, courseno, lecturesection, studentno)
 		// - Edit a student from a specific class
 		function EditStudent(updatedStudent, courseno, lecturesection, studentno){
 			var deferred = $q.defer(); //expose promise
@@ -198,9 +151,7 @@
 			return deferred.promise;
 		}
 
-
-		// Sarah
-		// 9 EditClass(class object, courseno, lecturesection, username)
+		// EditClass(class object, courseno, lecturesection, username)
 		// - Edit a class that belongs to teacher 'username'
 		function EditClass(updatedClass, courseno, lecturesection, username) {
 			var deferred = $q.defer();
@@ -216,9 +167,9 @@
 			//return data received
 			return deferred.promise;
 		}
-		//
-		// // 10 RemoveStudent(courseno, lecturesection, studentno)
-		// // - Remove a student in a class
+
+		// RemoveStudent(courseno, lecturesection, studentno)
+		// - Remove a student in a class
 		function RemoveStudent(courseno, lecturesection, studentno) {
 			var deferred = $q.defer();
 		 	var completeUrl = url + "/student";
@@ -243,10 +194,9 @@
 		 	//return data received
 		 	return deferred.promise;
 		 }
-		//
-		// Fritz
-		// 11 RemoveClass(courseno, lecturesection, username)
-		//- Remove a class that belongs to teacher 'username'
+		
+		// RemoveClass(courseno, lecturesection, username)
+		// - Remove a class that belongs to teacher 'username'
 		function RemoveClass(courseno, lecturesection, username){
 
 			var deferred = $q.defer();
@@ -262,8 +212,7 @@
 			return deferred.promise;
 		}
 
-		// // Michael
-		// // 13 EditTeacher()
+		// EditTeacher()
 		 function EditTeacher(updatedTeacher) {
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + "/teacher/"+updatedTeacher.username;
@@ -280,7 +229,8 @@
 
 		 	return deferred.promise;
 		 }
-		// // 14 UpdateTeacherPassword()
+
+		// UpdateTeacherPassword()
 		 function UpdateTeacherPassword(updatedPassword, username) {
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + "/teacher-password/"+username;
@@ -298,6 +248,7 @@
 		 	return deferred.promise;
 		 }
 
+		 // FindTeacher() 
 		 function FindTeacher(username){
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + "/teacher/"+username;
@@ -315,6 +266,7 @@
 		 	return deferred.promise;
 		 }
 
+		 //	RemoveAllStudents()
 		 function RemoveAllStudents(courseno, lecturesection){
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + '/student-class/'+courseno+'/'+lecturesection+'/';
@@ -330,6 +282,8 @@
 		 	return deferred.promise;
 		 }
 
+		 // AddLog()
+		 // - adds activity log
 		 function AddLog(log) {
 			 var deferred = $q.defer();
  		 	var completeUrl = url + '/log';
@@ -345,6 +299,8 @@
  		 	return deferred.promise;
 		 }
 
+		 // RemoveAllHistory()
+		 // - removes all activity logs
 		 function RemoveAllHistory(courseno, lecturesection){
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + '/log/'+courseno+'/'+lecturesection+'/';
@@ -360,6 +316,7 @@
 		 	return deferred.promise;
 		 }
 
+		 // ChangeColorScheme
 		 function ChangeColorScheme(username, color){
 		 	var deferred = $q.defer();
 		 	var completeUrl = url + '/teacher-color/'+username;
@@ -374,10 +331,9 @@
 
 		 	return deferred.promise;
 		 }
-		//
-		// /************ end of Team Turing T3 ************/
 
-		// KIDD
+		 // GetHistory()
+		 // - gets activity logs
 		function GetHistory(courseno, lecturesection) {
 			var deferred = $q.defer();
 			var completeUrl = url + "/log/" + courseno + "/" + lecturesection;
@@ -391,6 +347,7 @@
 			return deferred.promise;
 		}
 
+		// randomizeSeat()
 		function randomizeSeat(n, courseno, lecturesection) {
 			var deferred = $q.defer();
 			var completeUrl = url + "/randomizeSeat/" + n + "/" + courseno + "/" + lecturesection;
@@ -404,6 +361,7 @@
 			return deferred.promise;
 		}
 
+		// UpdateTeacherUsername()
 		function UpdateTeacherUsername(updatedUsername, username) {
 		     var deferred = $q.defer();
 		     var completeUrl = url + "/teacher-username/"+username;
@@ -446,6 +404,4 @@
 		/* RETURN SERVICE */
 		return service;
 	}
-
-
 })();

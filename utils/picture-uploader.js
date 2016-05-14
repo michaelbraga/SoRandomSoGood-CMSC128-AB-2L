@@ -6,6 +6,8 @@ students
 ******************************************************/
 exports.set = function (app, multer) {
 	var newFilename;
+
+	// sets destination and filename formats
 	var storage = multer.diskStorage({
 	  destination: function (req, file, cb) {
 	    cb(null, 'public/uploads')
@@ -16,9 +18,11 @@ exports.set = function (app, multer) {
 	    cb(null, newFilename);
 	  }
 	})
+
 	var upload = multer({ storage: storage});
 
 	app.post('/api-user/student-picture/:studentno/:courseno/:lecturesection', upload.single('file'), function(req, res, next){
+			// updates current student to have proper filename in picture
 	      db.query("UPDATE student SET picture = ? WHERE studentno = ? and courseno = ? and lecturesection = ?",
 	          ["/uploads/"+newFilename, req.params.studentno, req.params.courseno, req.params.lecturesection],
 	          function (err, rows) {
