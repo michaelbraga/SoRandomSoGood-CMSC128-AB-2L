@@ -12,7 +12,6 @@ $(document).ready(function () {
 
 	// Inject dependencies to controller --------------------
 	// $scope - for manipulating data in view
-	// $window - for page redirection
 	// TeacherService - for asynchronous functions
 	AddStudentCtrl.$inject = ["$scope", "TeacherService"];
 
@@ -35,12 +34,16 @@ $(document).ready(function () {
 				Materialize.toast("Error in checking available seats/student number! :( ", 4000, 'rounded');
 			});
 
+		// AddStudent()
+		// - adds student with specified details.
 		$scope.AddStudent = function () {
+			// verifies sex
 			if(!$scope.student.sex) {
 				Materialize.toast("Plese select a sex!", 3000, 'rounded');
 				return;
 			}
 
+			// verifies seat number
 			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
 				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 4000, 'rounded');
 				return;
@@ -58,27 +61,26 @@ $(document).ready(function () {
 				}
 			}
 
-			// add lecturesection and course no
-			// nakatago sa hidden div ng add-student.ejs
+			// add lecturesection, courseno, and edit sex, degcourse, college
 			$scope.student.lecturesection = $('#lecturesection').html().trim();
 			$scope.student.courseno = $('#courseno').html().trim();
-
-			// sex
 			$scope.student.sex = ($scope.student.sex == 'Male')? "m":"f";
 			$scope.student.degcourse = $scope.student.degcourse.toUpperCase();
 			$scope.student.college = $scope.student.college.toUpperCase();
 
+			//check if there is a file upload, sets to default if no file upload
 			if(document.getElementById("uploadPicBtn").files.length == 0){
 				$scope.student.picture = "/uploads/default.png";
 			}
 
+			// Call TeacherService.AddStudent()
 			TeacherService.AddStudent($scope.student)
 				.then(function (res) {
 					Materialize.toast("Student ["+$scope.student.studentno+"] was added successfully!", 3000, 'rounded');
 
+					// Once student is added and there is a file upload, call TeacherService.UploadToUrl() for file upload.
 					if(document.getElementById("uploadPicBtn").files.length != 0){
 						var file = $scope.student.pictureFile;
-
 						$scope.student.picture = file.name;
 
 						TeacherService.UploadToUrl($scope.student.pictureFile, $scope.student.studentno, $scope.student.courseno, $scope.student.lecturesection)
@@ -97,14 +99,17 @@ $(document).ready(function () {
 				});
 		}
 
+		// readFile()
+		// for reading CSV files with multiple students
 		$scope.readFile = function(){
-
 			document.getElementById('fileReadBtn').addEventListener('change', readFile, false);
 
 			function readFile (evt) {
 				var files = evt.target.files;
 				var file = files[0];
 				var reader = new FileReader();
+
+				//load file.
 				reader.onload = function() {
 					var lines = this.result.split('\n');
 					var result = [];
@@ -112,7 +117,6 @@ $(document).ready(function () {
 					var i=1;
 
 					for(i=1;i<(lines.length);i++){
-
 						var currentline = lines[i].split(",");
 						var attrib;
 						var j;
@@ -121,6 +125,7 @@ $(document).ready(function () {
 						if(/^\s*$/.test(lines[i]) || currentline[i] == ""){
 							continue;
 						}
+
 						var obj = {};
 						for(j=0; j<headers.length; j++){
 							attrib = headers[j];
@@ -138,6 +143,7 @@ $(document).ready(function () {
 						result.push(obj);
 					}
 
+					// Add each object individually to student
 					for(i=0;i<result.length;i++){
 						TeacherService.AddStudent(result[i])
 							.then(function (res) {

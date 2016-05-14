@@ -1,3 +1,5 @@
+//file model directive for file uploads
+//used in add student
 (function(){
 	angular.module('TeacherApp')
 		.directive('fileModel', ['$parse', function ($parse) {

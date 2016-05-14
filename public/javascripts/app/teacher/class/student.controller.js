@@ -6,6 +6,7 @@
 	.module("TeacherApp", [])
 	// Teacher Dashboard Controller
 	.controller("StudentCtrl", StudentCtrl)
+	// directive for file upload
 	.directive('fileModel', ['$parse', function ($parse) {
 		return {
 	        restrict: 'A',
@@ -24,7 +25,6 @@
 
 	// Inject dependencies to controller --------------------
 	// $scope - for manipulating data in view
-	// $window - for page redirection
 	// TeacherService - for asynchronous functions
 	StudentCtrl.$inject = ["$scope", "TeacherService"];
 
@@ -32,6 +32,7 @@
 		$scope.students = [];
 		var stud = [];
 
+		// Gets all students from that specific class
 		TeacherService.GetAllStudentsInClass($('#courseno').html().trim(), $('#lecturesection').html().trim())
 			.then(function (res) {
 				$scope.students = res;
@@ -58,6 +59,7 @@
 		$scope.ToggleEdit = function (student, index) {
 			$('#EditModal').openModal();
 
+			// set selected sex
 			var gender;
 			if(student.sex == "m") gender = "Male";
 			else gender = "Female";
@@ -84,11 +86,13 @@
 		}
 
 		$scope.EditStudent = function () {
+			// verifies sex
 			if (!$scope.student.sex) {
 				Materialize.toast("Plese select a sex!", 3000, 'rounded');
 				return;
 			}
 
+			// verifies seat number
 			if($scope.student.seatno.substring(1,$scope.student.seatno.length) > 15){
 				Materialize.toast("Invalid seat number. Choose from 1-15 only.", 4000, 'rounded');
 				return;
@@ -106,8 +110,10 @@
 				}
 			}
 
+			// set sex
 			$scope.student.sex = ($scope.student.gender == 'Male')? "m":"f";
 
+			// call TeacherService.EditStudent() to edit student
 			TeacherService.EditStudent($scope.student, $scope.student.courseno, $scope.student.lecturesection, $scope.student.studentno)
 				.then(function (res) {
 					$scope.students[$scope.i] = $scope.student;
@@ -115,9 +121,9 @@
 
 					Materialize.toast("Student ["+$scope.student.studentno+"] was edited successfully!", 3000, 'rounded');
 
+					// Once student is edited and there is a file upload, call TeacherService.UploadToUrl() for file upload.
 					if(document.getElementById("uploadPicBtn").files.length != 0){
 						var file = $scope.student.pictureFile;
-
 						$scope.student.picture = file.name;
 
 						TeacherService.UploadToUrl($scope.student.pictureFile, $scope.student.studentno, $scope.student.courseno, $scope.student.lecturesection)
@@ -131,11 +137,11 @@
 				})
 				.catch(function (res) {
 					Materialize.toast("EDIT Student FAILED!", 3000, 'rounded');
-
 				});
 
 		}
 
+		// DeleteStudent()
 		$scope.DeleteStudent = function (student, index) {
 			if (confirm('Are you sure you want to delete ' + student.fname + " " + student.mname + " " + student.lname + "?")) {
 				// Try removing the student
