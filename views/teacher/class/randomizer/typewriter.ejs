@@ -81,7 +81,7 @@
 		<br/>
 		<br/>
 		<!-- Main controller for visibility -->
-		<div ng-show>
+		<div ng-show="typewriter" >
 			<div class="container centered" style="text-align:center">
 				<a class="waves-effect waves-light col s12 btn <%= colorScheme %> darken-3 modal-trigger" href="#modal1" style="margin-left:30px;">
 					Filter<i class="material-icons right">settings</i>
@@ -274,11 +274,11 @@
 		<!-- end of main controller for visibility -->
 
 		<!-- if number of students is zero! -->
-		<div ng-show="true" class="container center">
+		<div ng-show="walang_students" class="container center">
 			<div class="card-panel <%= colorScheme %> lighten-1 z-depth-2" style="max-width: 500px; color: white; margin:auto">
       				<h4>Students not found.</h4>
       				It seems that <%= course.courseno %> <%= course.lecturesection %> has still no students. <br>
-      				Go to <strong><a href="./add-student" style="color:white;">add student page</a></strong>.
+      				Go to <strong><a href="./../add-student" style="color:white; text-decoration: underline;">add student page</a></strong>.
 			 </div>
 		</div>
 	</body>
