@@ -101,7 +101,7 @@ $(document).ready(function () {
 					- randomize the students depending on the students included in the risk and safe zone
 						* risk zone - students in this zone have the 100% chance of being called or randomized
 						* safe zone - students in this zone have 0% chance of being called or randomized
-			
+			In risk zone and safe zone, the priority attribute of each students dictates if the student will be picked or not by the randomizer
 		 */
 		
 		$scope.randomize = function () {
@@ -203,6 +203,11 @@ $(document).ready(function () {
 				});
 			}
 		}
+		
+		/*	function for adding student names in risk zone
+			the function will only add the student name if the student is not included in the list of students in risk and safe zone
+		*/
+		
 		$scope.addNamesToTable = function(student){
 			var check = 0;
 			for(var i=0;i<$scope.studentNames.length;i++){
@@ -226,6 +231,11 @@ $(document).ready(function () {
 				Materialize.toast('Student is already chosen', 4000);
 			}
 		}
+		
+		/*	function for adding student names in safe zone
+			the function will only add the student name if the student is not included in the list of students in risk and safe zone
+		*/
+		
 		$scope.addNamesToTable2 = function(student){
 			var check = 0;
 			for(var i=0;i<$scope.studentNames2.length;i++){
@@ -249,6 +259,9 @@ $(document).ready(function () {
 				Materialize.toast('Student is already chosen', 4000);
 			}
 		}
+		
+		/* function for removing a student in risk zone */
+		
 		$scope.deleteAName = function(names){
 			for(var i=0;i<$scope.studentNames.length;i++){
 				if($scope.studentNames[i].fname==names.fname&&$scope.studentNames[i].mname==names.mname&&$scope.studentNames[i].lname==names.lname){
@@ -259,6 +272,9 @@ $(document).ready(function () {
 				}
 			}
 		}
+		
+		/* function for removing a student in safe zone */
+		
 		$scope.deleteAName2 = function(names){
 			for(var i=0;i<$scope.studentNames2.length;i++){
 				if($scope.studentNames2[i].fname==names.fname&&$scope.studentNames2[i].mname==names.mname&&$scope.studentNames2[i].lname==names.lname){
@@ -269,8 +285,11 @@ $(document).ready(function () {
 				}
 			}
 		}
+		
+		/* check if the  */
+		
 		$scope.buroStudents = function(){
-			ifburo = true;
+			if($scope.studentNames.length!=0||$scope.studentNames2.length!=0) ifburo = true;
 		}
 	}
 
