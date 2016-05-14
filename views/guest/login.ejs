@@ -69,9 +69,9 @@
 								<input ng-model="su.username" id="usernames" type="text" class="validate" required="required" placeholder="Username" pattern="[a-zA-Z0-9_]{6,}" title="6 or more alphanumeric characters and underscores"/>
 								<input ng-model="su.password" id="passwords" type="password" class="validate" required="required" placeholder="Password" pattern="[a-zA-Z0-9_]{8,30}" title="8 - 30 alphanumeric characters and underscores"/>
 								<input ng-model="password" id="password2" type="password" class="validate" required="required" placeholder="Re-enter password" pattern="[a-zA-Z0-9_]{8,30}" title="8 - 30 alphanumeric characters and underscores"/>
-								<input ng-model="su.fname" id="fname" type="text" class="validate" required="required" placeholder="First Name"/>
-								<input ng-model="su.mname" id="mname" type="text" class="validate" required="required" placeholder="Middle Name"/>
-								<input ng-model="su.lname" id="lname" type="text" class="validate" required="required" placeholder="Last Name"/>
+								<input ng-model="su.fname" id="fname" type="text" class="validate" required="required" placeholder="First Name" pattern="[a-zA-Z0-9\.]{8,30}" title="8 - 30 alphanumeric characters" />
+								<input ng-model="su.mname" id="mname" type="text" class="validate" required="required" placeholder="Middle Name" pattern="[a-zA-Z0-9\.]{8,30}" title="8 - 30 alphanumeric characters" />
+								<input ng-model="su.lname" id="lname" type="text" class="validate" required="required" placeholder="Last Name" pattern="[a-zA-Z0-9\.]{8,30}" title="8 - 30 alphanumeric characters" />
 								<div class="row">
 									<input id="signUpButton" type="submit" class="waves-effect waves-light btn col s12 red darken-1" value="Create Account">
 								</div>

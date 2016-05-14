@@ -133,3 +133,9 @@
 {"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-14T00:13:21.664Z"}
 {"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-14T00:13:21.673Z"}
 {"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-14T00:13:21.714Z"}
+{"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-14T00:30:24.570Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-14T00:30:24.580Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-14T00:30:24.619Z"}
+{"level":"info","message":"Connected to MySQL database at localhost : 3000","timestamp":"2016-05-14T00:32:10.929Z"}
+{"level":"info","message":"Express app (sogo) has started","timestamp":"2016-05-14T00:32:10.938Z"}
+{"level":"info","message":"Listening to localhost:3000\n============================","timestamp":"2016-05-14T00:32:10.983Z"}
