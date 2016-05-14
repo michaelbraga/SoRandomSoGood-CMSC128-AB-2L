@@ -286,7 +286,7 @@ $(document).ready(function () {
 			}
 		}
 		
-		/* check if the  */
+		/* check if the user adds student/s in the risk or buro zone */
 		
 		$scope.buroStudents = function(){
 			if($scope.studentNames.length!=0||$scope.studentNames2.length!=0) ifburo = true;
