@@ -2,7 +2,7 @@ var config = {
 	name: 'sogo',
 	host: 'localhost',
 	port: '3000',
-	env: 'development',
+	env: process.env.NODE_ENV,
 	db: {
 		prod:{
 			host: 'cmsc128-ab-2l-seoul.chpejxdwz6ao.ap-northeast-2.rds.amazonaws.com',

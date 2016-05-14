@@ -4,8 +4,7 @@
   "description": "web app",
   "main": "app.js",
   "scripts": {
-	"start": "NODE_ENV=development node bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+	  "start": "NODE_ENV=development node bin/www"
   },
   "author": "cmsc128ab2l",
   "license": "ISC",
