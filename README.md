@@ -1,3 +1,3 @@
 # SOGOv2
-
-`npm start` | `nodejs bin/www`
+`sudo npm install`
+`npm start` | `NODE_ENV=production nodejs bin/www`
